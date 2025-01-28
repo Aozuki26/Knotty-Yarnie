@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knotty Yarn - Cart</title>
+  <link rel="stylesheet" href="items.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+  
+/* Cart Page Styles */
+.cart-page{
+  margin: 20px;
+  padding: 20px;
+
+}
+.cart-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cart-items {
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.item-price {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.remove-item {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.remove-item:hover {
+  background-color: #e65f53;
+}
+
+.cart-summary {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-summary-row p {
+  font-size: 18px;
+  color: #333;
+}
+
+.total-row p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto;
+}
+
+.checkout-btn:hover {
+  background-color: #e65f53;
+}
+
+.go-back-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto;
+}
+
+.go-back-btn:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cart-summary {
+    padding: 15px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .go-back-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <div class="max-width">
+        <div class="logo">
+          <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
+            <span>Knotty Yarn</span>
+          </a>
+        </div>
+        <ul class="menu">
+          <li><a href="index.html" class="menu-btn">Home</a></li>
+          
+        <li><a href="shop.html" class="menu-btn">Shop</a></li>
+        <li><a href="about.html" class="menu-btn">About</a></li>
+        <li><a href="contact.html" class="menu-btn">Contact</a></li>
+          <li>
+            <a href="cart.html">
+              <i class="fas fa-shopping-cart" id="cart-icon"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br><br><br><br><br><br><br><br>
+  <!-- Cart Page -->
+<section class="cart-page">
+  <h1>Your Shopping Cart</h1>
+
+  <div id="cart-items" class="cart-items"></div>
+
+  <div class="cart-summary">
+    <div class="cart-summary-row">
+      <p>Subtotal:</p>
+      <p>₱<span id="subtotal">0.00</span></p>
+    </div>
+    <div class="cart-summary-row">
+      <p>Shipping:</p>
+      <p>₱36.00</p>
+    </div>
+    <div class="cart-summary-row total-row">
+      <p><strong>Total:</strong></p>
+      <p><strong>₱<span id="total">0.00</span></strong></p>
+    </div>
+    <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <button class="go-back-btn" onclick="window.location.href='shop.html';">Go Back to Shop</button>
+</section>
+
+<script>
+// Handle displaying cart items
+document.addEventListener('DOMContentLoaded', function() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  const subtotalElement = document.getElementById('subtotal');
+  const totalElement = document.getElementById('total');
+
+  // Retrieve cart data from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Function to update the cart
+  function updateCart() {
+    cartItemsContainer.innerHTML = ''; // Clear existing items
+    let subtotal = 0;
+
+    // Display each item in the cart
+    cart.forEach((item, index) => {
+      subtotal += item.price * item.quantity;
+
+      const cartItemElement = document.createElement('div');
+      cartItemElement.classList.add('cart-item');
+      cartItemElement.innerHTML = `
+        <div class="cart-item-details">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+          <div class="cart-item-info">
+            <h3>${item.name} (${item.color})</h3>
+            <p class="item-price">₱${item.price.toFixed(2)}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <button class="remove-item" data-index="${index}">Remove</button>
+          </div>
+        </div>
+      `;
+      cartItemsContainer.appendChild(cartItemElement);
+    });
+
+    // Update the total and subtotal
+    const shipping = 36.00;
+    const total = subtotal + shipping;
+    subtotalElement.textContent = subtotal.toFixed(2);
+    totalElement.textContent = total.toFixed(2);
+  }
+
+  // Function to remove an item from the cart
+  function removeItem(index) {
+    // Remove the item from the cart array
+    cart.splice(index, 1);
+    // Update localStorage with the new cart
+    localStorage.setItem('cart', JSON.stringify(cart));
+    // Update the cart UI
+    updateCart();
+  }
+
+  // Add event listeners to "Remove" buttons
+  cartItemsContainer.addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-item')) {
+      const index = event.target.getAttribute('data-index');
+      removeItem(index);
+    }
+  });
+
+  // Update the cart when the page loads
+  updateCart();
+});
+
+// Add event listener to the "Proceed to Checkout" button
+document.getElementById('checkout-btn').addEventListener('click', function() {
+  // Redirect to the checkout page
+  window.location.href = 'checkout.html'; // Assuming checkout page is named checkout.html
+});
+</script>
+
+
+
+  
+ 
+  <!-- Chatbot-->
+ <div id="chatbot-toggle" onclick="toggleChatbot()">💬 Help</div>
+ <div id="chatbot-container" class="collapsed">
+   <div id="chat-header">
+     <span>Yarnie 〵(^ o ^)〴</span>
+     <button id="close-btn" onclick="toggleChatbot()">✖</button>
+   </div>
+   <div id="chat-window">
+     <div id="chat-output"></div>
+   </div>
+   <div id="chat-input-container">
+     <input type="text" id="chat-input" placeholder="Type your message...">
+     <button id="send-btn">Send</button>
+   </div>
+ </div>
+ <script src="chatbot.js"></script>
+
+
+ <br><br><br><br>
+ <footer>
+  <div class="footer-content">
+    <p>&copy; 2024 Knotty Yarn Inc. All Rights Reserved.</p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

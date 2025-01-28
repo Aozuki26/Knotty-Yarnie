@@ -1,0 +1,678 @@
+@import 
+url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.max-width {
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
+  color: #000000; /* Black text for contrast */
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+   /* Music toggle styling aligned with navbar */
+  
+
+   .navbar .music-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.navbar .music-toggle svg {
+    width: 40px;
+    height: 25px;
+    fill: #000000;
+    transition: fill 0.3s ease;
+    border: none;
+    margin: none;
+    padding: none;
+}
+
+.navbar .music-toggle:hover svg {
+    fill: #ffee00;
+}
+
+/* Visually hidden audio element for screen readers */
+audio {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/* Navbar */
+/* nabar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 30px 0;
+  font-family: 'Ubuntu', sans-serif;
+  transition: all 0.3s ease;
+  background-color:#ffda9e;
+  border-color: rgb(255,215,0);
+  border: 2px solid rgb(255,215,0);
+}
+
+.navbar.sticky {
+  padding: 15px 0;
+  background-color: rgb(218,165,32);
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 0 auto 40px;
+}
+
+.navbar .logo a {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+.navbar-logo {
+  display: inline-flex;
+  margin: 5px; 
+  height: 100px;
+  float: left;
+  left: 50%;
+  width: 130px; 
+  border-radius: 50%; 
+}
+
+.navbar.sticky .logo a span {
+  color: #fff;
+}
+
+.navbar .logo a span {
+  color: rgb(218,165,32);
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-table;
+  right: 70%;
+}
+
+.navbar .menu li a {
+  display: block;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: rgb(238, 222, 5);
+  font-weight: bold;
+}
+
+.navbar.sticky .menu li a:hover {
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+/* menu button styling */
+.menu-btn {
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+  color: blue;
+  
+}
+
+/* .scroll-up-btn stlying */
+.scroll-up-btn {
+  position: fixed;
+  right: 30px;
+  height: 45px;
+  width: 42px;
+  background: crimson;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  opacity: 0;
+  z-index: 99999;
+  font-size: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+ #bgMusic {
+ display: none; /* Hides the audio controls */
+          }
+
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.music-control {
+  text-align: right;
+  margin-top: 0%;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+}
+/* Product Showcase */
+
+.product-showcase {
+  text-align: center;
+  background-color: #ffffff; /* White background */
+  color: black; /* Adjust text color */
+}
+
+.product-showcase h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #000000; /* Light gray text for headings */
+}
+
+.product-showcase p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #0d1316; /* Softer text color for secondary text */
+}
+
+.product-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.product-item img {
+  width: 280px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-item img:hover {
+  transform: translateY(-40px); /* Moves the image up on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+.product-item {
+  text-align: center; /* Centers the text below the image */
+}
+
+.product-title {
+  margin-top: 10px; /* Adds space between the image and the text */
+  font-size: 16px; /* Adjusts the font size */
+  color: #333; /* Text color */
+  font-weight: bold; /* Makes the text bold */
+}
+
+.stretch-out {
+  animation: stretchOut 3s forwards;
+}
+
+@keyframes stretchOut {
+  from {
+      transform: scaleY(1);
+  }
+  to {
+      transform: scaleY(0);
+      opacity: 0;
+  }
+}
+
+
+/* Chatbot */
+/* Chatbot button */
+#chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 320px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* Make sure it sits above other content */
+}
+
+/* Chatbot container */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 450px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999; /* Make sure it sits above other content */
+}
+
+/* When the chatbot is collapsed, it slides off-screen */
+#chatbot-container.collapsed {
+  transform: translateY(100%);
+}
+
+/* Header styling */
+#chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mascot sprite inside the header */
+#mascot {
+  width: 81px;  /* Width of one frame (81px) */
+  height: 78px; /* Height of one frame (78px) */
+  background: url('./Images/catwhite.png') no-repeat;
+  background-size: 567px 546px;  /* Sprite sheet total size */
+  margin-right: 1px;  /* Space between sprite and close button */
+}
+
+/* Chat window */
+#chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+/* Chat messages */
+#chat-output {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #e9ecef;
+}
+
+/* Input field and send button */
+#chat-input-container {
+  display: flex;
+  padding: 10px;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#send-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Close button */
+#close-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#close-btn:hover {
+  color: #ff5c5c;
+}
+
+#chat-header {
+  font-weight: 600;  /* Make the font weight bolder */
+  font-size: 18px;  /* Adjust font size */
+}
+
+#chat-output .user-message {
+  font-size: 16px;  /* Make user messages slightly larger */
+}
+
+#chat-input {
+  font-size: 14px;  /* Smaller text size for input field */
+}
+
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Responsive Design */
+
+/* For Tablets (between 600px and 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .product-item img {
+    width: 80%;
+    height: auto;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+ 
+  }
+  .footer {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+  }
+}
+
+/* For Mobile (below 600px) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .cart {
+    margin-top: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .shop-now {
+    font-size: 14px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+}
+
+/* responsive media quries starts */
+@media(max-width:1300px) {
+  .about .about-content .column {
+      width: 50%;
+  }
+}
+
+@media(max-width:1150px) {
+  .home .max-width {
+      margin-left: 0px;
+  }
+
+  .about .about-content .left img {
+      height: 350px;
+      width: 350px;
+  }
+
+  .socialIcons {
+      margin-right: 70px;
+  }
+
+}
+
+@media(max-width:1000px) {
+  .max-width {
+      padding: 0 50px;
+  }
+
+  .menu-btn {
+      display: block;
+      z-index: 999;
+  }
+
+  .navbar .menu {
+      position: fixed;
+      height: 100vh;
+      width: 50%;
+      right: -50%;
+      top: 0;
+      text-align: center;
+      background: gold;
+      padding-top: 80px;
+      transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+      right: 0;
+  }
+
+  .navbar .menu li {
+      display: block;
+  }
+
+  .navbar .menu li a {
+      display: inline-block;
+      margin: 20px 0;
+      font-size: 25px;
+  }
+
+  .navbar .menu li a:hover {
+      color: black;
+      font-size: 33px;
+      font-weight: bold;
+  }
+
+  .navbar.sticky .menu li a:hover {
+      color: black;
+      font-size: 33px;
+      font-weight: bold;
+  }
+
+  .home .home-content .text-2 {
+      font-size: 70px;
+  }
+
+  .home .home-content .text-3 {
+      font-size: 35px;
+  }
+
+  .home .home-content a {
+      font-size: 23px;
+      padding: 10px 30px;
+  }
+
+  .max-width {
+      max-width: 800px;
+  }
+
+  .about .about-content .column {
+      width: 100%;
+  }
+
+  .about .about-content .left {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 60px;
+  }
+
+  .about .about-content .right {
+      flex: 100%;
+  }
+
+  .contact .contact-content .column {
+      width: 100%;
+      margin-bottom: 35px;
+  }
+
+  .socialIcons {
+      margin-top: 0;
+      margin-right: 150px;
+  }
+  .hero-image img {
+    width: 90%; 
+    right: 30%
+
+  }
+  
+}
+
+
+
+@media(max-width:700px) {
+  .max-width {
+      padding: 0 23px;
+  }
+
+  .home .home-content .text-2 {
+      font-size: 60px;
+  }
+
+  .home .home-content .text-3 {
+      font-size: 32px;
+  }
+
+  .home .home-content a {
+      font-size: 20px;
+  }
+}
+
+@media(max-width:500px) {
+  .home .home-content .text-2 {
+      font-size: 50px;
+  }
+
+  .home .home-content .text-3 {
+      font-size: 27px;
+  }
+
+  .socialIcons {
+      margin-top: 0;
+      margin-right: 10px;
+  }
+}
+
+@media(max-width:350px) {
+
+  .about .title::after,
+  .services .title::after,
+  .contact .title::after {
+      font-size: 15px;
+  }
+}
+  /* Responsive design */
+  @media (max-width: 768px) {
+    
+    .navbar .music-toggle svg {
+        width: 30px;
+        height: 30px;
+    }
+}

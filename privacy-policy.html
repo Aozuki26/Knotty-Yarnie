@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knotty Yarn</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Modal background */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
+
+    /* Modal content */
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Close button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .modal-body {
+      margin-top: 10px;
+    }
+
+    .modal-footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Styling for buttons */
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Content -->
+
+  <!-- The Modal -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Data Privacy Policy</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Your Privacy is Important to Us</h3>
+        <p>At <strong>Knotty Yarn</strong>, we are committed to protecting your privacy. This Data Privacy Act explains how we collect, use, and protect your personal information.</p>
+
+        <h4>1. What Information We Collect</h4>
+        <p>We collect personal information such as your name, email address, delivery address, and payment details.</p>
+
+        <h4>2. How We Use Your Information</h4>
+        <p>Your information is used to process orders, provide customer support, and send order confirmations.</p>
+
+        <h4>3. Data Security</h4>
+        <p>We use industry-standard encryption to protect your data. While we take great care to safeguard your personal information, no method of electronic storage is 100% secure.</p>
+
+        <h4>4. Cookies and Tracking</h4>
+        <p>We use cookies to improve your user experience. You can disable cookies through your browser settings.</p>
+
+        <h4>5. Third-Party Services</h4>
+        <p>We may share your information with third-party services that help us process your orders and deliver services, such as payment processors and shipping providers.</p>
+
+        <h4>6. Your Rights</h4>
+        <p>You have the right to access, modify, or delete your personal data. Contact us at [email@knottyyarn.com] for assistance.</p>
+
+        <h4>7. Changes to This Policy</h4>
+        <p>We may update this policy. Changes will be posted on this page.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="acceptBtn">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("privacyModal");
+
+    // Get the button that opens the modal
+    var acceptBtn = document.getElementById("acceptBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the "Accept" button, close the modal and store the consent
+    acceptBtn.onclick = function() {
+      modal.style.display = "none";
+      // Optionally, store the user's consent in localStorage or cookies
+      localStorage.setItem('privacyAccepted', 'true');
+    }
+
+    // When the user clicks on the <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Check if the user has already accepted the privacy policy, if not, show the modal
+    window.onload = function() {
+      if (!localStorage.getItem('privacyAccepted')) {
+        modal.style.display = "block";
+      }
+    }
+  </script>
+
+  <!-- Content Goes Here -->
+
+</body>
+</html>

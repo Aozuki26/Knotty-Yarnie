@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .confirmation-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .order-summary {
+            text-align: left;
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .order-summary h3 {
+            font-size: 1.6em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .order-summary ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .order-summary li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .total-price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        .go-home-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .go-home-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-container">
+        <h1>Thank You for Your Order!</h1>
+        <p>Your order has been successfully placed. A confirmation email has been sent to your email address.</p>
+
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <ul id="order-items"></ul>
+            <p class="total-price" id="total-price"></p>
+        </div>
+
+        <a href="index.html" class="go-home-btn" id="go-home-btn">Go Back to Home</a>
+    </div>
+
+    <script>
+        // Function to populate the order confirmation page with order details
+        window.onload = function() {
+            // Get the cart data from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItemsContainer = document.getElementById('order-items');
+            let totalAmount = 0;
+
+            // Loop through the cart and create list items for each product
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} (${item.color}) - ${item.quantity} x ₱${item.price.toFixed(2)} = ₱${(item.price * item.quantity).toFixed(2)}`;
+                orderItemsContainer.appendChild(listItem);
+
+                totalAmount += item.price * item.quantity;
+            });
+
+            // Display the total price
+            document.getElementById('total-price').textContent = `Total Amount: ₱${totalAmount.toFixed(2)}`;
+       
+             // Add event listener to the "Go Home" button to clear cart data
+             const goHomeBtn = document.getElementById('go-home-btn');
+            goHomeBtn.addEventListener('click', function() {
+                localStorage.removeItem('cart');
+            });
+        };
+
+        
+        
+    </script>
+
+</body>
+</html>

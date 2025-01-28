@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knotty Yarn</title>
+  <link rel="stylesheet" href="items.css">
+  <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src=
+"https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <style>
+    @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        /* Cart Icon Style */
+
+  </style>
+</head>
+
+
+  <!-- Navbar -->
+  <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+      <div class="navbar-content">
+        
+        <div class="max-width">
+            <div class="logo">
+                <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
+                    <span>Knotty Yarn</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html" class="menu-btn">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="menu-btn">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="shop.html" class="menu-btn" class="transition-link">
+                        Shop
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="menu-btn">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                  <a href="cart.html">
+                    <i class="fas fa-shopping-cart" id="cart-icon"></i>
+                   
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#"></a>
+         <button class="music-toggle" id="music-toggle" data-playing="false">
+           <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+             <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
+              </svg>
+
+                </li>
+            </ul>
+            
+
+            <div class="menu-btn">
+                <span>☰</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="natsuki.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+<br><br><br><br><br><br><br><br>
+<main></main>
+  <!-- Product Detail Section -->
+ <!-- Product Detail Page for Daisy Pouch -->
+<section class="product-detail">
+  <div class="product-detail-content">
+    <div class="product-page">
+      <div class="product-image">
+        <img src="./Images/daisy pouch.jpg" alt="Daisy Pouch">
+        
+        <span class="discount-badge">-20%</span>
+      </div>
+      <div class="product-details">
+        <h1>Daisy Pouch</h1>
+        <div class="product-rating">
+          ★★★★★☆ <span>(20)</span>
+        </div>
+        <div class="product-price">
+          <span class="original-price">₱70.00</span> <span class="discounted-price">₱60.00</span>
+        </div>
+        <p class="product-description">
+          A beautifully crafted pouch that adds a touch of charm to your essentials. Handmade with love and care.
+        </p>
+        <label for="color">Select Color:</label>
+        <select id="color">
+          <option>Violet</option>
+          <option>Pink</option>
+          <option>Black></option>
+          <option>Customize</option>
+        </select>
+        <button class="add-to-cart" id="add-to-cart">ADD TO CART</button>
+
+        <!-- Go to Cart Button -->
+        <button class="go-to-cart" onclick="window.location.href='cart.html';">Go to Cart</button>
+
+        <!-- Go to Shop Button -->
+        <button class="go-to-shop" onclick="window.location.href='shop.html';">Go to Shop</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+// Product details for Daisy Pouch
+const productName2 = "Daisy Pouch";
+const originalPrice2 = 70.00;
+const discountedPrice2 = 60.00;
+
+document.getElementById('add-to-cart').addEventListener('click', function() {
+  // Get the selected color
+  const selectedColor = document.getElementById('color').value;
+
+  // Product object to store
+  const product = {
+    name: productName2,
+    price: discountedPrice2,
+    color: selectedColor,
+    quantity: 1,
+    image: './Images/daisy pouch.jpg' // Product Image
+  };
+
+  // Retrieve the cart from localStorage, or initialize an empty array if not present
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Check if the product already exists in the cart
+  const existingProduct = cart.find(item => item.name === product.name && item.color === product.color);
+
+  if (existingProduct) {
+    // If the product is already in the cart, increase its quantity
+    existingProduct.quantity += 1;
+  } else {
+    // Otherwise, add the new product to the cart
+    cart.push(product);
+  }
+
+  // Store the updated cart in localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Optionally, show an alert or update UI to indicate the item was added
+  alert('Product added to cart!');
+});
+</script>
+
+  <!-- Chatbot-->
+  <div id="chatbot-toggle" onclick="toggleChatbot()">💬 help</div>
+
+  <div id="chatbot-container" class="collapsed">
+    <!-- Chat header with sprite and close button -->
+    <div id="chat-header">
+      <span>Yarnie</span>
+      <!-- Mascot (sprite) placed inside the header -->
+      <div id="mascot"></div>
+      <button id="close-btn" onclick="toggleChatbot()">✖</button>
+    </div>
+    <div id="chat-window">
+      <div id="chat-output"></div>
+    </div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+  
+  <script src="chatbot.js"></script>
+  <script defer src="music.js"></script>
+  <script defer src="script.js"></script> <!-- Link to the JavaScript file -->
+  <script defer src="transition.js"></script>
+  <script defer src="yarnie.js"></script>
+  <script>
+    document.getElementById('fade-image').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.body.classList.add('stretch-out');
+      setTimeout(() => {
+        window.location.href = 'Item1.html';
+      }, 500); // Adjust timeout to match your fade-out duration
+    });
+  </script>
+
+
+  <br>  <br> <br>  <br> 
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Knotty Yarn Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

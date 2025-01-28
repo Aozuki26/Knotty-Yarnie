@@ -1,0 +1,1080 @@
+@import 
+url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.max-width {
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
+  color: #000000; /* Black text for contrast */
+  opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Initial state for the element */
+.fade-element {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Apply initial styles for the section */
+.fade-section {
+  opacity: 0;  /* Initially hidden */
+  animation: fadeIn 1.5s ease-out forwards;  /* Fade-in when first loaded */
+}
+
+/* When section is no longer in view, apply fade-out animation */
+.fade-out {
+  animation: fadeOut 1.5s ease-out forwards;  /* Fade-out when section leaves the viewport */
+}
+
+
+   /* Music toggle styling aligned with navbar */
+  
+
+   .navbar .music-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.navbar .music-toggle svg {
+    width: 40px;
+    height: 25px;
+    fill: #000000;
+    transition: fill 0.3s ease;
+    border: none;
+    margin: none;
+    padding: none;
+}
+
+.navbar .music-toggle:hover svg {
+    fill: #ffee00;
+}
+
+/* Visually hidden audio element for screen readers */
+audio {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/* Navbar */
+/* nabar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 30px 0;
+  font-family: 'Ubuntu', sans-serif;
+  transition: all 0.3s ease;
+  background-color: #ffffffc9;
+  border-color: rgb(255,215,0);
+  border: 2px solid rgb(255,215,0);
+}
+
+.navbar.sticky {
+  padding: 15px 0;
+  background-color: rgb(218,165,32);
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 0 auto 40px;
+}
+
+.navbar .logo a {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+.navbar-logo {
+  display: inline-flex;
+  margin: 5px; 
+  height: 100px;
+  float: left;
+  left: 50%;
+  width: 130px; 
+  border-radius: 50%; 
+}
+
+.navbar.sticky .logo a span {
+  color: #fff;
+}
+
+.navbar .logo a span {
+  color: rgb(218,165,32);
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-table;
+  right: 70%;
+}
+
+.navbar .menu li a {
+  display: block;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: rgb(238, 222, 5);
+  font-weight: bold;
+}
+
+.navbar.sticky .menu li a:hover {
+  color: #fff;
+  font-weight: bold;
+}
+
+
+/* container for 2 pcis*/
+.container {
+  padding: 20px;
+  text-align: center;
+}
+.product {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+}
+.product img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+.buy-now {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.buy-now:hover {
+  background-color: #0056b3;
+}
+.description {
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+
+/* menu button styling */
+.menu-btn {
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+}
+
+/* .scroll-up-btn stlying */
+.scroll-up-btn {
+  position: fixed;
+  right: 30px;
+  height: 45px;
+  width: 42px;
+  background: crimson;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  opacity: 0;
+  z-index: 99999;
+  font-size: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+ #bgMusic {
+ display: none; /* Hides the audio controls */
+          }
+
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.music-control {
+  text-align: right;
+  margin-top: 0%;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+}
+
+/* home-section styling */
+.home {
+  display:flex;
+  background-image: 
+url('./Images/bg-yarn3.jpg');
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(0, 0, 0);
+  min-height: 500px;
+  font-family: "Ubunto", sans-serif;
+  
+}
+
+.home .max-width {
+  margin: auto 0 auto 30px;
+}
+
+.home .home-content .text-1 {
+  font-size: 27px;
+  text-shadow: 0 0 10px rgb(255,215,0), 0 0 20px rgb(255,215,0), 0 0 30px rgba(255, 0, 0, 0.8);
+
+}
+
+.home .home-content .text-2 {
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+  text-shadow: 0 0 10px rgb(255,215,0), 0 0 20px rgb(255,215,0), 0 0 30px rgba(255, 0, 0, 0.8);
+
+}
+
+.home .home-content .text-3 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+
+.home .home-content .text-3 span {
+  color: crimson;
+  font-weight: 500;
+}
+
+.home .home-content a {
+  display: inline-block;
+  background: rgb(0, 0, 0);
+  color: #000000;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid rgb(255,215,0);
+}
+
+.home .home-content a:hover {
+  color: rgb(255,215,0);
+  background: none;
+}
+
+@keyframes typing {
+  0% {
+      width: 0; /* Start with no text visible */
+  }
+  100% {
+      width: 100%; /* End with all text visible */
+  }
+}
+
+.typing1 {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden; /* Hide the text that hasn't been typed yet */
+  border-right: 4px solid black; /* Simulate a typing cursor */
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+
+@keyframes blink {
+  50% {
+      border-color: transparent; /* Make the cursor "blink" by hiding the border */
+  }
+}
+
+
+/* Style for the About Section */
+.about-section {
+  padding: 80px 20px;
+  font-family: 'Arial', sans-serif;
+  color: #000000; /* Text color */
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: #0e0d0d;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #131313;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+.about-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-text:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Darken on hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Bigger shadow on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.about-text b {
+  font-weight: bold;
+  color: #ffb703; /* Highlight 'Brand Mission' and 'Visual Appeal' */
+}
+
+.about-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Optional: Add some decorative elements to enhance design */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.about-section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -150px;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Organizational structure */
+.about-section {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Team Structure */
+.team-structure {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns on the first row */
+  grid-template-rows: auto auto; /* Two rows */
+  gap: 20px;
+  margin-top: 40px;
+  justify-items: center;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Padding around the content */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px; /* Maximum width for the card */
+  min-height: 350px; /* Set a minimum height for the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.card img {
+  width: 100%;
+  height: auto; /* Make the image height auto to preserve aspect ratio */
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px; /* Margin between image and text */
+}
+
+/* Reverse image and text order for alternating effect */
+.card:nth-child(odd) img {
+  order: 1; /* Image on top for odd cards */
+}
+
+.card:nth-child(odd) h3, .card:nth-child(odd) p {
+  order: 2; /* Name and position below for odd cards */
+}
+
+/* Name and Position Styling */
+.card h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 0;
+}
+
+/* Move the two bottom cards to the right */
+.team-structure > .card:nth-child(4),
+.team-structure > .card:nth-child(5) {
+  justify-self: end; /* Align these cards to the right */
+}
+
+/* Adjust bottom row positioning */
+.team-structure {
+  grid-template-columns: repeat(3, 1fr); /* Three columns for top row */
+  grid-template-rows: auto auto; /* Two rows, one for each */
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .card {
+    max-width: 260px; /* Smaller max width on smaller screens */
+    min-height: 480px; /* Slightly smaller card height for small screens */
+  }
+
+  .card img {
+    height: auto; /* Ensure image keeps natural height */
+  }
+
+  /* On smaller screens, make all cards stack vertically */
+  .team-structure {
+    grid-template-columns: 1fr; /* Stack vertically */
+    grid-template-rows: repeat(5, auto);
+  }
+}
+
+    
+/* Floating Images Container */
+.floating-images {
+  position: relative; /* Ensures the images are positioned relative to this container */
+}
+
+/* Floating Image Styling */
+.floating-image {
+  position: absolute;
+  z-index: 10; /* Keeps images on top */
+  border-radius: 10px; /* Optional, for rounded corners */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Optional, shadow effect */
+  transition: transform 0.3s ease, left 0.3s ease, right 0.3s ease; /* Smooth transitions */
+}
+
+/* Add individual positioning for each image */
+.floating-image:nth-child(odd) {
+  left: 10px; /* Images on the left */
+}
+
+.floating-image:nth-child(even) {
+  right: 10px; /* Images on the right */
+}
+
+/* Position and style each image */
+.floating-image:nth-child(1) {
+  top: 10%;
+  transform: rotate(-5deg);
+}
+
+.floating-image:nth-child(2) {
+  top: 30%;
+  transform: rotate(10deg);
+}
+
+.floating-image:nth-child(3) {
+  top: 50%;
+  transform: rotate(-15deg);
+}
+
+.floating-image:nth-child(4) {
+  top: 70%;
+  transform: rotate(5deg);
+}
+
+/* More floating images will follow the same alternating pattern */
+.floating-image img {
+  width: 150px; /* Control the image size */
+  height: auto;
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Hide floating images on smaller screens (e.g., below 768px) */
+@media (max-width: 768px) {
+  .floating-images {
+    display: none; /* Hide all floating images */
+  }
+}
+
+/* Chatbot */
+/* Chatbot button */
+#chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 320px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* Make sure it sits above other content */
+}
+
+/* Chatbot container */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  height: 450px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999; /* Make sure it sits above other content */
+}
+
+/* When the chatbot is collapsed, it slides off-screen */
+#chatbot-container.collapsed {
+  transform: translateY(100%);
+}
+
+/* Header styling */
+#chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mascot sprite inside the header */
+#mascot {
+  width: 81px;  /* Width of one frame (81px) */
+  height: 78px; /* Height of one frame (78px) */
+  background: url('./Images/catwhite.png') no-repeat;
+  background-size: 567px 546px;  /* Sprite sheet total size */
+  margin-right: 1px;  /* Space between sprite and close button */
+}
+
+/* Chat window */
+#chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+/* Chat messages */
+#chat-output {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #e9ecef;
+}
+
+/* Input field and send button */
+#chat-input-container {
+  display: flex;
+  padding: 10px;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#send-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Close button */
+#close-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#close-btn:hover {
+  color: #ff5c5c;
+}
+
+#chat-header {
+  font-weight: 600;  /* Make the font weight bolder */
+  font-size: 18px;  /* Adjust font size */
+}
+
+#chat-output .user-message {
+  font-size: 16px;  /* Make user messages slightly larger */
+}
+
+#chat-input {
+  font-size: 14px;  /* Smaller text size for input field */
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  height: 60px; /* Adjust the height as needed */
+  background-color: #333; /* Background color for the footer */
+  color: #fff; /* Text color */
+  padding: 10px;
+  text-align: center;
+  width: 100%; /* Ensures the footer spans the full width */
+  position: relative; /* Ensures it stays at the bottom of its container */
+}
+
+.footer-content {
+  max-width: 800px; /* Optional: limit the content width */
+}
+
+
+/* Responsive Design */
+
+/* For Tablets (between 600px and 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .product-item img {
+    width: 80%;
+    height: auto;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+  }
+
+  .footer {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  /* Fade on scroll for small tablets */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* For Mobile (below 600px) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .cart {
+    margin-top: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .hero-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .shop-now {
+    font-size: 14px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+  /* Adjust fade-in animation for mobile */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* responsive media queries starts */
+@media(max-width:1300px) {
+  .about .about-content .column {
+    width: 50%;
+  }
+}
+
+@media(max-width:1150px) {
+  .home .max-width {
+    margin-left: 0px;
+  }
+
+  .about .about-content .left img {
+    height: 350px;
+    width: 350px;
+  }
+
+  .socialIcons {
+    margin-right: 70px;
+  }
+}
+
+@media(max-width:1000px) {
+  .max-width {
+    padding: 0 50px;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 50%;
+    right: -50%;
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+    right: 0;
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+
+  .navbar .menu li a:hover {
+    color: black;
+    font-size: 33px;
+    font-weight: bold;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 35px;
+  }
+
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+
+  .max-width {
+    max-width: 800px;
+  }
+
+  .about .about-content .column {
+    width: 100%;
+  }
+
+  .about .about-content .left {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+  }
+
+  .about .about-content .right {
+    flex: 100%;
+  }
+
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .socialIcons {
+    margin-top: 0;
+    margin-right: 150px;
+  }
+
+  .hero-image img {
+    width: 90%;
+    right: 30%;
+  }
+}
+
+@media(max-width:700px) {
+  .max-width {
+    padding: 0 23px;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 60px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 32px;
+  }
+
+  .home .home-content a {
+    font-size: 20px;
+  }
+
+  /* Ensure smooth fade animation for smaller screens */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+@media(max-width:500px) {
+  .home .home-content .text-2 {
+    font-size: 50px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 27px;
+  }
+
+  .socialIcons {
+    margin-top: 0;
+    margin-right: 10px;
+  }
+
+  /* Ensure smooth fade animation for very small screens */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+@media(max-width:350px) {
+  .about .title::after,
+  .services .title::after,
+  .contact .title::after {
+    font-size: 15px;
+  }
+
+  /* Ensure smooth fade animation for small devices */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar .music-toggle svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Ensure smooth fade animation on all devices */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}

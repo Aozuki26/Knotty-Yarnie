@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knotty Yarn</title>
+  <link rel="stylesheet" href="items.css">
+  <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src=
+"https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+ 
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="checkout.css">
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "E7fSGypHRdQ7OZmwd",
+      });
+   })();
+</script>
+<style>
+  @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+/* Modal background */
+.modal {
+      display: none; 
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
+
+    /* Modal content */
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Close button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .modal-body {
+      margin-top: 10px;
+    }
+
+    .modal-footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Styling for buttons */
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+    /* Overall table styling */
+table {
+    width: 100%;
+    border-collapse: separate;  /* Use separate borders for better spacing */
+    border-spacing: 0 15px;  /* Space between rows */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Add soft shadow around table */
+    font-family: 'Arial', sans-serif;  /* Modern font */
+    background-color: #fff;  /* White background */
+    border-radius: 10px;  /* Rounded corners */
+    overflow: hidden;  /* Ensure border-radius is applied to the content */
+}
+
+/* Table header */
+th {
+    background-color: #4CAF50;  /* A modern green for the header */
+    color: white;  /* Text color for headers */
+    font-weight: bold;  /* Bold text for header */
+    padding: 15px;  /* Add padding for the header */
+    text-align: left;
+}
+
+/* Table data */
+td {
+    padding: 12px 20px;  /* Increase padding for better spacing */
+    border-bottom: 1px solid #ddd;  /* Light border for rows */
+    text-align: left;
+    color: #333;  /* Dark text color for readability */
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+    background-color: #f1f1f1;  /* Subtle hover effect */
+    cursor: pointer;  /* Change cursor to pointer */
+}
+
+/* Last row of the table */
+tbody tr:last-child {
+    border-bottom: none;  /* Remove bottom border for the last row */
+}
+
+/* Style for the price column and total column */
+td:nth-child(4), td:nth-child(5) {
+    text-align: right;  /* Align price and total columns to the right */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    table {
+        font-size: 14px;  /* Adjust font size for smaller screens */
+    }
+
+    th, td {
+        padding: 10px;  /* Less padding for smaller screens */
+    }
+}
+.captcha-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.captcha-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    width: 80%;
+    margin: 20px 0;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+/*stoped here*/
+/* QR Modal */
+.qr-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  right: 15%; /* Position the modal on the right side */
+  top: 20%; /* Adjust vertical position */
+  width: 300px; /* Set a fixed width for the modal */
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.4); /* Background color with transparency */
+}
+
+.qr-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 300px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#qr-code {
+  text-align: center;
+}
+
+/* You can style your QR code image here */
+#qr-img {
+  width: 100%;
+  max-width: 600px;
+}
+
+
+
+</style>
+</head>
+<div class="fade-on-scroll"></div>
+<body>
+  <!-- Navbar -->
+  <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+      <div class="navbar-content">
+        
+        <div class="max-width">
+            <div class="logo">
+                <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
+                    <span>Knotty Yarn</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html" class="menu-btn">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="shop.html" class="menu-btn" class="transition-link">
+                        Shop
+                    </a>
+                </li>
+                <li>
+                  <a href="about.html" class="menu-btn">
+                      About
+                  </a>
+              </li> 
+                <li>
+                    <a href="contact.html" class="menu-btn">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                  <a href="cart.html">
+                    <i class="fas fa-shopping-cart" id="cart-icon"></i>
+                    
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="#"></a>
+         <button class="music-toggle" id="music-toggle" data-playing="false">
+           <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+             <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
+              </svg>
+
+                </li>
+            </ul>
+            
+
+            <div class="menu-btn">
+                <span>☰</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="natsuki.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+<body>
+    <br><br><br><br>
+  <center>
+      <div class="checkout-container">
+        <h1 class="glowing-text">Checkout</h1>
+      
+        <div class="cart-summary">
+          <h2>Your Cart</h2>
+          <ul id="cart-items"></ul>
+          <p id="total-price"></p>
+        </div>
+      
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" name="payment-method" required onchange="showQR()">
+              <option value="">-- Select Payment Method --</option>
+              <option value="gcash">Gcash</option>
+              <option value="cod">Cash on Delivery (COD)</option>
+            </select>
+            <!-- QR Code Modal -->
+<div id="qr-modal" class="qr-modal">
+  <div class="qr-modal-content">
+    <span class="close-btn" onclick="closeQR()">&times;</span>
+    <div id="qr-code">
+      <!-- QR Code will appear here for Gcash -->
+      <img src="./Images/qr.jpg" alt="Gcash QR" id="qr-img">
+    </div>
+  </div>
+</div>
+          </div>          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <p>By using this website, you agree to our <a href="#" id="privacy-link">Privacy Policy</a>.</p>
+          <br><div class="form-group">
+            <button id="open-captcha" type="button">Solve CAPTCHA</button>
+            <input type="submit" value="Confirm Purchase">
+          </div>
+
+        </form>
+        <!-- Submit Button -->
+    <button type="submit" id="submit-btn" disabled>Submit</button>
+      </div>
+    </center>
+    <!-- Page Content -->
+    <div id="captcha-modal" class="captcha-modal">
+      <div class="captcha-modal-content">
+          <span id="close-modal" class="close">&times;</span>
+          <h2>Complete the CAPTCHA</h2>
+          <div id="puzzle">
+              <p>Drag the slider to complete the CAPTCHA</p>
+          </div>
+          <input type="range" id="slider" min="0" max="100" value="0">
+          <button id="validate-captcha" type="button">Validate CAPTCHA</button>
+      </div>
+  </div>
+  <!-- The Modal -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Data Privacy Policy</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Your Privacy is Important to Us</h3> <br>
+        <p>At <strong>Knotty Yarn</strong>, we are committed to protecting your privacy. This Data Privacy Act explains how we collect, use, and protect your personal information.</p>
+<br>
+        <h4>1. What Information We Collect</h4>
+        <p>We collect personal information such as your name, email address, delivery address, and payment details.</p>
+<br>
+        <h4>2. How We Use Your Information</h4>
+        <p>Your information is used to process orders, provide customer support, and send order confirmations.</p>
+<br>
+        <h4>3. Data Security</h4>
+        <p>We use industry-standard encryption to protect your data. While we take great care to safeguard your personal information, no method of electronic storage is 100% secure.</p>
+<br>
+        <h4>4. Cookies and Tracking</h4>
+        <p>We use cookies to improve your user experience. You can disable cookies through your browser settings.</p>
+<br>
+        <h4>5. Third-Party Services</h4>
+        <p>We may share your information with third-party services that help us process your orders and deliver services, such as payment processors and shipping providers.</p>
+<br>
+        <h4>6. Your Rights</h4>
+        <p>You have the right to access, modify, or delete your personal data. Contact us at knottyyarn.ph@gmail.com for assistance.</p>
+<br>
+        <h4>7. Changes to This Policy</h4>
+        <p>We may update this policy. Changes will be posted on this page.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="acceptBtn">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("privacyModal");
+
+    // Get the link that opens the modal
+    var privacyLink = document.getElementById("privacy-link");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Get the "Accept" button
+    var acceptBtn = document.getElementById("acceptBtn");
+
+    // When the user clicks on the link, open the modal
+    privacyLink.onclick = function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      modal.style.display = "block"; // Show the modal
+    }
+
+    // When the user clicks on the "Accept" button, close the modal and store consent
+    acceptBtn.onclick = function() {
+      modal.style.display = "none";
+      // Optionally store consent in localStorage or cookies
+      localStorage.setItem('privacyAccepted', 'true');
+    }
+
+    // When the user clicks on the <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Check if the user has already accepted the privacy policy
+    window.onload = function() {
+      if (!localStorage.getItem('privacyAccepted')) {
+        // Optionally show modal if not accepted
+      }
+    }
+  </script>
+
+      <script>
+// Function to format the price with peso (₱)
+function formatPeso(amount) {
+    return '₱' + amount.toFixed(2); // Ensure the price always has two decimal places
+}
+
+// Load cart data from localStorage and display it on the checkout page
+window.onload = function () {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsTable = document.getElementById('cart-items');
+
+    // If cart is empty, show a message
+    if (cart.length === 0) {
+        cartItemsTable.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+        return;
+    }
+
+    // Loop through the cart items and create rows for the table
+    cart.forEach(item => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.color}</td>
+            <td>${item.quantity}</td>
+            <td>${formatPeso(item.price)}</td>
+            <td>${formatPeso(item.price * item.quantity)}</td>
+        `;
+        cartItemsTable.appendChild(row);
+    });
+
+    // Calculate and display total price
+    const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const totalRow = document.createElement('tr');
+    totalRow.innerHTML = `
+        <td colspan="4"><strong>Total</strong></td>
+        <td><strong>${formatPeso(totalAmount)}</strong></td>
+    `;
+    cartItemsTable.appendChild(totalRow);
+};
+
+// Handle order submission and send email
+document.getElementById('checkout-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const paymentMethod = document.getElementById('payment-method').value; // New: Get payment method
+
+    // Validate form inputs
+    if (!name || !email || !address || !paymentMethod) {
+        alert('Please fill out all fields and select a payment method.');
+        return;
+    }
+
+    // Get cart data from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+        alert('Your cart is empty. Please add items before checking out.');
+        return;
+    }
+
+    let cartDetails = '';
+    cart.forEach(item => {
+        cartDetails += `${item.name} (${item.color}) - ${item.quantity} x ${formatPeso(item.price)}\n`;
+    });
+
+    const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+    // Send email via EmailJS
+    emailjs.send('service_le3k54m', 'template_k950ffy', {
+        name: name,
+        email: email,
+        address: address,
+        cart_details: cartDetails,
+        total_amount: formatPeso(totalAmount),
+        payment_method: paymentMethod // New: Send payment method
+    }).then(function (response) {
+        console.log('Success!', response.status, response.text);
+        alert('Confirmation email sent!');
+
+      
+        
+        window.location.href = 'order-confirmation.html';
+    }, function (error) {
+        console.log('Failed...', error);
+        alert('Failed to send confirmation email!');
+    });
+});
+document.getElementById('checkout-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Check if CAPTCHA is solved
+    if (slider.value != 100) {
+        alert('Please solve the CAPTCHA first!');
+        return;
+    }
+
+    // Proceed with form submission...
+});
+
+      </script>
+    <br>
+
+ 
+  <br>
+  <script>
+   function showQR() {
+  var paymentMethod = document.getElementById('payment-method').value;
+  var qrModal = document.getElementById('qr-modal');
+
+  // Show QR code modal if Gcash is selected
+  if (paymentMethod === 'gcash') {
+    qrModal.style.display = "block";
+  } else {
+    qrModal.style.display = "none"; // Hide the modal if any other payment method is selected
+  }
+}
+
+function closeQR() {
+  var qrModal = document.getElementById('qr-modal');
+  qrModal.style.display = "none"; // Close the modal
+}
+
+
+  </script>
+  <script defer src="captcha.js"></script>
+  <script defer src="script.js"></script>
+  <footer>
+    <div class="footer-content">
+      <b><p>&copy; 2024 Knotty Yarn Inc. <br><br> All Rights Reserved.</p></b>
+    </div>
+  </footer>
+</body>
+</html>

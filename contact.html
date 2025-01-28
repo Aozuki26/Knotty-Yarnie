@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knotty Yarn</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src=
+"https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<style>
+  @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+  
+ /* Popup Styles */
+ .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 300px;
+    }
+    .popup h3 {
+      margin-bottom: 15px;
+    }
+    .popup .close-btn {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .popup .close-btn:hover {
+      background-color: #0056b3;
+    }
+</style>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "E7fSGypHRdQ7OZmwd",
+      });
+   })();
+</script>
+</head>
+<div class="fade-on-scroll"></div>
+<body>
+  <!-- Navbar -->
+  <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+      <div class="navbar-content">
+        
+        <div class="max-width">
+            <div class="logo">
+                <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
+                    <span>Knotty Yarn</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html" class="menu-btn">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="shop.html" class="menu-btn" class="transition-link">
+                        Shop
+                    </a>
+                </li>
+                <li>
+                  <a href="about.html" class="menu-btn">
+                      About
+                  </a>
+              </li>
+                <li>
+                    <a href="#contact" class="menu-btn">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="cart.html">
+                      <i class="fas fa-shopping-cart" id="cart-icon"></i>
+                 
+                    </a>
+                  </li>
+                <li>
+                  <a href="#"></a>
+         <button class="music-toggle" id="music-toggle" data-playing="false">
+           <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+             <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
+              </svg>
+
+                </li>
+            </ul>
+            
+
+            <div class="menu-btn">
+                <span>☰</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="natsuki.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  <!-- Hero Section -->
+  <section class="home" id="home">
+    <div class="max-width">
+        <div class="home-content">
+            <div class="text-3">
+            </div>
+            <div class="typing1">
+            <div class="text-2">
+              Contact Us
+            </div>
+            <div class="text-1">
+              reach out to us for more info.
+                <span class="typing"></span>
+            </div>
+          </div>
+          <br>
+            
+        </div>
+    </div>
+  </section>
+<br> <br> <br>
+<section class="contact-section">
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <h3>Address</h3>
+        <p>New Orleans St. Multinational Village Paranaque City</p>
+      </div>
+      <div class="contact-item">
+        <h3>Phone</h3>
+        <p>09489646847</p>
+      </div>
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p>knottyyarn.ph@gmail.com</p>
+      </div>
+    </div>
+
+      <form class="contact-form" id="contact-form">
+        <h3>Stitch with Us</h3>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+
+    </div>
+  </section>
+  <!-- Popup for success message -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Thank You!</h3>
+    <p>Your message has been sent successfully. We will get back to you soon.</p>
+    <button id="close-popup" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- Error Popup -->
+<div id="error-popup" class="popup">
+  <div class="popup-content">
+    <h3>Oops!</h3>
+    <p>There was an issue sending your message. Please try again later.</p>
+    <button id="close-error-popup" class="close-btn">Close</button>
+  </div>
+</div>
+
+
+
+  <br><br><br><br><br><br>
+
+  
+ <!-- Chatbot-->
+ <div id="chatbot-toggle" onclick="toggleChatbot()">💬 help</div>
+
+ <div id="chatbot-container" class="collapsed">
+   <!-- Chat header with sprite and close button -->
+   <div id="chat-header">
+     <span>Yarnie</span>
+     <!-- Mascot (sprite) placed inside the header -->
+     <div id="mascot"></div>
+     <button id="close-btn" onclick="toggleChatbot()">✖</button>
+   </div>
+   <div id="chat-window">
+     <div id="chat-output"></div>
+   </div>
+   <div id="chat-input-container">
+     <input type="text" id="chat-input" placeholder="Type your message...">
+     <button id="send-btn">Send</button>
+   </div>
+ </div>
+
+
+
+
+  </div>
+  <script src="chatbot.js"></script>
+  <script defer src="music.js"></script>
+  <script defer src="script.js"></script> <!-- Link to the JavaScript file -->
+  <script defer src="transition.js"></script>
+  <script defer src="yarnie.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Create an Intersection Observer to handle fade in and fade out
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // When the section comes into view, remove the fade-out class (if it exists)
+        entry.target.classList.remove('fade-out');
+        // Optionally, add fade-in if needed (though it's applied by default on page load)
+        entry.target.classList.add('fade-section');
+      } else {
+        // When the section goes out of view, apply the fade-out animation
+        entry.target.classList.add('fade-out');
+      }
+    });
+  }, { threshold: 0.1 });  // Trigger when 10% of the section is visible
+
+  // Target all sections you want to apply the fade effect
+  document.querySelectorAll('.fade-section').forEach(section => {
+    observer.observe(section);
+  });
+});
+
+  </script>
+
+ <!--Contact Form-->
+  <script>
+const form = document.getElementById('contact-form');
+    const popup = document.getElementById('popup');
+    const closePopupBtn = document.getElementById('close-popup');
+    const errorPopup = document.getElementById('error-popup');
+    const closeErrorPopupBtn = document.getElementById('close-error-popup');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from refreshing page
+
+      // Collect form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const formData = {
+        from_name: name,
+        from_email: email,
+        message: message
+      };
+
+      // Send the email using EmailJS
+      emailjs.send('service_xdfomey', 'template_kbdz8on', formData)
+        .then(function(response) {
+          // Success: Show success popup
+          console.log('Email sent successfully', response);
+          popup.style.display = 'flex'; // Show success popup
+          form.reset(); // Reset form fields
+        }, function(error) {
+          // Error: Show error popup
+          console.error('Email failed to send', error);
+          errorPopup.style.display = 'flex'; // Show error popup
+        });
+    });
+
+    // Close popups
+    closeErrorPopupBtn.addEventListener('click', function() {
+      errorPopup.style.display = 'none';
+    });
+
+    closePopupBtn.addEventListener('click', function() {
+      popup.style.display = 'none';
+    });
+  </script>
+  <br>
+
+  <footer>
+    <b><p>&copy; 2024 Knotty Yarn Inc. <br><br> All Rights Reserved.</p></b>
+  </footer>
+</body>
+</html>
