@@ -1048,10 +1048,6 @@ footer p {
     padding :8 px; /* Reduced padding for mobile devices */
 }
 
-#mascot {
-    width :60 px; /* Smaller mascot size for mobile devices */
-    height :60 px; 
-}
 
 .message {
     font-size :14 px; /* Smaller message font size for mobile devices */
