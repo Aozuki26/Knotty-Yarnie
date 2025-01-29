@@ -1042,4 +1042,50 @@ footer p {
   footer p {
       font-size: 10px; /* Smaller footer text */
   }
+  /* Step-by-step container */
+  .step-by-step-container {
+    padding: 40px 10px; /* Adjust padding for smaller screens */
+  }
+
+  /* Step-by-step content */
+  .step-by-step-content {
+    padding: 0 10px; /* Reduced padding */
+  }
+
+  .step-by-step-container h2 {
+    font-size: 28px; /* Adjust heading size */
+  }
+
+  .step-by-step-container p {
+    font-size: 16px; /* Adjust paragraph font size */
+    margin-bottom: 30px; /* Reduce margin */
+  }
+
+  /* Steps layout */
+  .steps {
+    grid-template-columns: 1fr; /* Stack steps in 1 column */
+  }
+
+  .step {
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .step-number {
+    font-size: 20px; /* Smaller step number size */
+  }
+
+  .step-description h3 {
+    font-size: 18px; /* Smaller description heading */
+  }
+
+  .step-description p {
+    font-size: 14px; /* Smaller description text */
+  }
+
+  /* Scroll info */
+  .scroll-info {
+    font-size: 0.9rem; /* Slightly smaller font for readability */
+    padding: 8px 0; /* Reduce padding */
+  }
+
 }
