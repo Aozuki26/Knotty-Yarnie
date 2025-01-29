@@ -76,3 +76,20 @@ function updateCartCount() {
 
 // Initialize cart count on page load
 updateCartCount();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const menu = document.querySelector(".menu");
+
+    menuBtn.addEventListener("click", function (event) {
+        menu.classList.toggle("active");
+        event.stopPropagation(); // Prevents the event from bubbling to the document
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+            menu.classList.remove("active"); // Closes the menu when clicking outside
+        }
+    });
+});
+
