@@ -997,11 +997,11 @@ footer p {
   }
 
   .home .home-content .text-2 {
-    font-size: 20px; /* Reduce heading size */
+    font-size: 12px; /* Reduce heading size */
   }
 
   .home .home-content .text-3 {
-    font-size: 20px;
+    font-size: 6px;
   }
 
   .product-gallery {
