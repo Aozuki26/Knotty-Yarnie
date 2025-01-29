@@ -639,18 +639,30 @@ footer p {
   font-weight: normal; /* Ensures normal font weight */
 }
 
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
 /* Responsive Design */
 
-/* For Tablets (between 600px and 1024px) */
+/* For Large Tablets & Small Laptops (600px - 1024px) */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
     padding: 20px;
+    text-align: center;
   }
 
   .hero-text {
     max-width: 100%;
-    text-align: center;
   }
 
   .hero-image img {
@@ -672,31 +684,38 @@ footer p {
     font-size: 20px;
   }
 
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .nav-links a {
-    margin: 0 10px;
+    font-size: 18px;
+    margin: 10px 0;
   }
 
   .footer {
     font-size: medium;
+    text-align: center;
     font-family: 'Times New Roman', Times, serif;
   }
 
-  /* Fade on scroll for small tablets */
   .fade-on-scroll {
     opacity: 0;
     transition: opacity 1s ease-out;
   }
+
   .enter-fade {
     animation: fadeIn 1s ease-out forwards;
     opacity: 1;
   }
 }
 
-/* For Mobile (below 600px) */
+/* For Mobile Phones (Max width: 600px) */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px;
   }
 
@@ -704,34 +723,31 @@ footer p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 10px;
+    text-align: center;
   }
 
   .nav-links a {
+    font-size: 16px;
     margin: 10px 0;
-    font-size: 18px;
-  }
-
-  .cart {
-    margin-top: 10px;
   }
 
   .hero {
     flex-direction: column;
     padding: 15px;
-  }
-
-  .hero-text {
     text-align: center;
-    margin-bottom: 20px;
   }
 
   .hero-text h1 {
     font-size: 24px;
   }
 
+  .hero-text p {
+    font-size: 14px;
+  }
+
   .shop-now {
     font-size: 14px;
+    padding: 8px 15px;
   }
 
   .hero-image img {
@@ -751,213 +767,120 @@ footer p {
 
   footer p {
     font-size: 14px;
-  }
-
-  /* Adjust fade-in animation for mobile */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
-}
-
-/* responsive media queries starts */
-@media(max-width:1300px) {
-  .about .about-content .column {
-    width: 50%;
-  }
-}
-
-@media(max-width:1150px) {
-  .home .max-width {
-    margin-left: 0px;
-  }
-
-  .about .about-content .left img {
-    height: 350px;
-    width: 350px;
-  }
-
-  .socialIcons {
-    margin-right: 70px;
-  }
-}
-
-@media(max-width:1000px) {
-  .max-width {
-    padding: 0 50px;
-  }
-
-  .menu-btn {
-    display: block;
-    z-index: 999;
-  }
-
-  .navbar .menu {
-    position: fixed;
-    height: 100vh;
-    width: 50%;
-    right: -50%;
-    top: 0;
     text-align: center;
-    background: gold;
-    padding-top: 80px;
-    transition: all 0.3s ease;
   }
 
-  .navbar .menu.active {
-    right: 0;
-  }
-
-  .navbar .menu li {
-    display: block;
-  }
-
-  .navbar .menu li a {
-    display: inline-block;
-    margin: 20px 0;
-    font-size: 25px;
-  }
-
-  .navbar .menu li a:hover {
-    color: black;
-    font-size: 33px;
-    font-weight: bold;
-  }
-
-  .home .home-content .text-2 {
-    font-size: 70px;
-  }
-
-  .home .home-content .text-3 {
-    font-size: 35px;
-  }
-
-  .home .home-content a {
-    font-size: 23px;
-    padding: 10px 30px;
-  }
-
-  .max-width {
-    max-width: 800px;
-  }
-
-  .about .about-content .column {
-    width: 100%;
-  }
-
-  .about .about-content .left {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 60px;
-  }
-
-  .about .about-content .right {
-    flex: 100%;
-  }
-
-  .contact .contact-content .column {
-    width: 100%;
-    margin-bottom: 35px;
-  }
-
-  .socialIcons {
-    margin-top: 0;
-    margin-right: 150px;
-  }
-
-  .hero-image img {
-    width: 90%;
-    right: 30%;
-  }
-}
-
-@media(max-width:700px) {
-  .max-width {
-    padding: 0 23px;
-  }
-
-  .home .home-content .text-2 {
-    font-size: 60px;
-  }
-
-  .home .home-content .text-3 {
-    font-size: 32px;
-  }
-
-  .home .home-content a {
-    font-size: 20px;
-  }
-
-  /* Ensure smooth fade animation for smaller screens */
   .fade-on-scroll {
     opacity: 0;
     transition: opacity 1s ease-out;
   }
+
   .enter-fade {
     animation: fadeIn 1s ease-out forwards;
     opacity: 1;
   }
 }
 
-@media(max-width:500px) {
-  .home .home-content .text-2 {
-    font-size: 50px;
-  }
-
-  .home .home-content .text-3 {
-    font-size: 27px;
-  }
-
-  .socialIcons {
-    margin-top: 0;
-    margin-right: 10px;
-  }
-
-  /* Ensure smooth fade animation for very small screens */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
-}
-
-@media(max-width:350px) {
-  .about .title::after,
-  .services .title::after,
-  .contact .title::after {
-    font-size: 15px;
-  }
-
-  /* Ensure smooth fade animation for small devices */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
-}
-
-/* Responsive design */
+/* For Small Tablets (Max width: 768px) */
 @media (max-width: 768px) {
   .navbar .music-toggle svg {
     width: 30px;
     height: 30px;
   }
+}
 
-  /* Ensure smooth fade animation on all devices */
+/* For Extra Small Phones (320px - 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    margin: 8px 0;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .hero-text p {
+    font-size: 13px;
+  }
+
+  .shop-now {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .product-item img {
+    width: 90%;
+    height: auto;
+  }
+
+  footer p {
+    font-size: 12px;
+    text-align: center;
+  }
+
   .fade-on-scroll {
     opacity: 0;
     transition: opacity 1s ease-out;
   }
+
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* For Ultra Small Phones (Max width: 350px) */
+@media (max-width: 350px) {
+  .hero-text h1 {
+    font-size: 18px;
+  }
+
+  .hero-text p {
+    font-size: 12px;
+  }
+
+  .shop-now {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .product-item img {
+    width: 85%;
+  }
+
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
   .enter-fade {
     animation: fadeIn 1s ease-out forwards;
     opacity: 1;
