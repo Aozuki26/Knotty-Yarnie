@@ -993,11 +993,11 @@ footer p {
     flex-direction: column;
     text-align: center;
     height: auto;
-    padding: 50px 20px;
+    padding: 40px 20px;
   }
 
   .home .home-content .text-2 {
-    font-size: 50px; /* Reduce heading size */
+    font-size: 40px; /* Reduce heading size */
   }
 
   .home .home-content .text-3 {
