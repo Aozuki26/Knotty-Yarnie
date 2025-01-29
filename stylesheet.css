@@ -997,11 +997,11 @@ footer p {
   }
 
   .home .home-content .text-2 {
-    font-size: 6px; /* Reduce heading size */
+    font-size: 2px; /* Reduce heading size */
   }
 
   .home .home-content .text-3 {
-    font-size: 2px;
+    font-size: 1px;
   }
 
   .product-gallery {
@@ -1034,7 +1034,7 @@ footer p {
   }
 
   #chatbot-toggle {
-    right :20 px; /* Move button closer to the edge for better accessibility on small screens */
+    right :10 px; /* Move button closer to the edge for better accessibility on small screens */
 }
 
 #chatbot-container {
