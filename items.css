@@ -1114,12 +1114,6 @@ footer p {
   padding: 8px; /* Smaller padding */
 }
 
-/* Mascot sprite inside the header */
-#mascot {
-  width: 60px; /* Adjust width of mascot */
-  height: 60px; /* Adjust height of mascot */
-  background-size: 486px 486px; /* Adjust background size */
-}
 
 /* Chat messages */
 .message {
