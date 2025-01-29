@@ -181,8 +181,6 @@ audio {
   display: none;
 }
 
-
-
  #bgMusic {
  display: none; /* Hides the audio controls */
           }
@@ -953,40 +951,43 @@ footer p {
     padding: 0 20px; /* Reduce padding for smaller screens */
   }
 
-  .navbar {
-    padding: 10px 0; /* Reduce navbar padding */
-    text-align: center;
-  }
-
-  .navbar .menu {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #ffffffc9;
-    display: none;
-    flex-direction: column;
-    text-align: center;
-    border-top: 2px solid gold;
-  }
-
-  .navbar .menu.active {
-    display: flex;
-  }
-
-  .navbar .menu li {
-    display: block;
-    margin: 15px 0;
-  }
-
-  /* menu button styling */
   .menu-btn {
-    color: #eec40b;
-    font-size: 25px;
-    cursor: pointer;
-    display: none;
-  }
-  
+    display: block;
+    z-index: 999;
+}
+
+.navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 75%; /* Adjusted width for smaller screens */
+    right: -75%; /* Adjusted position */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 60px; /* Reduced padding for smaller screens */
+    transition: all 0.3s ease;
+}
+
+.navbar .menu.active {
+    right: 0; /* No change needed here */
+}
+
+.navbar .menu li {
+    display: block;
+}
+
+.navbar .menu li a {
+    display: inline-block;
+    margin: 15px 0; /* Reduced margin for smaller screens */
+    font-size: 20px; /* Smaller font size for better fit */
+}
+
+.navbar .menu li a:hover {
+    color: black;
+    font-size: 25px; /* Adjusted hover font size */
+    font-weight: bold;
+}
+
 
   .home {
     flex-direction: column;
