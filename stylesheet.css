@@ -429,8 +429,8 @@ url('./Images/bg-yarn1.jpg');
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 400px;
-  max-height: 600px; /* Maximum height to prevent overflowing */
+  width: 380px;
+  max-height: 500px; /* Maximum height to prevent overflowing */
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -997,7 +997,7 @@ footer p {
   }
 
   .home .home-content .text-2 {
-    font-size: 10px; /* Reduce heading size */
+    font-size: 20px; /* Reduce heading size */
   }
 
   .home .home-content .text-3 {
@@ -1037,105 +1037,6 @@ footer p {
     left :10 px; /* Move button closer to the edge for better accessibility on small screens */
 }
 
-#chatbot-container {
-    width :90%; /* Full width for smaller screens */
-    right :5%; /* Centering the chatbot on smaller screens */
-    max-height :80vh; /* Adjust max height to fit smaller screens better */
-}
-
-#chat-header {
-    font-size :16 px; /* Smaller header font size for mobile devices */
-    padding :8 px; /* Reduced padding for mobile devices */
-}
-
-
-.message {
-    font-size :14 px; /* Smaller message font size for mobile devices */
-}
-
-#chat-input-container {
-    padding :8 px; /* Reduced padding for input container on mobile devices */
-}
-
-#chat-input {
-    font-size :12 px; /* Smaller input field text size for mobile devices */
-    padding :8 px; /* Reduced padding for input field on mobile devices */
-}
-
-#send-btn, #close-btn { 
-    padding :8 px ; /* Reduced button padding for mobile devices */ 
-    font-size :14 px ; /* Smaller button text size */ 
-}
-
-  /* Chatbot button */
-  #chatbot-toggle {
-    right: 20px; /* Adjust button position */
-    bottom: 20px; /* Keep button at the bottom */
-    padding: 8px 12px; /* Smaller padding */
-  }
-
-  /* Chatbot container */
-  #chatbot-container {
-    width: 100%; /* Full width for smaller screens */
-    max-height: 80vh; /* Limit max height to 80% of the viewport height */
-    bottom: 10px; /* Move it a bit closer to the bottom */
-    right: 10px; /* Adjust right positioning */
-  }
-
-  /* Chat window */
-  #chat-window {
-    max-height: 400px; /* Limit scrolling area */
-    padding: 8px; /* Reduced padding */
-  }
-
-  /* Chat header */
-  #chat-header {
-    font-size: 16px; /* Smaller font size for the header */
-    padding: 8px; /* Smaller padding */
-  }
-
-  /* Mascot sprite inside the header */
-  #mascot {
-    width: 60px; /* Adjust width of mascot */
-    height: 60px; /* Adjust height of mascot */
-    background-size: 486px 486px; /* Adjust background size */
-  }
-
-  /* Chat messages */
-  .message {
-    margin: 4px 0;
-    padding: 8px;
-    font-size: 14px; /* Smaller text size for messages */
-  }
-
-  /* User message */
-  .user-message {
-    padding: 8px; /* Reduced padding */
-  }
-
-  /* Bot message */
-  .bot-message {
-    padding: 8px; /* Reduced padding */
-  }
-
-  /* Input field and send button */
-  #chat-input-container {
-    padding: 8px; /* Reduced padding */
-  }
-
-  #chat-input {
-    font-size: 12px; /* Smaller input text */
-    padding: 8px; /* Reduced padding */
-  }
-
-  #send-btn {
-    padding: 8px 12px; /* Smaller button size */
-    font-size: 14px; /* Smaller button text */
-  }
-
-  #close-btn {
-    font-size: 14px; /* Adjust close button font size */
-  }
 }
 
 
