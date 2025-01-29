@@ -1087,5 +1087,73 @@ footer p {
     font-size: 0.9rem; /* Slightly smaller font for readability */
     padding: 8px 0; /* Reduce padding */
   }
+ /* Chatbot button */
+ #chatbot-toggle {
+  right: 20px; /* Adjust button position */
+  bottom: 20px; /* Keep button at the bottom */
+  padding: 8px 12px; /* Smaller padding */
+}
 
+/* Chatbot container */
+#chatbot-container {
+  width: 100%; /* Full width for smaller screens */
+  max-height: 80vh; /* Limit max height to 80% of the viewport height */
+  bottom: 10px; /* Move it a bit closer to the bottom */
+  right: 10px; /* Adjust right positioning */
+}
+
+/* Chat window */
+#chat-window {
+  max-height: 400px; /* Limit scrolling area */
+  padding: 8px; /* Reduced padding */
+}
+
+/* Chat header */
+#chat-header {
+  font-size: 16px; /* Smaller font size for the header */
+  padding: 8px; /* Smaller padding */
+}
+
+/* Mascot sprite inside the header */
+#mascot {
+  width: 60px; /* Adjust width of mascot */
+  height: 60px; /* Adjust height of mascot */
+  background-size: 486px 486px; /* Adjust background size */
+}
+
+/* Chat messages */
+.message {
+  margin: 4px 0;
+  padding: 8px;
+  font-size: 14px; /* Smaller text size for messages */
+}
+
+/* User message */
+.user-message {
+  padding: 8px; /* Reduced padding */
+}
+
+/* Bot message */
+.bot-message {
+  padding: 8px; /* Reduced padding */
+}
+
+/* Input field and send button */
+#chat-input-container {
+  padding: 8px; /* Reduced padding */
+}
+
+#chat-input {
+  font-size: 12px; /* Smaller input text */
+  padding: 8px; /* Reduced padding */
+}
+
+#send-btn {
+  padding: 8px 12px; /* Smaller button size */
+  font-size: 14px; /* Smaller button text */
+}
+
+#close-btn {
+  font-size: 14px; /* Adjust close button font size */
+}
 }
