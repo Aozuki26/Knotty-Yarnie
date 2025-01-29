@@ -660,3 +660,64 @@ footer {
         height: 30px;
     }
 }
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    padding: 10px 5px; /* Adjust padding for smaller screens */
+  }
+
+  .navbar .logo a {
+    font-size: 20px; /* Smaller logo font size */
+  }
+
+  .navbar .menu li a {
+    font-size: 16px; /* Reduce font size for menu links */
+  }
+
+  /* Hero section */
+  .hero .hero-content .text-2 {
+    font-size: 45px; /* Smaller font size for main heading */
+  }
+
+  .hero .hero-content .text-3 {
+    font-size: 20px; /* Smaller font size for subheading */
+  }
+
+  .hero-image img {
+    width: 100%; /* Make the hero image fill the screen */
+    height: auto;
+  }
+
+  /* Product Showcase */
+  .product-gallery {
+    flex-direction: column; /* Stack the product items vertically */
+    gap: 20px; /* Adjust gap between items */
+  }
+
+  .product-item img {
+    width: 100%; /* Make product images fill the container */
+    height: auto;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 12px; /* Adjust font size for footer text */
+  }
+
+  /* Chatbot */
+  #chatbot-container {
+    width: 100%; /* Make the chatbot container full-width */
+    height: 400px; /* Adjust the height for smaller screens */
+  }
+
+  /* Adjust button sizes for smaller screens */
+  button {
+    font-size: 14px; /* Smaller button font */
+    padding: 8px 16px; /* Adjust padding */
+  }
+
+  /* Hide some elements for ultra-small screens */
+  .socialIcons {
+    display: none; /* Hide social icons on very small screens */
+  }
+}
