@@ -997,7 +997,7 @@ footer p {
   }
 
   .home .home-content .text-2 {
-    font-size: 30px; /* Reduce heading size */
+    font-size: 35px; /* Reduce heading size */
   }
 
   .home .home-content .text-3 {
@@ -1033,10 +1033,32 @@ footer p {
     font-size: 1em;
   }
 
+  /* Chatbot button */
   #chatbot-toggle {
-    left :10 px; /* Move button closer to the edge for better accessibility on small screens */
-}
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
 
+  /* Chatbot container */
+  #chatbot-container {
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 10px; /* Move it a bit closer to the bottom */
+    right: 10px; /* Adjust right positioning */
+  }
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
+  }
 }
 
 
