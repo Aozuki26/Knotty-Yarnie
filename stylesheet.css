@@ -1033,14 +1033,42 @@ footer p {
     font-size: 1.2em;
   }
 
-  /* Chatbot Responsive */
-  #chatbot-container {
-    width: 90%;
-    right: 5%;
-    bottom: 10px;
-  }
-
   #chatbot-toggle {
-    right: 20px;
-  }
+    right :20 px; /* Move button closer to the edge for better accessibility on small screens */
 }
+
+#chatbot-container {
+    width :90%; /* Full width for smaller screens */
+    right :5%; /* Centering the chatbot on smaller screens */
+    max-height :80vh; /* Adjust max height to fit smaller screens better */
+}
+
+#chat-header {
+    font-size :16 px; /* Smaller header font size for mobile devices */
+    padding :8 px; /* Reduced padding for mobile devices */
+}
+
+#mascot {
+    width :60 px; /* Smaller mascot size for mobile devices */
+    height :60 px; 
+}
+
+.message {
+    font-size :14 px; /* Smaller message font size for mobile devices */
+}
+
+#chat-input-container {
+    padding :8 px; /* Reduced padding for input container on mobile devices */
+}
+
+#chat-input {
+    font-size :12 px; /* Smaller input field text size for mobile devices */
+    padding :8 px; /* Reduced padding for input field on mobile devices */
+}
+
+#send-btn, #close-btn { 
+    padding :8 px ; /* Reduced button padding for mobile devices */ 
+    font-size :14 px ; /* Smaller button text size */ 
+}
+}
+
