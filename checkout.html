@@ -268,9 +268,7 @@ button:disabled {
 <div class="fade-on-scroll"></div>
 <body>
   <!-- Navbar -->
-  <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
-    </div>
+
     <nav class="navbar">
       <div class="navbar-content">
         
@@ -376,27 +374,13 @@ button:disabled {
           </div>
           <p>By using this website, you agree to our <a href="#" id="privacy-link">Privacy Policy</a>.</p>
           <br><div class="form-group">
-            <button id="open-captcha" type="button">Solve CAPTCHA</button>
             <input type="submit" value="Confirm Purchase">
           </div>
 
         </form>
-        <!-- Submit Button -->
-    <button type="submit" id="submit-btn" disabled>Submit</button>
-      </div>
+        
     </center>
-    <!-- Page Content -->
-    <div id="captcha-modal" class="captcha-modal">
-      <div class="captcha-modal-content">
-          <span id="close-modal" class="close">&times;</span>
-          <h2>Complete the CAPTCHA</h2>
-          <div id="puzzle">
-              <p>Drag the slider to complete the CAPTCHA</p>
-          </div>
-          <input type="range" id="slider" min="0" max="100" value="0">
-          <button id="validate-captcha" type="button">Validate CAPTCHA</button>
-      </div>
-  </div>
+    
   <!-- The Modal -->
   <div id="privacyModal" class="modal">
     <div class="modal-content">
@@ -575,11 +559,7 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
 document.getElementById('checkout-form').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    // Check if CAPTCHA is solved
-    if (slider.value != 100) {
-        alert('Please solve the CAPTCHA first!');
-        return;
-    }
+    
 
     // Proceed with form submission...
 });
@@ -609,7 +589,7 @@ function closeQR() {
 
 
   </script>
-  <script defer src="captcha.js"></script>
+
   <script defer src="script.js"></script>
   <footer>
     <div class="footer-content">

@@ -685,7 +685,7 @@ footer {
 
   .hero-image img {
     width: 100%; /* Make the hero image fill the screen */
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
   }
 
   /* Product Showcase */
@@ -696,7 +696,7 @@ footer {
 
   .product-item img {
     width: 100%; /* Make product images fill the container */
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
   }
 
   /* Footer */

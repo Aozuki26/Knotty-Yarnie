@@ -204,42 +204,20 @@ audio {
   line-height: 1.6;
 }
 
-
 /* menu button styling */
 .menu-btn {
-  color: #fff;
-  font-size: 23px;
+  color: #eec40b;
+  font-size: 35px;
   cursor: pointer;
   display: none;
 }
 
-/* .scroll-up-btn stlying */
-.scroll-up-btn {
-  position: fixed;
-  right: 30px;
-  height: 45px;
-  width: 42px;
-  background: crimson;
-  text-align: center;
-  line-height: 45px;
-  color: #fff;
-  opacity: 0;
-  z-index: 99999;
-  font-size: 30px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+
 
  #bgMusic {
  display: none; /* Hides the audio controls */
           }
 
-.scroll-up-btn.show {
-  bottom: 30px;
-  opacity: 1;
-  pointer-events: auto;
-}
 
 .music-control {
   text-align: right;

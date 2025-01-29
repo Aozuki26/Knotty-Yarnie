@@ -202,42 +202,20 @@ audio {
   line-height: 1.6;
 }
 
-
 /* menu button styling */
 .menu-btn {
-  color: #fff;
-  font-size: 23px;
+  color: #eec40b;
+  font-size: 35px;
   cursor: pointer;
   display: none;
 }
 
-/* .scroll-up-btn stlying */
-.scroll-up-btn {
-  position: fixed;
-  right: 30px;
-  height: 45px;
-  width: 42px;
-  background: crimson;
-  text-align: center;
-  line-height: 45px;
-  color: #fff;
-  opacity: 0;
-  z-index: 99999;
-  font-size: 30px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+
 
  #bgMusic {
  display: none; /* Hides the audio controls */
           }
 
-.scroll-up-btn.show {
-  bottom: 30px;
-  opacity: 1;
-  pointer-events: auto;
-}
 
 .music-control {
   text-align: right;
@@ -961,5 +939,108 @@ footer {
   .enter-fade {
     animation: fadeIn 1s ease-out forwards;
     opacity: 1;
+  }
+}
+@media (max-width: 480px) {
+  /* Navbar styling for small devices */
+  .navbar {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .navbar .logo a {
+    font-size: 18px;
+  }
+
+  /* Home section styling */
+  .home .home-content .text-2 {
+    font-size: 40px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 24px;
+  }
+
+  .home .home-content a {
+    font-size: 18px;
+    padding: 8px 24px;
+  }
+
+  /* Adjust product showcase images */
+  .product-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-showcase h2 {
+    font-size: 24px;
+  }
+
+  .product-showcase p {
+    font-size: 16px;
+  }
+
+  /* Contact form adjustments */
+  .contact-form {
+    padding: 20px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* Footer adjustments */
+  footer {
+    font-size: 12px;
+  }
+
+  /* Scroll up button */
+  .scroll-up-btn {
+    right: 20px;
+    bottom: 20px;
+    font-size: 24px;
+  }
+
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+
+  /* Chatbot container */
+  #chatbot-container {
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 10px; /* Move it a bit closer to the bottom */
+    right: 10px; /* Adjust right positioning */
+  }
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
+  }
+
+  /* Mobile-friendly adjustments */
+  .menu-btn {
+    font-size: 20px;
+  }
+
+  .navbar .menu li a {
+    font-size: 18px;
   }
 }
