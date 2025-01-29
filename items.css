@@ -145,23 +145,6 @@ audio {
   
 }
 
-/* .scroll-up-btn stlying */
-.scroll-up-btn {
-  position: fixed;
-  right: 30px;
-  height: 45px;
-  width: 42px;
-  background: crimson;
-  text-align: center;
-  line-height: 45px;
-  color: #fff;
-  opacity: 0;
-  z-index: 99999;
-  font-size: 30px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
  #bgMusic {
  display: none; /* Hides the audio controls */
@@ -333,7 +316,7 @@ button.add-to-cart:hover {
     }
 
     .product-image img {
-      max-width: 300px;
+      max-width: 600px;
       border-radius: 10px;
     }
 
@@ -373,7 +356,46 @@ button.add-to-cart:hover {
       background-color: #ff4500;
     }
 
+/* Button container styles */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center align the buttons */
+  gap: 20px; /* Add space between the buttons */
+  margin-top: 20px; /* Optional margin */
+}
 
+/* General button styles */
+button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width: 150px; /* Consistent button width */
+}
+
+/* Go to Cart button styles */
+.go-to-cart {
+  background-color: #4caf50; /* Green background */
+  color: white;
+}
+
+.go-to-cart:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Go to Shop button styles */
+.go-to-shop {
+  background-color: #ff9800; /* Orange background */
+  color: white;
+}
+
+.go-to-shop:hover {
+  background-color: #e68a00; /* Darker orange on hover */
+  transition: background-color 0.3s ease;
+}
 
 /* Chatbot */
 /* Chatbot button */
@@ -811,43 +833,112 @@ footer p {
       height: 30px;
   }
 }
-/* Button container styles */
-.button-container {
-  display: flex;
-  justify-content: center; /* Center align the buttons */
-  gap: 20px; /* Add space between the buttons */
-  margin-top: 20px; /* Optional margin */
-}
 
-/* General button styles */
-button {
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  width: 150px; /* Consistent button width */
-}
 
-/* Go to Cart button styles */
-.go-to-cart {
-  background-color: #4caf50; /* Green background */
-  color: white;
-}
+@media (max-width: 480px) {
+  /* Navbar adjustments */
+  .navbar {
+      padding: 10px 0;
+  }
 
-.go-to-cart:hover {
-  background-color: #45a049; /* Darker green on hover */
-  transition: background-color 0.3s ease;
-}
+  .navbar .logo a {
+      font-size: 24px;
+  }
 
-/* Go to Shop button styles */
-.go-to-shop {
-  background-color: #ff9800; /* Orange background */
-  color: white;
-}
+  .navbar .menu li a {
+      font-size: 16px;
+      margin-left: 10px;
+  }
 
-.go-to-shop:hover {
-  background-color: #e68a00; /* Darker orange on hover */
-  transition: background-color 0.3s ease;
+  /* Hero section adjustments */
+  .hero .hero-text {
+      text-align: center;
+      margin-bottom: 15px;
+  }
+
+  .hero-text h1 {
+      font-size: 28px;
+  }
+
+  .hero-text p {
+      font-size: 16px;
+  }
+
+  .hero-image {
+      order: -1; /* Move image to the top */
+      width: 100%;
+      margin-top: 20px;
+  }
+
+  .hero-image img {
+      width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    /* Product details adjustments */
+    .product-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+  
+    .product-image {
+        order: -1; /* Move image to the top */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+  
+    .product-image img {
+        max-width: 80%; /* Adjust image size if needed */
+        display: block;
+        margin: 0 auto; /* Center the image */
+    }
+  
+    .product-details {
+        padding: 0 15px;
+        text-align: center;
+        width: 100%;
+    }
+  
+    .product-details h1 {
+        font-size: 1.5em;
+    }
+  
+    .product-price {
+        font-size: 1.2em;
+    }
+  
+    .product-description {
+        font-size: 0.9em;
+    }
+  
+    /* Buttons container */
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+  
+    .button-container button {
+        width: 100%; /* Full width on small screens */
+        font-size: 14px;
+    }
+  
+    /* Footer adjustments */
+    footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+  
+    footer p {
+        font-size: 12px;
+    }
+  }
+  
+
 }
