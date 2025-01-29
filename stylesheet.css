@@ -997,11 +997,11 @@ footer p {
   }
 
   .home .home-content .text-2 {
-    font-size: 12px; /* Reduce heading size */
+    font-size: 6px; /* Reduce heading size */
   }
 
   .home .home-content .text-3 {
-    font-size: 6px;
+    font-size: 2px;
   }
 
   .product-gallery {
@@ -1026,11 +1026,11 @@ footer p {
   }
 
   .text-box h2 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   .text-box p {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
   #chatbot-toggle {
