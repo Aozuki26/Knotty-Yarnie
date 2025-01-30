@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Knotty Yarn</title>
-  <link rel="stylesheet" href="checkout.css">
+  <link rel="stylesheet" href="items.css">
   <link rel="stylesheet" href=
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <script src=
@@ -372,11 +372,22 @@ button:disabled {
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
           </div>
-          <p>By using this website, you agree to our <a href="#" id="privacy-link">Privacy Policy</a>.</p>
-          <br><div class="form-group">
-            <input type="submit" value="Confirm Purchase">
-          </div>
 
+          <!-- 🧵 Customization Section 🧵 -->
+      <div class="form-group">
+        <label for="customization">Customization Request (Optional)</label>
+        <textarea id="customization" name="customization" placeholder="Describe your custom order details here..."></textarea>
+      </div>
+
+          <p>By using this website, you agree to our <a href="#" id="privacy-link">Privacy Policy</a>.</p>
+          <br>
+      <div class="form-group">
+        <input type="submit" value="Confirm Purchase">
+      </div>
+    </form>
+
+    <p id="success-message" style="color: green; display: none;">Order submitted successfully!</p>
+  </div>
         </form>
         
     </center>
@@ -515,9 +526,11 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
     const email = document.getElementById('email').value;
     const address = document.getElementById('address').value;
     const paymentMethod = document.getElementById('payment-method').value; // New: Get payment method
+    const customization = document.getElementById("customization").value || "No customization requested"; // Default message if empty
+
 
     // Validate form inputs
-    if (!name || !email || !address || !paymentMethod) {
+    if (!name || !email || !address || !paymentMethod || !customization) {
         alert('Please fill out all fields and select a payment method.');
         return;
     }
@@ -543,7 +556,8 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
         address: address,
         cart_details: cartDetails,
         total_amount: formatPeso(totalAmount),
-        payment_method: paymentMethod // New: Send payment method
+        payment_method: paymentMethod, // New: Send payment method
+        customization_details: customization // Include customization in the email
     }).then(function (response) {
         console.log('Success!', response.status, response.text);
         alert('Confirmation email sent!');

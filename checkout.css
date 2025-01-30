@@ -275,49 +275,80 @@ button {
     margin-top: 1rem;
   }
   
-  .form-group {
-    margin-bottom: 1.5rem;
-    width: 100%;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-  }
-  
-  .form-group textarea {
-    resize: none;
-    height: 100px;
-  }
-  
-  .form-group input[type="submit"] {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .form-group input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+  /* 📋 Form Styling */
+.form-group {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* 🔘 Inputs & Textarea */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: 0.3s ease-in-out;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* 🎨 Inputs: Focus Effect */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* ✅ Customize Section */
+#customize-options {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+#customize-options textarea {
+  height: 100px;
+}
+
+/* 🟢 Confirm Button */
+.form-group input[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: #28a745;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.form-group input[type="submit"]:hover {
+  background: #218838;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
   
   @media (max-width: 600px) {
     .checkout-container {
