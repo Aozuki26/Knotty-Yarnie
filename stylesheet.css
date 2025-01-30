@@ -1039,7 +1039,7 @@ footer p {
     bottom: 20px; /* Keep button at the bottom */
     padding: 8px 12px; /* Smaller padding */
   }
-  * Chatbot container */
+  /* Chatbot container */
   #chatbot-container {
     width: 100%; /* Full width for smaller screens */
     max-height: 80vh; /* Limit max height to 80% of the viewport height */
@@ -1061,4 +1061,96 @@ footer p {
   }
 }
 
+@media (min-width: 360px) and (max-width: 414px) {
+  .max-width {
+    padding: 0 15px; /* Slightly reduce padding for better fit */
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    width: 80%; /* Adjusted menu width */
+    right: -80%; /* Adjust position */
+    padding-top: 50px; /* Adjusted padding */
+  }
+
+  .navbar .menu.active {
+    right: 0;
+  }
+
+  .navbar .menu li a {
+    font-size: 18px; /* Slightly smaller font */
+  }
+
+  .navbar .menu li a:hover {
+    font-size: 22px;
+  }
+
+  .home {
+    padding: 35px 15px;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 32px; /* Adjust heading size */
+  }
+
+  .home .home-content .text-3 {
+    font-size: 12px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-item img {
+    width: 85%; /* Slightly reduce image size */
+  }
+
+  .about-us-container {
+    padding: 15px;
+  }
+
+  .image-frame {
+    width: 180px;
+    height: 180px;
+  }
+
+  .text-box h2 {
+    font-size: 1.4em;
+  }
+
+  .text-box p {
+    font-size: 0.95em;
+  }
+
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 15px;
+    bottom: 15px;
+    padding: 7px 10px;
+  }
+
+  /* Chatbot container */
+  #chatbot-container {
+    max-height: 75vh;
+    bottom: 10px;
+    right: 0px;
+  }
+
+  /* Chat window */
+  #chat-window {
+    max-height: 380px;
+    padding: 6px;
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 15px;
+    padding: 6px;
+  }
+}
 

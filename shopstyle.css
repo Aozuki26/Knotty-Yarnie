@@ -818,7 +818,7 @@ footer {
     bottom: 20px; /* Keep button at the bottom */
     padding: 8px 12px; /* Smaller padding */
   }
-  * Chatbot container */
+  /* Chatbot container */
   #chatbot-container {
     width: 100%; /* Full width for smaller screens */
     max-height: 80vh; /* Limit max height to 80% of the viewport height */
