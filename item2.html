@@ -21,6 +21,7 @@
     </script>
     <link rel="stylesheet" href=
 "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<script defer src="screenreader.js"></script>
   <style>
     @keyframes fadeIn {
             from {
@@ -37,66 +38,105 @@
         }
 
         /* Cart Icon Style */
+        #altToggleButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative; /* Position the tooltip relative to the button */
+}
+
+#altToggleButton svg {
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+}
+
+#altToggleButton:hover svg {
+    color: #007BFF; /* Hover color for icon */
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: 30px; /* Position the tooltip below the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#altToggleButton:hover .tooltip {
+    display: block; /* Show the tooltip when the button is hovered */
+}
 
   </style>
 </head>
 
-
-  <!-- Navbar -->
- 
-    <nav class="navbar">
-      <div class="navbar-content">
-        
-        <div class="max-width">
-            <div class="logo">
-                <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
-                    <span>Knotty Yarn</span>
-                </a>
-            </div>
-            <ul class="menu">
-                <li>
-                    <a href="index.html" class="menu-btn">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html" class="menu-btn">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="shop.html" class="menu-btn" class="transition-link">
-                        Shop
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html" class="menu-btn">
-                        Contact
-                    </a>
-                </li>
-                <li>
-                  <a href="cart.html">
-                    <i class="fas fa-shopping-cart" id="cart-icon"></i>
-                   
-                  </a>
-                </li>
-                
-                <li>
-                  <a href="#"></a>
-         <button class="music-toggle" id="music-toggle" data-playing="false">
-           <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-             <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
-              </svg>
-
-                </li>
-            </ul>
-            
-
-            <div class="menu-btn">
-                <span>☰</span>
-            </div>
+<!-- Navbar -->
+  
+<nav class="navbar">
+  <div class="navbar-content">
+    
+    <div class="max-width">
+        <div class="logo">
+            <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank" tabindex="0">
+                <span>Knotty Yarn</span>
+            </a>
         </div>
-    </nav>
+        <ul class="menu">
+            <li>
+                <a href="index.html" class="menu-btn" tabindex="0">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="shop.html" class="menu-btn" class="transition-link" tabindex="0">
+                    Shop
+                </a>
+            </li>
+            <li>
+              <a href="about.html" class="menu-btn" tabindex="0">
+                  About
+              </a>
+          </li>
+            <li>
+                <a href="contact.html" class="menu-btn" tabindex="0">
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a href="cart.html" tabindex="0">
+                  <i class="fas fa-shopping-cart" id="cart-icon"></i>
+             
+                </a>
+              </li>
+            <li>
+              <a href="#"></a>
+     <button class="music-toggle" id="music-toggle" data-playing="false">
+       <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+         <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
+          </svg>
+          <li>
+            <button id="altToggleButton" class="menu-button" tabindex="0">
+              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="m8 7a2 2 0 0 1 2 2v5a2 2 0 0 1 -2 2 2 2 0 0 1 -2-2v-5a2 2 0 0 1 2-2m6 7c0 2.97-2.16 5.44-5 5.92v2.08h-2v-2.08c-2.84-.48-5-2.95-5-5.92h2a4 4 0 0 0 4 4 4 4 0 0 0 4-4zm7.41-4.59-4.24 4.25 1.01-3.66h-4.18a2 2 0 0 1 -2-2v-4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4c0 .55-.22 1.05-.59 1.41z"/>
+              </svg>
+              <span class="tooltip">Enable/Disable Text Speech</span>
+            </button>
+          </li>
+        </ul>
+        
+
+        <div class="menu-btn">
+            <span>☰</span>
+        </div>
+    </div>
+</nav>
 
     <!-- Background Music -->
     <audio id="background-music" loop>
@@ -111,7 +151,7 @@
   <div class="product-detail-content">
     <div class="product-page">
       <div class="product-image">
-        <img src="./Images/daisy pouch.jpg" alt="Daisy Pouch">
+        <img src="./Images/daisy pouch.jpg" alt="Daisy Pouch" tabindex="0">
         
         <span class="discount-badge">-20%</span>
       </div>
@@ -133,16 +173,24 @@
           <option>Black></option>
           <option>Customize</option>
         </select>
-        <button class="add-to-cart" id="add-to-cart">ADD TO CART</button>
+        <button class="add-to-cart" id="add-to-cart" tabindex="0">ADD TO CART</button>
 
         <!-- Go to Cart Button -->
-        <button class="go-to-cart" onclick="window.location.href='cart.html';">Go to Cart</button>
+        <button class="go-to-cart" onclick="window.location.href='cart.html';" tabindex="0">Go to Cart</button>
 
         <!-- Go to Shop Button -->
-        <button class="go-to-shop" onclick="window.location.href='shop.html';">Go to Shop</button>
+        <button class="go-to-shop" onclick="window.location.href='shop.html';" tabindex="0">Go to Shop</button>
       </div>
     </div>
   </div>
+  <!-- Navigation Buttons -->
+<button class="prev-product" onclick="goToPreviousProduct()" tabindex="0">
+  ⬅ Back
+</button>
+<button class="next-product" onclick="goToNextProduct()" tabindex="0">
+  ➜ Next
+</button>
+
   <p class="scroll-info">Scroll for more info.</p>
 </section>
 
@@ -272,6 +320,15 @@ document.getElementById('add-to-cart').addEventListener('click', function() {
     });
   </script>
 
+<script>
+  function goToPreviousProduct() {
+    window.location.href = "Item1.html"; // Change to actual previous product page
+  }
+
+  function goToNextProduct() {
+    window.location.href = "item3.html"; // Change to actual next product page
+  }
+</script>
 
   <br>  <br> <br>  <br> 
   <footer>

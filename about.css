@@ -231,9 +231,8 @@ button {
 
 /* home-section styling */
 .home {
-  display:flex;
-  background-image: 
-url('./Images/bg-yarn3.jpg');
+  display: flex;
+  background-image: url('./Images/bg-yarn3.jpg');
   height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
@@ -241,7 +240,6 @@ url('./Images/bg-yarn3.jpg');
   color: rgb(0, 0, 0);
   min-height: 500px;
   font-family: "Ubunto", sans-serif;
-  
 }
 
 .home .max-width {
@@ -250,16 +248,14 @@ url('./Images/bg-yarn3.jpg');
 
 .home .home-content .text-1 {
   font-size: 27px;
-  text-shadow: 0 0 10px rgb(255,215,0), 0 0 20px rgb(255,215,0), 0 0 30px rgba(255, 0, 0, 0.8);
-
+  color: black; /* Change font color to black */
 }
 
 .home .home-content .text-2 {
   font-size: 75px;
   font-weight: 600;
   margin-left: -3px;
-  text-shadow: 0 0 10px rgb(255,215,0), 0 0 20px rgb(255,215,0), 0 0 30px rgba(255, 0, 0, 0.8);
-
+  color: black; /* Change font color to black */
 }
 
 .home .home-content .text-3 {
@@ -1110,6 +1106,116 @@ footer {
     font-size: 25px; /* Adjusted hover font size */
     font-weight: bold;
 }
+
+  /* Hero Section Adjustments */
+  .home-content {
+    text-align: center; /* Center-align hero content */
+    padding: 20px; /* Add padding */
+  }
+
+  .home-content .text-2 {
+    font-size: 28px; /* Smaller heading */
+  }
+
+  .home-content .text-1 {
+    font-size: 16px; /* Smaller subheading */
+  }
+
+  /* About Section Adjustments */
+  .about-section {
+    padding: 20px; /* Add padding */
+  }
+
+  .about-section h2 {
+    font-size: 24px; /* Smaller heading */
+  }
+
+  .about-text {
+    font-size: 14px; /* Smaller text */
+    line-height: 1.6; /* Improve readability */
+  }
+
+  /* Organizational Structure Adjustments */
+  .team-structure {
+    flex-direction: column; /* Stack team cards vertically */
+    align-items: center; /* Center-align cards */
+  }
+
+  .card {
+    width: 90%; /* Full width for team cards */
+    margin-bottom: 20px; /* Add spacing between cards */
+  }
+
+  .card img {
+    width: 100%; /* Make images responsive */
+    height: auto;
+  }
+
+  .card h3 {
+    font-size: 18px; /* Smaller name */
+  }
+
+  .card p {
+    font-size: 14px; /* Smaller role */
+  }
+
+  /* Footer Adjustments */
+  footer {
+    padding: 10px 0; /* Reduce padding */
+  }
+
+  footer p {
+    font-size: 12px; /* Smaller footer text */
+  }
+}
+
+/* Media Query for 360px to 480px Screens */
+@media (min-width: 360px) and (max-width: 480px) {
+  /* General Styles */
+  body {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  .max-width {
+    padding: 0 20px; /* Reduce padding for smaller screens */
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 75%; /* Adjusted width for smaller screens */
+    right: -75%; /* Adjusted position */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 60px; /* Reduced padding for smaller screens */
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+    right: 0; /* No change needed here */
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 15px 0; /* Reduced margin for smaller screens */
+    font-size: 20px; /* Smaller font size for better fit */
+  }
+
+  .navbar .menu li a:hover {
+    color: black;
+    font-size: 25px; /* Adjusted hover font size */
+    font-weight: bold;
+  }
 
   /* Hero Section Adjustments */
   .home-content {

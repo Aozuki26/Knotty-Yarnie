@@ -26,38 +26,143 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
-   /* Music toggle styling aligned with navbar */
+      /* Music toggle styling aligned with navbar */
   
 
-   .navbar .music-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
+      .navbar .music-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    
+    .navbar .music-toggle svg {
+        width: 40px;
+        height: 25px;
+        fill: #000000;
+        transition: fill 0.3s ease;
+        border: none;
+        margin: none;
+        padding: none;
+    }
+    
+    .navbar .music-toggle:hover svg {
+        fill: #ffee00;
+    }
+    
+    /* Visually hidden audio element for screen readers */
+    audio {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+    }
+    /* Navbar */
+    /* nabar styling */
+    .navbar {
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      padding: 30px 0;
+      font-family: 'Ubuntu', sans-serif;
+      transition: all 0.3s ease;
+      background-color: #ffffffc9;
+      border-color: rgb(255,215,0);
+      border: 2px solid rgb(255,215,0);
+    }
+    
+    .navbar.sticky {
+      padding: 15px 0;
+      background-color: rgb(218,165,32);
+    }
+    
+    .navbar .max-width {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: auto 0 auto 40px;
+    }
+    
+    .navbar .logo a {
+      color: #fff;
+      font-size: 35px;
+      font-weight: 600;
+    }
+    .navbar-logo {
+      display: inline-flex;
+      margin: 5px; 
+      height: 100px;
+      float: left;
+      left: 50%;
+      width: 130px; 
+      border-radius: 50%; 
+    }
+    
+    .navbar.sticky .logo a span {
+      color: #fff;
+    }
+    
+    .navbar .logo a span {
+      color: rgb(218,165,32);
+    }
+    
+    .navbar .menu li {
+      list-style: none;
+      display: inline-table;
+      right: 70%;
+    }
+    
+    .navbar .menu li a {
+      display: block;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 500;
+      font-weight: 500;
+      margin-left: 25px;
+      transition: color 0.3s ease;
+    }
+    
+    .navbar .menu li a:hover {
+      color: rgb(238, 222, 5);
+      font-weight: bold;
+    }
+    
+    .navbar.sticky .menu li a:hover {
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    
+    
+    /* menu button styling */
+    .menu-btn {
+      color: #000000;
+      font-size: 35px;
+      cursor: pointer;
+      display: none;
+    }
+    
+     #bgMusic {
+     display: none; /* Hides the audio controls */
+              }
+    
+    .scroll-up-btn.show {
+      bottom: 30px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .music-control {
+      text-align: right;
+      margin-top: 0%;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+    }
 
-
-.navbar .music-toggle svg {
-    width: 40px;
-    height: 25px;
-    fill: #000000;
-    transition: fill 0.3s ease;
-    border: none;
-    margin: none;
-    padding: none;
-}
-
-.navbar .music-toggle:hover svg {
-    fill: #ffee00;
-}
-
-/* Visually hidden audio element for screen readers */
-audio {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
 /* Navbar */
 /* nabar styling */
 .navbar {
@@ -183,10 +288,13 @@ button {
   flex: 1;
   max-width: 500px;
   position: relative;
+  overflow: hidden; /* Ensures image stays within container */
 }
 
 .product-image img {
   width: 100%;
+  height: 100%; /* Make the image cover the container while preserving aspect ratio */
+  object-fit: contain; /* Prevent image stretching */
   border-radius: 8px;
 }
 
@@ -303,6 +411,7 @@ button.add-to-cart:hover {
       opacity: 0;
   }
 }
+
 
     /* Product Detail Section */
     .product-detail {
@@ -659,6 +768,53 @@ button {
 }
 
 
+
+/* Product Navigation (Below the Product) */
+.product-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.prev-product, .next-product {
+  background-color: #007BFF;
+  color: white;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.prev-product:hover, .next-product:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .product-navigation {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .prev-product, .next-product {
+      width: 100%;
+      font-size: 16px;
+      padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prev-product, .next-product {
+      font-size: 14px;
+      padding: 8px;
+  }
+}
 
 
 

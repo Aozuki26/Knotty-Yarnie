@@ -67,6 +67,9 @@ body {
    /* Music toggle styling aligned with navbar */
   
 
+   /* Music toggle styling aligned with navbar */
+  
+
    .navbar .music-toggle {
     background: none;
     border: none;
@@ -87,7 +90,6 @@ body {
 .navbar .music-toggle:hover svg {
     fill: #ffee00;
 }
-
 
 /* Visually hidden audio element for screen readers */
 audio {
@@ -128,6 +130,7 @@ audio {
   font-size: 35px;
   font-weight: 600;
 }
+
 .navbar-logo {
   display: inline-flex;
   margin: 5px; 
@@ -171,14 +174,36 @@ audio {
   color: #fff;
   font-weight: bold;
 }
+
+
+
 /* menu button styling */
 .menu-btn {
-  color: #000000;
+  color: #eec40b;
   font-size: 35px;
   cursor: pointer;
   display: none;
 }
 
+ #bgMusic {
+ display: none; /* Hides the audio controls */
+          }
+
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.music-control {
+  text-align: right;
+  margin-top: 0%;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+}
 /* container for 2 pcis*/
 .container {
   padding: 20px;
@@ -210,32 +235,6 @@ audio {
   margin-top: 40px;
   line-height: 1.6;
 }
-
-/* menu button styling */
-.menu-btn {
-  color: #eec40b;
-  font-size: 35px;
-  cursor: pointer;
-  display: none;
-}
-
-
-
- #bgMusic {
- display: none; /* Hides the audio controls */
-          }
-
-
-.music-control {
-  text-align: right;
-  margin-top: 0%;
-}
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-}
-
 /* home-section styling */
 .home {
   display:flex;
