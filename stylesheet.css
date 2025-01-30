@@ -175,7 +175,7 @@ audio {
 
 /* menu button styling */
 .menu-btn {
-  color: #eec40b;
+  color: #000000;
   font-size: 35px;
   cursor: pointer;
   display: none;

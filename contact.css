@@ -88,6 +88,7 @@ body {
     fill: #ffee00;
 }
 
+
 /* Visually hidden audio element for screen readers */
 audio {
     position: absolute;
@@ -170,6 +171,14 @@ audio {
   color: #fff;
   font-weight: bold;
 }
+/* menu button styling */
+.menu-btn {
+  color: #000000;
+  font-size: 35px;
+  cursor: pointer;
+  display: none;
+}
+
 /* container for 2 pcis*/
 .container {
   padding: 20px;
@@ -946,106 +955,149 @@ footer {
     opacity: 1;
   }
 }
+/* Media Query for 480px Screens */
 @media (max-width: 480px) {
-  /* Navbar styling for small devices */
-  .navbar {
-    padding: 10px;
-    font-size: 14px;
+  /* General Styles */
+  body {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+  .max-width {
+    padding: 0 20px; /* Reduce padding for smaller screens */
   }
 
-  .navbar .logo a {
-    font-size: 18px;
+  .menu-btn {
+    display: block;
+    z-index: 999;
+
+}
+
+.navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 75%; /* Adjusted width for smaller screens */
+    right: -75%; /* Adjusted position */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 60px; /* Reduced padding for smaller screens */
+    transition: all 0.3s ease;
+}
+
+.navbar .menu.active {
+    right: 0; /* No change needed here */
+}
+
+.navbar .menu li {
+    display: block;
+}
+
+.navbar .menu li a {
+    display: inline-block;
+    margin: 15px 0; /* Reduced margin for smaller screens */
+    font-size: 20px; /* Smaller font size for better fit */
+}
+
+.navbar .menu li a:hover {
+    color: black;
+    font-size: 25px; /* Adjusted hover font size */
+    font-weight: bold;
+}
+
+  /* Hero Section Adjustments */
+  .home-content {
+    text-align: center; /* Center-align hero content */
+    padding: 20px; /* Add padding */
   }
 
-  /* Home section styling */
-  .home .home-content .text-2 {
-    font-size: 40px;
+  .home-content .text-2 {
+    font-size: 28px; /* Smaller heading */
   }
 
-  .home .home-content .text-3 {
-    font-size: 24px;
+  .home-content .text-1 {
+    font-size: 16px; /* Smaller subheading */
   }
 
-  .home .home-content a {
-    font-size: 18px;
-    padding: 8px 24px;
+  /* Contact Section Adjustments */
+  .contact-section {
+    padding: 20px; /* Add padding */
   }
 
-  /* Adjust product showcase images */
-  .product-item img {
-    width: 100%;
-    height: auto;
+  .contact-section h2 {
+    font-size: 24px; /* Smaller heading */
   }
 
-  .product-showcase h2 {
-    font-size: 24px;
+  .contact-info {
+    flex-direction: column; /* Stack contact items vertically */
+    align-items: center; /* Center-align items */
   }
 
-  .product-showcase p {
-    font-size: 16px;
+  .contact-item {
+    width: 100%; /* Full width for contact items */
+    margin-bottom: 20px; /* Add spacing between items */
   }
 
-  /* Contact form adjustments */
+  .contact-item h3 {
+    font-size: 18px; /* Smaller heading */
+  }
+
+  .contact-item p {
+    font-size: 14px; /* Smaller text */
+  }
+
+  /* Contact Form Adjustments */
   .contact-form {
-    padding: 20px;
+    width: 100%; /* Full width for form */
+    padding: 20px; /* Add padding */
+  }
+
+  .contact-form h3 {
+    font-size: 20px; /* Smaller heading */
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Add spacing between form groups */
+  }
+
+  .form-group label {
+    font-size: 14px; /* Smaller label */
   }
 
   .form-group input,
   .form-group textarea {
-    padding: 10px;
-    font-size: 14px;
+    font-size: 14px; /* Smaller input text */
+    padding: 10px; /* Add padding */
   }
 
-  button {
-    padding: 10px 20px;
-    font-size: 14px;
+  .contact-form button {
+    font-size: 14px; /* Smaller button text */
+    padding: 10px 20px; /* Add padding */
   }
 
-  /* Footer adjustments */
+  /* Popup Adjustments */
+  .popup-content {
+    width: 90%; /* Full width for popup */
+    padding: 15px; /* Add padding */
+  }
+
+  .popup h3 {
+    font-size: 18px; /* Smaller heading */
+  }
+
+  .popup p {
+    font-size: 14px; /* Smaller text */
+  }
+
+  .popup .close-btn {
+    font-size: 14px; /* Smaller button text */
+    padding: 8px 15px; /* Add padding */
+  }
+
+  /* Footer Adjustments */
   footer {
-    font-size: 12px;
+    padding: 10px 0; /* Reduce padding */
   }
 
-  /* Scroll up button */
-  .scroll-up-btn {
-    right: 20px;
-    bottom: 20px;
-    font-size: 24px;
-  }
-
-  /* Chatbot button */
-  #chatbot-toggle {
-    right: 20px; /* Adjust button position */
-    bottom: 20px; /* Keep button at the bottom */
-    padding: 8px 12px; /* Smaller padding */
-  }
-
-  /* Chatbot container */
-  #chatbot-container {
-    width: 100%; /* Full width for smaller screens */
-    max-height: 80vh; /* Limit max height to 80% of the viewport height */
-    bottom: 10px; /* Move it a bit closer to the bottom */
-    right: 10px; /* Adjust right positioning */
-  }
-
-  /* Chat window */
-  #chat-window {
-    max-height: 400px; /* Limit scrolling area */
-    padding: 8px; /* Reduced padding */
-  }
-
-  /* Chat header */
-  #chat-header {
-    font-size: 16px; /* Smaller font size for the header */
-    padding: 8px; /* Smaller padding */
-  }
-
-  /* Mobile-friendly adjustments */
-  .menu-btn {
-    font-size: 20px;
-  }
-
-  .navbar .menu li a {
-    font-size: 18px;
+  footer p {
+    font-size: 12px; /* Smaller footer text */
   }
 }

@@ -740,39 +740,46 @@ footer {
     font-size: 14px; /* Smaller font size for mobile */
   }
 
-  /* Navbar Adjustments */
-  .navbar {
-    padding: 10px 0; /* Reduce padding */
+  .max-width {
+    padding: 0 20px; /* Reduce padding for smaller screens */
   }
 
-  .navbar .logo {
-    font-size: 18px; /* Smaller logo text */
-  }
+  .menu-btn {
+    display: block;
+    z-index: 999;
+}
 
-  .navbar .menu {
-    display: none; /* Hide the menu by default */
-    flex-direction: column; /* Stack menu items vertically */
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    background-color: #fff; /* Background color for dropdown */
-    z-index: 1000;
-  }
+.navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 75%; /* Adjusted width for smaller screens */
+    right: -75%; /* Adjusted position */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 60px; /* Reduced padding for smaller screens */
+    transition: all 0.3s ease;
+}
 
-  .navbar .menu.active {
-    display: flex; /* Show menu when active */
-  }
+.navbar .menu.active {
+    right: 0; /* No change needed here */
+}
 
-  .navbar .menu li {
-    margin: 10px 0; /* Add spacing between menu items */
-  }
+.navbar .menu li {
+    display: block;
+}
 
-  .navbar .menu-btn {
-    display: block; /* Show the hamburger menu button */
-    cursor: pointer;
-  }
+.navbar .menu li a {
+    display: inline-block;
+    margin: 15px 0; /* Reduced margin for smaller screens */
+    font-size: 20px; /* Smaller font size for better fit */
+}
 
+.navbar .menu li a:hover {
+    color: black;
+    font-size: 25px; /* Adjusted hover font size */
+    font-weight: bold;
+}
   /* Product Showcase Section */
   .product-showcase {
     padding: 10px; /* Reduce padding */
