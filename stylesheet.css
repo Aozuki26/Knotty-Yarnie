@@ -1039,14 +1039,14 @@ footer p {
     bottom: 20px; /* Keep button at the bottom */
     padding: 8px 12px; /* Smaller padding */
   }
-
-  /* Chatbot container */
+  * Chatbot container */
   #chatbot-container {
     width: 100%; /* Full width for smaller screens */
     max-height: 80vh; /* Limit max height to 80% of the viewport height */
-    bottom: 10px; /* Move it a bit closer to the bottom */
-    right: 10px; /* Adjust right positioning */
+    bottom: 12px; /* Move it a bit closer to the bottom */
+    right: 0px; /* Adjust right positioning */
   }
+  
 
   /* Chat window */
   #chat-window {

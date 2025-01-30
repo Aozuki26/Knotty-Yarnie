@@ -483,17 +483,30 @@ button:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 400px;
-  height: 450px;
+  width: 380px;
+  max-height: 500px; /* Maximum height to prevent overflowing */
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  z-index: 9999; /* Make sure it sits above other content */
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  z-index: 9999;
 }
+
+/* Chat window */
+#chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 500px; /* Limit scrolling area */
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column; /* Adjust to keep messages stacked */
+}
+
 
 /* When the chatbot is collapsed, it slides off-screen */
 #chatbot-container.collapsed {
@@ -519,16 +532,7 @@ button:hover {
   margin-right: 1px;  /* Space between sprite and close button */
 }
 
-/* Chat window */
-#chat-window {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-}
+
 
 /* Chat messages */
 #chat-output {
@@ -605,6 +609,7 @@ button:hover {
 #chat-input {
   font-size: 14px;  /* Smaller text size for input field */
 }
+
 
 
 /* Footer */

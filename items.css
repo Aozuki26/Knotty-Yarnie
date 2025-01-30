@@ -1106,7 +1106,7 @@ footer p {
   width: 100%; /* Full width for smaller screens */
   max-height: 80vh; /* Limit max height to 80% of the viewport height */
   bottom: 10px; /* Move it a bit closer to the bottom */
-  right: 10px; /* Adjust right positioning */
+  right: 1px; /* Adjust right positioning */
 }
 
 /* Chat window */

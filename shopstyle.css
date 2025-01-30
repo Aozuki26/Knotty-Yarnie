@@ -168,51 +168,117 @@ button {
 }
 /* Product Showcase */
 
+/* Product Showcase Section */
 .product-showcase {
   text-align: center;
-  background-color: #ffffff; /* White background */
-  color: black; /* Adjust text color */
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f9f9f9, #e0e0e0); /* Gradient background */
 }
 
-.product-showcase h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #000000; /* Light gray text for headings */
+.showcase-header h2 {
+  font-size: 48px; /* Large heading */
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.product-showcase p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: #0d1316; /* Softer text color for secondary text */
+.showcase-header p {
+  font-size: 20px; /* Large subheading */
+  color: #666;
+  margin-bottom: 50px;
 }
 
 .product-gallery {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 50px;
+  gap: 30px; /* Increased gap for a spacious feel */
 }
 
-.product-item img {
-  width: 280px;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.product-item img:hover {
-  transform: translateY(-40px); /* Moves the image up on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
-}
 .product-item {
-  text-align: center; /* Centers the text below the image */
+  background: #fff;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bold shadow */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 350px; /* Larger product cards */
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* Fixed height for consistency */
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure images fill the container */
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ff4757;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-details {
+  padding: 20px;
+  text-align: center;
 }
 
 .product-title {
-  margin-top: 10px; /* Adds space between the image and the text */
-  font-size: 16px; /* Adjusts the font size */
-  color: #333; /* Text color */
-  font-weight: bold; /* Makes the text bold */
+  font-size: 24px; /* Large title */
+  color: #333;
+  margin: 15px 0 10px;
+  font-weight: bold;
+}
+
+.product-price {
+  font-size: 22px; /* Large price */
+  color: #ff4757;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.original-price {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+
+.shop-now {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.shop-now:hover {
+  background: #ff4757;
 }
 
 .stretch-out {
@@ -250,17 +316,30 @@ button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 400px;
-  height: 450px;
+  width: 380px;
+  max-height: 500px; /* Maximum height to prevent overflowing */
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  z-index: 9999; /* Make sure it sits above other content */
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  z-index: 9999;
 }
+
+/* Chat window */
+#chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 500px; /* Limit scrolling area */
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column; /* Adjust to keep messages stacked */
+}
+
 
 /* When the chatbot is collapsed, it slides off-screen */
 #chatbot-container.collapsed {
@@ -286,16 +365,7 @@ button {
   margin-right: 1px;  /* Space between sprite and close button */
 }
 
-/* Chat window */
-#chat-window {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-}
+
 
 /* Chat messages */
 #chat-output {
@@ -372,6 +442,9 @@ button {
 #chat-input {
   font-size: 14px;  /* Smaller text size for input field */
 }
+
+
+
 
 
 /* Footer */
@@ -660,64 +733,111 @@ footer {
         height: 30px;
     }
 }
+/* Media Query for 480px Screens */
 @media (max-width: 480px) {
-  /* Navbar */
+  /* General Styles */
+  body {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  /* Navbar Adjustments */
   .navbar {
-    padding: 10px 5px; /* Adjust padding for smaller screens */
+    padding: 10px 0; /* Reduce padding */
   }
 
-  .navbar .logo a {
-    font-size: 20px; /* Smaller logo font size */
+  .navbar .logo {
+    font-size: 18px; /* Smaller logo text */
   }
 
-  .navbar .menu li a {
-    font-size: 16px; /* Reduce font size for menu links */
+  .navbar .menu {
+    display: none; /* Hide the menu by default */
+    flex-direction: column; /* Stack menu items vertically */
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Background color for dropdown */
+    z-index: 1000;
   }
 
-  /* Hero section */
-  .hero .hero-content .text-2 {
-    font-size: 45px; /* Smaller font size for main heading */
+  .navbar .menu.active {
+    display: flex; /* Show menu when active */
   }
 
-  .hero .hero-content .text-3 {
-    font-size: 20px; /* Smaller font size for subheading */
+  .navbar .menu li {
+    margin: 10px 0; /* Add spacing between menu items */
   }
 
-  .hero-image img {
-    width: 100%; /* Make the hero image fill the screen */
-    height: auto; /* Maintain aspect ratio */
+  .navbar .menu-btn {
+    display: block; /* Show the hamburger menu button */
+    cursor: pointer;
   }
 
-  /* Product Showcase */
+  /* Product Showcase Section */
+  .product-showcase {
+    padding: 10px; /* Reduce padding */
+  }
+
+  .product-showcase h2 {
+    font-size: 20px; /* Smaller heading */
+  }
+
+  .product-showcase p {
+    font-size: 14px; /* Smaller description text */
+  }
+
   .product-gallery {
-    flex-direction: column; /* Stack the product items vertically */
-    gap: 20px; /* Adjust gap between items */
+    flex-direction: column; /* Stack product items vertically */
+  }
+
+  .product-item {
+    width: 100%; /* Full width for product items */
+    margin-bottom: 20px; /* Add spacing between items */
   }
 
   .product-item img {
-    width: 100%; /* Make product images fill the container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Make images responsive */
+    height: auto;
   }
 
-  /* Footer */
-  footer {
-    font-size: 12px; /* Adjust font size for footer text */
+  .product-title {
+    font-size: 16px; /* Smaller product title */
+    margin-top: 10px; /* Add spacing above the title */
   }
 
-  /* Chatbot */
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+  * Chatbot container */
   #chatbot-container {
-    width: 100%; /* Make the chatbot container full-width */
-    height: 400px; /* Adjust the height for smaller screens */
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 12px; /* Move it a bit closer to the bottom */
+    right: 0px; /* Adjust right positioning */
+  }
+  
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
   }
 
-  /* Adjust button sizes for smaller screens */
-  button {
-    font-size: 14px; /* Smaller button font */
-    padding: 8px 16px; /* Adjust padding */
-  }
-
-  /* Hide some elements for ultra-small screens */
-  .socialIcons {
-    display: none; /* Hide social icons on very small screens */
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
   }
 }
+
+  /* Footer Adjustments */
+  footer {
+    padding: 10px 0; /* Reduce padding */
+  }
+
+  .footer-content p {
+    font-size: 12px; /* Smaller footer text */
+  }
