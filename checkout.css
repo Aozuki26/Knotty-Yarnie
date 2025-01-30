@@ -222,29 +222,30 @@ button {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 2rem;
-    color: #e9db17;
+    color: #000000;
   }
   .glowing-text{
     font-size: 50px;
     font-weight: bold;
-    color: #FFD700; /* Gold color */
+    color: #ffffff3b; /* Gold color */
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 3px;
     animation: glowing 1.5s infinite alternate;
-    text-shadow: 3px 3px 5px rgba(255, 215, 0, 0.7), 
-                 0 0 25px rgba(255, 215, 0, 0.7), 
-                 0 0 50px rgba(255, 215, 0, 0.5);
+    text-shadow: 3px 3px 5px rgb(255, 255, 255), 
+                 0 0 25px rgba(255, 255, 255, 0.7), 
+                 0 0 50px rgba(255, 255, 255, 0.5);
   }
   
   @keyframes glowing {
     0% {
-      text-shadow: 0 0 5px #b49a03, 0 0 10px #FFD700, 0 0 15px #FFCC00, 0 0 20px #FFCC00, 0 0 25px #FFCC00, 0 0 30px #FFCC00, 0 0 35px #FFCC00;
+      text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 25px #ffffff, 0 0 30px #ffffff, 0 0 35px #ffffff;
     }
     100% {
-      text-shadow: 0 0 10px #493f07, 0 0 20px #3f3706, 0 0 30px #FFCC00, 0 0 40px #FFCC00, 0 0 50px #FFCC00, 0 0 60px #FFCC00, 0 0 70px #FFCC00;
+      text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
     }
   }
+  
 /* Add this to your existing CSS */
 .cart-summary {
     font-family: 'Arial', sans-serif;  /* Use any font you prefer */
