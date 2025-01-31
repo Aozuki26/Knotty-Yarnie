@@ -1,11 +1,18 @@
 @import 
 url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
 
+html, body {
+  overflow-x: hidden; /* This will prevent horizontal scrolling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    box-sizing: border-box; /* Ensure all elements are contained within their box */
+
 }
 
 .max-width {
@@ -25,7 +32,10 @@ body {
   opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
 }
-
+.container, .content {
+  width: 100%; /* Ensure they don't exceed 100% of the viewport width */
+  overflow-x: hidden;
+}
 /* Initial state for the element */
 .fade-element {
   opacity: 1;
@@ -734,6 +744,17 @@ footer {
 }
 
 
+/* General Styles for Fade-in Effect */
+.fade-on-scroll {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.enter-fade {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 1;
+}
+
 /* Responsive Design */
 
 /* For Tablets (between 600px and 1024px) */
@@ -774,16 +795,6 @@ footer {
   .footer {
     font-size: medium;
     font-family: 'Times New Roman', Times, serif;
-  }
-
-  /* Fade on scroll for small tablets */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
   }
 }
 
@@ -847,26 +858,16 @@ footer {
   footer p {
     font-size: 14px;
   }
-
-  /* Adjust fade-in animation for mobile */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
 }
 
-/* responsive media queries starts */
-@media(max-width:1300px) {
+/* Specific Breakpoints Adjustments */
+@media(max-width: 1300px) {
   .about .about-content .column {
     width: 50%;
   }
 }
 
-@media(max-width:1150px) {
+@media(max-width: 1150px) {
   .home .max-width {
     margin-left: 0px;
   }
@@ -881,7 +882,7 @@ footer {
   }
 }
 
-@media(max-width:1000px) {
+@media(max-width: 1000px) {
   .max-width {
     padding: 0 50px;
   }
@@ -970,7 +971,7 @@ footer {
   }
 }
 
-@media(max-width:700px) {
+@media(max-width: 700px) {
   .max-width {
     padding: 0 23px;
   }
@@ -986,19 +987,9 @@ footer {
   .home .home-content a {
     font-size: 20px;
   }
-
-  /* Ensure smooth fade animation for smaller screens */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
 }
 
-@media(max-width:500px) {
+@media(max-width: 500px) {
   .home .home-content .text-2 {
     font-size: 50px;
   }
@@ -1011,51 +1002,13 @@ footer {
     margin-top: 0;
     margin-right: 10px;
   }
-
-  /* Ensure smooth fade animation for very small screens */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
 }
 
-@media(max-width:350px) {
+@media(max-width: 350px) {
   .about .title::after,
   .services .title::after,
   .contact .title::after {
     font-size: 15px;
-  }
-
-  /* Ensure smooth fade animation for small devices */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
-  }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .navbar .music-toggle svg {
-    width: 30px;
-    height: 30px;
-  }
-
-  /* Ensure smooth fade animation on all devices */
-  .fade-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-  .enter-fade {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 1;
   }
 }
 
@@ -1063,121 +1016,11 @@ footer {
 @media (max-width: 480px) {
   /* General Styles */
   body {
-    font-size: 14px; /* Smaller font size for mobile */
+    font-size: 14px;
   }
 
   .max-width {
-    padding: 0 20px; /* Reduce padding for smaller screens */
-  }
-
-  .menu-btn {
-    display: block;
-    z-index: 999;
-}
-
-.navbar .menu {
-    position: fixed;
-    height: 100vh;
-    width: 75%; /* Adjusted width for smaller screens */
-    right: -75%; /* Adjusted position */
-    top: 0;
-    text-align: center;
-    background: gold;
-    padding-top: 60px; /* Reduced padding for smaller screens */
-    transition: all 0.3s ease;
-}
-
-.navbar .menu.active {
-    right: 0; /* No change needed here */
-}
-
-.navbar .menu li {
-    display: block;
-}
-
-.navbar .menu li a {
-    display: inline-block;
-    margin: 15px 0; /* Reduced margin for smaller screens */
-    font-size: 20px; /* Smaller font size for better fit */
-}
-
-.navbar .menu li a:hover {
-    color: black;
-    font-size: 25px; /* Adjusted hover font size */
-    font-weight: bold;
-}
-
-  /* Hero Section Adjustments */
-  .home-content {
-    text-align: center; /* Center-align hero content */
-    padding: 20px; /* Add padding */
-  }
-
-  .home-content .text-2 {
-    font-size: 28px; /* Smaller heading */
-  }
-
-  .home-content .text-1 {
-    font-size: 16px; /* Smaller subheading */
-  }
-
-  /* About Section Adjustments */
-  .about-section {
-    padding: 20px; /* Add padding */
-  }
-
-  .about-section h2 {
-    font-size: 24px; /* Smaller heading */
-  }
-
-  .about-text {
-    font-size: 14px; /* Smaller text */
-    line-height: 1.6; /* Improve readability */
-  }
-
-  /* Organizational Structure Adjustments */
-  .team-structure {
-    flex-direction: column; /* Stack team cards vertically */
-    align-items: center; /* Center-align cards */
-  }
-
-  .card {
-    width: 90%; /* Full width for team cards */
-    margin-bottom: 20px; /* Add spacing between cards */
-  }
-
-  .card img {
-    width: 100%; /* Make images responsive */
-    height: auto;
-  }
-
-  .card h3 {
-    font-size: 18px; /* Smaller name */
-  }
-
-  .card p {
-    font-size: 14px; /* Smaller role */
-  }
-
-  /* Footer Adjustments */
-  footer {
-    padding: 10px 0; /* Reduce padding */
-  }
-
-  footer p {
-    font-size: 12px; /* Smaller footer text */
-  }
-}
-
-/* Media Query for 360px to 480px Screens */
-@media (min-width: 360px) and (max-width: 480px) {
-  /* General Styles */
-  body {
-    font-size: 14px; /* Smaller font size for mobile */
-  }
-
-  .max-width {
-    padding: 0 20px; /* Reduce padding for smaller screens */
+    padding: 0 20px;
   }
 
   .menu-btn {
@@ -1188,17 +1031,17 @@ footer {
   .navbar .menu {
     position: fixed;
     height: 100vh;
-    width: 75%; /* Adjusted width for smaller screens */
-    right: -75%; /* Adjusted position */
+    width: 75%;
+    right: -75%;
     top: 0;
     text-align: center;
     background: gold;
-    padding-top: 60px; /* Reduced padding for smaller screens */
+    padding-top: 60px;
     transition: all 0.3s ease;
   }
 
   .navbar .menu.active {
-    right: 0; /* No change needed here */
+    right: 0;
   }
 
   .navbar .menu li {
@@ -1207,74 +1050,101 @@ footer {
 
   .navbar .menu li a {
     display: inline-block;
-    margin: 15px 0; /* Reduced margin for smaller screens */
-    font-size: 20px; /* Smaller font size for better fit */
+    margin: 15px 0;
+    font-size: 20px;
   }
 
   .navbar .menu li a:hover {
     color: black;
-    font-size: 25px; /* Adjusted hover font size */
+    font-size: 25px;
     font-weight: bold;
   }
 
   /* Hero Section Adjustments */
   .home-content {
-    text-align: center; /* Center-align hero content */
-    padding: 20px; /* Add padding */
+    text-align: center;
+    padding: 20px;
   }
 
   .home-content .text-2 {
-    font-size: 28px; /* Smaller heading */
+    font-size: 28px;
   }
 
   .home-content .text-1 {
-    font-size: 16px; /* Smaller subheading */
+    font-size: 16px;
   }
 
   /* About Section Adjustments */
   .about-section {
-    padding: 20px; /* Add padding */
+    padding: 20px;
   }
 
   .about-section h2 {
-    font-size: 24px; /* Smaller heading */
+    font-size: 24px;
   }
 
   .about-text {
-    font-size: 14px; /* Smaller text */
-    line-height: 1.6; /* Improve readability */
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   /* Organizational Structure Adjustments */
   .team-structure {
-    flex-direction: column; /* Stack team cards vertically */
-    align-items: center; /* Center-align cards */
+    flex-direction: column;
+    align-items: center;
   }
 
   .card {
-    width: 90%; /* Full width for team cards */
-    margin-bottom: 20px; /* Add spacing between cards */
+    width: 90%;
+    margin-bottom: 20px;
   }
 
   .card img {
-    width: 100%; /* Make images responsive */
+    width: 100%;
     height: auto;
   }
 
   .card h3 {
-    font-size: 18px; /* Smaller name */
+    font-size: 18px;
   }
 
   .card p {
-    font-size: 14px; /* Smaller role */
+    font-size: 14px;
   }
 
   /* Footer Adjustments */
   footer {
-    padding: 10px 0; /* Reduce padding */
+    padding: 10px 0;
   }
 
   footer p {
-    font-size: 12px; /* Smaller footer text */
+    font-size: 12px;
   }
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+  /* Chatbot container */
+  #chatbot-container {
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 12px; /* Move it a bit closer to the bottom */
+    right: 0px; /* Adjust right positioning */
+  }
+  
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
+  }
+
 }

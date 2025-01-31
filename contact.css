@@ -1,11 +1,18 @@
 @import 
 url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
 
+html, body {
+  overflow-x: hidden; /* This will prevent horizontal scrolling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    box-sizing: border-box; /* Ensure all elements are contained within their box */
+
 }
 
 .max-width {
@@ -24,6 +31,10 @@ body {
   color: #000000; /* Black text for contrast */
   opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
+}
+.container, .content {
+  width: 100%; /* Ensure they don't exceed 100% of the viewport width */
+  overflow-x: hidden;
 }
 
 /* Initial state for the element */
@@ -620,6 +631,7 @@ button:hover {
 
 
 
+
 /* Footer */
 footer {
   background-color: #333;
@@ -1099,4 +1111,152 @@ footer {
   footer p {
     font-size: 12px; /* Smaller footer text */
   }
+}/* Media Query for 360px to 480px Screens */
+@media (min-width: 360px) and (max-width: 480px) {
+  /* General Styles */
+  body {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  .max-width {
+    padding: 0 15px; /* Reduce padding for smaller screens */
+  }
+
+  /* Navbar Adjustments */
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 75%; /* Adjusted width for smaller screens */
+    right: -75%; /* Adjusted position */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 60px; /* Reduced padding for smaller screens */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar .menu.active {
+    right: 0;
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 12px 0; /* Slightly reduced margin */
+    font-size: 18px; /* Smaller font size for better fit */
+  }
+
+  .navbar .menu li a:hover {
+    color: black;
+    font-size: 22px; /* Adjusted hover font size */
+    font-weight: bold;
+  }
+
+  /* Hero Section Adjustments */
+  .home-content {
+
+    padding: 10px;
+  }
+
+  .home-content .text-2 {
+    font-size: 20px; /* Slightly reduced heading size */
+  }
+
+  .home-content .text-1 {
+    font-size: 12px;
+  }
+
+  /* About Section Adjustments */
+  .about-section {
+    padding: 20px;
+    text-align: center; /* Center text for better readability */
+  }
+
+  .about-section h2 {
+    font-size: 24px;
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  /* Organizational Structure Adjustments */
+  .team-structure {
+    display: flex;
+    flex-direction: column; /* Stack team cards vertically */
+    align-items: center;
+    gap: 15px; /* Add spacing between items */
+  }
+
+  .card {
+    width: 90%; /* Responsive width */
+    max-width: 350px; /* Prevent too wide on larger screens */
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Prevents image from being cropped */
+    max-height: 300px; /* Set a reasonable max height */
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  /* Footer Adjustments */
+  footer {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 12px;
+  }
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+  /* Chatbot container */
+  #chatbot-container {
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 12px; /* Move it a bit closer to the bottom */
+    right: 0px; /* Adjust right positioning */
+  }
+  
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
+  }
+
 }

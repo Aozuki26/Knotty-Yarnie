@@ -1,149 +1,1405 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+@import 
+url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+
+html, body {
+  overflow-x: hidden; /* This will prevent horizontal scrolling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    box-sizing: border-box; /* Ensure all elements are contained within their box */
+
+}
+
+.max-width {
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
+  color: #000000; /* Black text for contrast */
+  opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+.container, .content {
+  width: 100%; /* Ensure they don't exceed 100% of the viewport width */
+  overflow-x: hidden;
+}
+
+
+/* Initial state for the element */
+.fade-element {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Apply initial styles for the section */
+.fade-section {
+  opacity: 0;  /* Initially hidden */
+  animation: fadeIn 1.5s ease-out forwards;  /* Fade-in when first loaded */
+}
+
+/* When section is no longer in view, apply fade-out animation */
+.fade-out {
+  animation: fadeOut 1.5s ease-out forwards;  /* Fade-out when section leaves the viewport */
+}
+
+
+   /* Music toggle styling aligned with navbar */
+  
+
+   .navbar .music-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.navbar .music-toggle svg {
+    width: 40px;
+    height: 25px;
+    fill: #000000;
+    transition: fill 0.3s ease;
+    border: none;
+    margin: none;
+    padding: none;
+}
+
+.navbar .music-toggle:hover svg {
+    fill: #ffee00;
+}
+
+/* Visually hidden audio element for screen readers */
+audio {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/* Navbar */
+/* nabar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 30px 0;
+  font-family: 'Ubuntu', sans-serif;
+  transition: all 0.3s ease;
+  background-color: #ffffffc9;
+  border-color: rgb(255,215,0);
+  border: 2px solid rgb(255,215,0);
+}
+
+.navbar.sticky {
+  padding: 15px 0;
+  background-color: rgb(218,165,32);
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 0 auto 40px;
+}
+
+.navbar .logo a {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.navbar-logo {
+  display: inline-flex;
+  margin: 5px; 
+  height: 100px;
+  float: left;
+  left: 50%;
+  width: 130px; 
+  border-radius: 50%; 
+}
+
+.navbar.sticky .logo a span {
+  color: #fff;
+}
+
+.navbar .logo a span {
+  color: rgb(218,165,32);
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-table;
+  right: 70%;
+}
+
+.navbar .menu li a {
+  display: block;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: rgb(238, 222, 5);
+  font-weight: bold;
+}
+
+.navbar.sticky .menu li a:hover {
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+/* menu button styling */
+.menu-btn {
+  color: #eec40b;
+  font-size: 35px;
+  cursor: pointer;
+  display: none;
+}
+
+ #bgMusic {
+ display: none; /* Hides the audio controls */
+          }
+
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.music-control {
+  text-align: right;
+  margin-top: 0%;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+}
+/* home-section styling */
+.home {
+  display:flex;
+  background-image: 
+url('./Images/bg-yarn1.jpg');
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  min-height: 500px;
+  font-family: "Ubunto", sans-serif;
+  
+}
+
+.home .max-width {
+  margin: auto 0 auto 30px;
+}
+
+.home .home-content .text-1 {
+  font-size: 27px;
+}
+
+.home .home-content .text-2 {
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+
+.home .home-content .text-3 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+
+.home .home-content .text-3 span {
+  color: crimson;
+  font-weight: 500;
+}
+
+.home .home-content a {
+  display: inline-block;
+  background: rgb(255, 255, 255);
+  color: #000000;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid rgb(255,215,0);
+}
+
+.home .home-content a:hover {
+  color: rgb(255,215,0);
+  background: none;
+}
+
+@keyframes typing {
+  0% {
+      width: 0; /* Start with no text visible */
+  }
+  100% {
+      width: 100%; /* End with all text visible */
+  }
+}
+
+.typing1 {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden; /* Hide the text that hasn't been typed yet */
+  border-right: 4px solid black; /* Simulate a typing cursor */
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+
+@keyframes blink {
+  50% {
+      border-color: transparent; /* Make the cursor "blink" by hiding the border */
+  }
+}
+
+/* Product Showcase */
+
+.product-showcase {
+  text-align: center;
+  background-color: #ffffff; /* White background */
+  color: black; /* Adjust text color */
+}
+
+.product-showcase h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #000000; /* Light gray text for headings */
+}
+
+.product-showcase p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #0d1316; /* Softer text color for secondary text */
+}
+
+.product-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.product-item img {
+  width: 400px;
+  height: 510px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-item img:hover {
+  transform: translateY(-40px); /* Moves the image up on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+.product-item {
+  text-align: center; /* Centers the text below the image */
+}
+
+.product-title {
+  margin-top: 10px; /* Adds space between the image and the text */
+  font-size: 16px; /* Adjusts the font size */
+  color: #333; /* Text color */
+  font-weight: bold; /* Makes the text bold */
+}
+/* about content */
+.about-us-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-image: url(./Images/mainyarn.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  position: relative;
+  color: white;
+}
+
+.image-frame {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #ddd;
+}
+
+.circle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.text-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.text-box h2 {
+  font-size: 2.5em;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  color: #fff; /* White text */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+               0 0 20px rgba(255, 255, 255, 0.6), 
+               0 0 30px rgba(255, 255, 255, 0.4); /* White glow effect */
+}
+
+.text-box p {
+  font-size: 1.5em;
+  color: #fff;
+  line-height: 1.8;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 
+               0 0 15px rgba(255, 255, 255, 0.5), 
+               0 0 20px rgba(255, 255, 255, 0.3); /* Softer white glow effect */
+  max-width: 900px;
+}
+
+/* Gradient overlay for the container */
+.about-us-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  z-index: 0;
+  border-radius: 8px;
+}
+
+.about-us-container > * {
+  position: relative;
+  z-index: 1; /* Keeps content above the gradient */
+}
+
+
+/* Chatbot */
+/* Chatbot button */
+#chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 320px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* Make sure it sits above other content */
+}
+
+/* Chatbot container */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 380px;
+  max-height: 500px; /* Maximum height to prevent overflowing */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+/* Chat window */
+#chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 500px; /* Limit scrolling area */
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column; /* Adjust to keep messages stacked */
+}
+
+
+/* When the chatbot is collapsed, it slides off-screen */
+#chatbot-container.collapsed {
+  transform: translateY(100%);
+}
+
+/* Header styling */
+#chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mascot sprite inside the header */
+#mascot {
+  width: 81px;  /* Width of one frame (81px) */
+  height: 78px; /* Height of one frame (78px) */
+  background: url('./Images/catwhite.png') no-repeat;
+  background-size: 567px 546px;  /* Sprite sheet total size */
+  margin-right: 1px;  /* Space between sprite and close button */
+}
+
+
+
+/* Chat messages */
+#chat-output {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #e9ecef;
+}
+
+/* Input field and send button */
+#chat-input-container {
+  display: flex;
+  padding: 10px;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#send-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Close button */
+#close-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#close-btn:hover {
+  color: #ff5c5c;
+}
+
+#chat-header {
+  font-weight: 600;  /* Make the font weight bolder */
+  font-size: 18px;  /* Adjust font size */
+}
+
+#chat-output .user-message {
+  font-size: 16px;  /* Make user messages slightly larger */
+}
+
+#chat-input {
+  font-size: 14px;  /* Smaller text size for input field */
+}
+
+
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  height: 60px; /* Adjust the height as needed */
+  background-color: #333; /* Background color for the footer */
+  color: #ffffff; /* Text color */
+  padding: 10px;
+  text-align: center;
+  width: 100%; /* Ensures the footer spans the full width */
+  position: relative; /* Ensures it stays at the bottom of its container */
+}
+
+.footer-content {
+  max-width: 800px; /* Optional: limit the content width */
+}
+footer h1, footer p {
+  font-size: inherit; /* Keeps the inherited font size from the footer container */
+  font-family: inherit; /* Keeps the inherited font family */
+  color: inherit; /* Ensures the color remains consistent with the footer's styling */
+  text-align: center; /* Aligns text to the center */
+  margin: 0; /* Removes unnecessary margin */
+  padding: 0; /* Removes unnecessary padding */
+}
+
+/* Optional: Add custom footer-specific styles here */
+footer h1 {
+  font-size: 18px; /* Adjust heading size in the footer */
+  font-weight: bold; /* Makes the footer heading bold */
+}
+
+footer p {
+  font-size: 14px; /* Adjust paragraph size in the footer */
+  font-weight: normal; /* Ensures normal font weight */
+}
+
+  
+/* Cart Page Styles */
+.cart-page{
+  margin: 20px;
+  padding: 20px;
+
+}
+.cart-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cart-items {
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.item-price {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.remove-item {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.remove-item:hover {
+  background-color: #e65f53;
+}
+
+.cart-summary {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-summary-row p {
+  font-size: 18px;
+  color: #333;
+}
+
+.total-row p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto;
+}
+
+.checkout-btn:hover {
+  background-color: #e65f53;
+}
+
+.go-back-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto;
+}
+
+.go-back-btn:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  /* Cart Page Styles */
-  .cart-page {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cart-page h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .cart-item:last-child {
-    border-bottom: none;
-  }
-  
-  .cart-item img {
+  .cart-item-image {
     width: 80px;
     height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
   }
-  
-  .cart-item div {
-    flex: 1;
-    margin-left: 20px;
-  }
-  
-  .cart-item h3 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .cart-item p {
-    margin: 5px 0;
-    font-size: 14px;
-  }
-  
-  .cart-item .remove-btn {
-    background-color: #ff0000;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .cart-item .remove-btn:hover {
-    background-color: #d00000;
-  }
-  
+
   .cart-summary {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    padding: 15px 0;
-    border-top: 2px solid #ccc;
+    padding: 15px;
   }
-  
-  .cart-summary .total {
-    font-weight: bold;
+
+  .checkout-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .go-back-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+#altToggleButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative; /* Position the tooltip relative to the button */
+}
+
+#altToggleButton svg {
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+}
+
+#altToggleButton:hover svg {
+    color: #007BFF; /* Hover color for icon */
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: 30px; /* Position the tooltip below the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#altToggleButton:hover .tooltip {
+    display: block; /* Show the tooltip when the button is hovered */
+}
+/* Responsive Design */
+
+/* For Tablets (between 600px and 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .product-item img {
+    width: 80%;
+    height: auto;
+  }
+
+  .navbar .logo {
     font-size: 20px;
   }
-  
-  #checkout-btn {
-    background-color: #ff6f61;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    width: 100%;
-    max-width: 250px;
-    margin: 20px auto;
+
+  .nav-links a {
+    margin: 0 10px;
   }
-  
-  #checkout-btn:hover {
-    background-color: #e65f53;
+
+  .footer {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
   }
-  
-  /* Footer Styles */
-  footer {
-    display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center; /* Centers the content vertically */
-    height: 60px; /* Adjust the height as needed */
-    background-color: #333; /* Background color for the footer */
-    color: #fff; /* Text color */
+
+  /* Fade on scroll for small tablets */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* For Mobile (below 600px) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 10px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .cart {
+    margin-top: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .hero-text {
     text-align: center;
-    width: 100%; /* Ensures the footer spans the full width */
-    position: relative; /* Ensures it stays at the bottom of its container */
+    margin-bottom: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .shop-now {
+    font-size: 14px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+  /* Adjust fade-in animation for mobile */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* responsive media queries starts */
+@media(max-width:1300px) {
+  .about .about-content .column {
+    width: 50%;
+  }
+}
+
+@media(max-width:1150px) {
+  .home .max-width {
+    margin-left: 0px;
+  }
+
+  .about .about-content .left img {
+    height: 350px;
+    width: 350px;
+  }
+
+  .socialIcons {
+    margin-right: 70px;
+  }
+}
+
+@media(max-width:1000px) {
+  .max-width {
+    padding: 0 50px;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 50%;
+    right: -50%;
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+    right: 0;
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+
+  .navbar .menu li a:hover {
+    color: black;
+    font-size: 33px;
+    font-weight: bold;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 35px;
+  }
+
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+
+  .max-width {
+    max-width: 800px;
+  }
+
+  .about .about-content .column {
+    width: 100%;
+  }
+
+  .about .about-content .left {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+  }
+
+  .about .about-content .right {
+    flex: 100%;
+  }
+
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .socialIcons {
+    margin-top: 0;
+    margin-right: 150px;
+  }
+
+  .hero-image img {
+    width: 90%;
+    right: 30%;
+  }
+}
+
+@media(max-width:700px) {
+  .max-width {
+    padding: 0 23px;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 60px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 32px;
+  }
+
+  .home .home-content a {
+    font-size: 20px;
+  }
+
+  /* Ensure smooth fade animation for smaller screens */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+@media(max-width:500px) {
+  .home .home-content .text-2 {
+    font-size: 50px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 27px;
+  }
+
+  .socialIcons {
+    margin-top: 0;
+    margin-right: 10px;
+  }
+
+  /* Ensure smooth fade animation for very small screens */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+@media(max-width:350px) {
+  .about .title::after,
+  .services .title::after,
+  .contact .title::after {
+    font-size: 15px;
+  }
+
+  /* Ensure smooth fade animation for small devices */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar .music-toggle svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Ensure smooth fade animation on all devices */
+  .fade-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  .enter-fade {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-us-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .image-frame {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text-box h2 {
+    font-size: 1.8em;
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
+                 0 0 12px rgba(255, 255, 255, 0.6); /* Smaller glow for mobile */
+  }
+
+  .text-box p {
+    font-size: 1em;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 
+                 0 0 10px rgba(255, 255, 255, 0.5); /* Softer glow for mobile */
+  }
+}
+@media (max-width: 480px){
+  .max-width {
+    padding: 0 20px; /* Reduce padding for smaller screens */
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+}
+
+.navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 75%; /* Adjusted width for smaller screens */
+    right: -75%; /* Adjusted position */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 60px; /* Reduced padding for smaller screens */
+    transition: all 0.3s ease;
+}
+
+.navbar .menu.active {
+    right: 0; /* No change needed here */
+}
+
+.navbar .menu li {
+    display: block;
+}
+
+.navbar .menu li a {
+    display: inline-block;
+    margin: 15px 0; /* Reduced margin for smaller screens */
+    font-size: 20px; /* Smaller font size for better fit */
+}
+
+.navbar .menu li a:hover {
+    color: black;
+    font-size: 25px; /* Adjusted hover font size */
+    font-weight: bold;
+}
+
+
+  .home {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 35px; /* Reduce heading size */
+  }
+
+  .home .home-content .text-3 {
+    font-size: 10px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-item img {
+    width: 90%; /* Make images more flexible */
+    height: auto;
+  }
+
+  .about-us-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .image-frame {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text-box h2 {
+    font-size: 1.5em;
+  }
+
+  .text-box p {
+    font-size: 1em;
+  }
+
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+  * Chatbot container */
+  #chatbot-container {
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 12px; /* Move it a bit closer to the bottom */
+    right: 0px; /* Adjust right positioning */
   }
   
-  .footer-content {
-    max-width: 800px; /* Optional: limit the content width */
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
   }
-  
-  
-  @media (max-width: 768px) {
-    .cart-item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .cart-item img {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .cart-item div {
-      margin-left: 0;
-    }
-  
-    .cart-summary {
-      font-size: 16px;
-    }
-  
-    #checkout-btn {
-      width: 100%;
-      max-width: 200px;
-    }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
   }
-  
+}
+
+@media (max-width: 414px) and (min-width: 360px) {
+  .max-width {
+    padding: 0 15px; /* Further reduce padding for very small screens */
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 80%; /* Adjust width slightly larger than 75% for better mobile fit */
+    right: -80%; /* Adjusted position for better initial hide */
+    top: 0;
+    text-align: center;
+    background: gold;
+    padding-top: 50px; /* Adjusted for better spacing */
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+    right: 0;
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 12px 0; /* Reduce margin for better space distribution */
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .navbar .menu li a:hover {
+    color: black;
+    font-size: 22px; /* Adjust hover font size for better visibility */
+    font-weight: bold;
+  }
+
+  .home {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 30px 15px; /* Adjust padding */
+  }
+
+  .home .home-content .text-2 {
+    font-size: 30px; /* Further reduce heading size */
+  }
+
+  .home .home-content .text-3 {
+    font-size: 12px; /* Slight increase for better readability */
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-item img {
+    width: 90%; /* Keep images flexible */
+    height: auto;
+  }
+
+  .about-us-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px; /* Adjust padding */
+  }
+
+  .image-frame {
+    width: 180px;
+    height: 180px; /* Adjust image size for smaller screens */
+  }
+
+  .text-box h2 {
+    font-size: 1.3em; /* Adjust header size for better fit */
+  }
+
+  .text-box p {
+    font-size: 0.9em; /* Adjust paragraph size */
+  }
+
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 15px; /* Move button a bit more to the right */
+    bottom: 15px; /* Keep button close to the bottom */
+    padding: 6px 10px; /* Adjust padding for smaller size */
+  }
+
+  /* Chatbot container */
+  #chatbot-container {
+    width: 100%;
+    max-height: 75vh; /* Limit max height for better use of space */
+    bottom: 10px; /* Move it closer to the bottom */
+    right: 0;
+  }
+
+  /* Chat window */
+  #chat-window {
+    max-height: 350px; /* Adjust scrolling area */
+    padding: 6px; /* Adjust padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 14px; /* Adjust font size */
+    padding: 6px; /* Adjust padding */
+  }
+}
+

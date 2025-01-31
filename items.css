@@ -1,11 +1,18 @@
 @import 
 url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
 
+html, body {
+  overflow-x: hidden; /* This will prevent horizontal scrolling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    box-sizing: border-box; /* Ensure all elements are contained within their box */
+
 }
 
 .max-width {
@@ -22,8 +29,12 @@ body {
   font-family: Arial, sans-serif;
   background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
   color: #000000; /* Black text for contrast */
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+  opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+.container, .content {
+  width: 100%; /* Ensure they don't exceed 100% of the viewport width */
+  overflow-x: hidden;
 }
 
       /* Music toggle styling aligned with navbar */
@@ -1251,66 +1262,204 @@ footer p {
     padding: 8px 0; /* Reduce padding */
   }
  /* Chatbot button */
- #chatbot-toggle {
-  right: 20px; /* Adjust button position */
-  bottom: 20px; /* Keep button at the bottom */
-  padding: 8px 12px; /* Smaller padding */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 20px; /* Adjust button position */
+    bottom: 20px; /* Keep button at the bottom */
+    padding: 8px 12px; /* Smaller padding */
+  }
+  * Chatbot container */
+  #chatbot-container {
+    width: 100%; /* Full width for smaller screens */
+    max-height: 80vh; /* Limit max height to 80% of the viewport height */
+    bottom: 12px; /* Move it a bit closer to the bottom */
+    right: 0px; /* Adjust right positioning */
+  }
+  
+
+  /* Chat window */
+  #chat-window {
+    max-height: 400px; /* Limit scrolling area */
+    padding: 8px; /* Reduced padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 16px; /* Smaller font size for the header */
+    padding: 8px; /* Smaller padding */
+  }
 }
 
-/* Chatbot container */
-#chatbot-container {
-  width: 100%; /* Full width for smaller screens */
-  max-height: 80vh; /* Limit max height to 80% of the viewport height */
-  bottom: 10px; /* Move it a bit closer to the bottom */
-  right: 1px; /* Adjust right positioning */
-}
 
-/* Chat window */
-#chat-window {
-  max-height: 400px; /* Limit scrolling area */
-  padding: 8px; /* Reduced padding */
-}
+@media (max-width: 414px) and (min-width: 360px) {
+  /* Product details adjustments */
+  .product-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+  }
 
-/* Chat header */
-#chat-header {
-  font-size: 16px; /* Smaller font size for the header */
-  padding: 8px; /* Smaller padding */
-}
+  .product-image {
+      order: -1; /* Move image to the top */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10px; /* Further reduced margin */
+  }
 
+  .product-image img {
+      max-width: 80%; /* Slightly larger image size */
+      display: block;
+      margin: 0 auto;
+  }
 
-/* Chat messages */
-.message {
-  margin: 4px 0;
-  padding: 8px;
-  font-size: 14px; /* Smaller text size for messages */
-}
+  .product-details {
+      padding: 0 8px; /* Further reduced padding */
+      text-align: center;
+      width: 100%;
+  }
 
-/* User message */
-.user-message {
-  padding: 8px; /* Reduced padding */
-}
+  .product-details h1 {
+      font-size: 1em; /* Smaller title */
+  }
 
-/* Bot message */
-.bot-message {
-  padding: 8px; /* Reduced padding */
-}
+  .product-price {
+      font-size: 0.9em; /* Slightly smaller price */
+  }
 
-/* Input field and send button */
-#chat-input-container {
-  padding: 8px; /* Reduced padding */
-}
+  .product-description {
+      font-size: 0.7em; /* Even smaller description */
+  }
 
-#chat-input {
-  font-size: 12px; /* Smaller input text */
-  padding: 8px; /* Reduced padding */
-}
+  /* Button container styles */
+  .button-container {
+      display: flex;
+      justify-content: center; /* Center align the buttons */
+      gap: 8px; /* Reduced gap between buttons */
+      margin-top: 12px; /* Smaller margin */
+      width: 100%;
+  }
 
-#send-btn {
-  padding: 8px 12px; /* Smaller button size */
-  font-size: 14px; /* Smaller button text */
-}
+  /* General button styles */
+  button {
+      border: none;
+      padding: 6px 12px; /* Even smaller padding */
+      font-size: 12px; /* Smaller font size */
+      cursor: pointer;
+      border-radius: 4px;
+      text-align: center;
+      width: 100px; /* Even smaller button width */
+  }
 
-#close-btn {
-  font-size: 14px; /* Adjust close button font size */
-}
+  /* Go to Cart button styles */
+  .go-to-cart {
+      background-color: #4caf50; /* Green background */
+      color: white;
+  }
+
+  .go-to-cart:hover {
+      background-color: #45a049; /* Darker green on hover */
+      transition: background-color 0.3s ease;
+  }
+
+  /* Go to Shop button styles */
+  .go-to-shop {
+      background-color: #ff9800; /* Orange background */
+      color: white;
+  }
+
+  .go-to-shop:hover {
+      background-color: #e68a00; /* Darker orange on hover */
+      transition: background-color 0.3s ease;
+  }
+
+  /* Footer adjustments */
+  footer {
+      font-size: 9px; /* Smaller footer text */
+      padding: 6px; /* Smaller padding */
+  }
+
+  footer p {
+      font-size: 9px; /* Smaller footer text */
+  }
+
+  /* Step-by-step container */
+  .step-by-step-container {
+    padding: 30px 10px; /* Adjusted padding for smaller screens */
+  }
+
+  /* Step-by-step content */
+  .step-by-step-content {
+    padding: 0 8px; /* Reduced padding */
+  }
+
+  .step-by-step-container h2 {
+    font-size: 24px; /* Adjust heading size */
+  }
+
+  .step-by-step-container p {
+    font-size: 14px; /* Adjust paragraph font size */
+    margin-bottom: 20px; /* Reduced margin */
+  }
+
+  /* Steps layout */
+  .steps {
+    grid-template-columns: 1fr; /* Stack steps in 1 column */
+  }
+
+  .step {
+    padding: 16px; /* Reduced padding for smaller screens */
+  }
+
+  .step-number {
+    font-size: 18px; /* Smaller step number size */
+  }
+
+  .step-description h3 {
+    font-size: 16px; /* Smaller description heading */
+  }
+
+  .step-description p {
+    font-size: 12px; /* Smaller description text */
+  }
+
+  /* Scroll info */
+  .scroll-info {
+    font-size: 0.8rem; /* Slightly smaller font for readability */
+    padding: 6px 0; /* Reduced padding */
+  }
+
+  /* Chatbot button */
+  #chatbot-toggle {
+    right: 15px; /* Move button a bit more to the right */
+    bottom: 15px; /* Keep button close to the bottom */
+    padding: 6px 10px; /* Adjust padding for smaller size */
+  }
+
+  /* Chatbot container */
+  #chatbot-container {
+    width: 100%;
+    max-height: 75vh; /* Limit max height for better use of space */
+    bottom: 10px; /* Move it closer to the bottom */
+    right: 0;
+  }
+
+  /* Chat window */
+  #chat-window {
+    max-height: 350px; /* Adjust scrolling area */
+    padding: 6px; /* Adjust padding */
+  }
+
+  /* Chat header */
+  #chat-header {
+    font-size: 14px; /* Adjust font size */
+    padding: 6px; /* Adjust padding */
+  }
 }
