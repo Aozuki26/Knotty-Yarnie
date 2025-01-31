@@ -235,17 +235,23 @@ url('./Images/bg-yarn1.jpg');
 
 .home .home-content .text-1 {
   font-size: 27px;
+  text-shadow: 2px 2px 4px black;  /* Horizontal shadow, vertical shadow, blur radius, color (black) */
+
 }
 
 .home .home-content .text-2 {
   font-size: 75px;
   font-weight: 600;
   margin-left: -3px;
+  color: #eec40b;
+  text-shadow: 2px 2px 4px black;  /* Horizontal shadow, vertical shadow, blur radius, color (black) */
+
 }
 
 .home .home-content .text-3 {
   font-size: 40px;
   margin: 5px 0;
+  
 }
 
 .home .home-content .text-3 span {
@@ -1014,7 +1020,7 @@ footer p {
   }
 
   .home .home-content .text-3 {
-    font-size: 10px;
+    font-size: 5px;
   }
 
   .product-gallery {
@@ -1052,7 +1058,7 @@ footer p {
     bottom: 20px; /* Keep button at the bottom */
     padding: 8px 12px; /* Smaller padding */
   }
-  * Chatbot container */
+  /* Chatbot container */
   #chatbot-container {
     width: 100%; /* Full width for smaller screens */
     max-height: 80vh; /* Limit max height to 80% of the viewport height */
@@ -1128,7 +1134,7 @@ footer p {
   }
 
   .home .home-content .text-3 {
-    font-size: 12px; /* Slight increase for better readability */
+    font-size: 5px; /* Slight increase for better readability */
   }
 
   .product-gallery {
