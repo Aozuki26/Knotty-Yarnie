@@ -21,6 +21,11 @@
     </script>
     <link rel="stylesheet" href=
 "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link type="image/png" sizes="16x16" rel="icon" href="./Images/icons8-k-16.png">
   <style>
     @keyframes fadeIn {
             from {
@@ -83,66 +88,45 @@
 
   </style>
 </head>
-<!-- Navbar -->
-  
-<nav class="navbar">
-  <div class="navbar-content">
-    
-    <div class="max-width">
+<body>
+  <nav class="navbar">
+    <div class="header-container">
+        <!-- Logo -->
         <div class="logo">
-            <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank" tabindex="0">
-                <span>Knotty Yarn</span>
+            <a href="index.html">
+                <img src="./Images/yarnnlogo.png" alt="Knotty Yarn Logo">
             </a>
         </div>
-        <ul class="menu">
-            <li>
-                <a href="index.html" class="menu-btn" tabindex="0">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="shop.html" class="menu-btn" class="transition-link" tabindex="0">
-                    Shop
-                </a>
-            </li>
-            <li>
-              <a href="about.html" class="menu-btn" tabindex="0">
-                  About
-              </a>
-          </li>
-            <li>
-                <a href="contact.html" class="menu-btn" tabindex="0">
-                    Contact
-                </a>
-            </li>
-            <li>
-                <a href="cart.html" tabindex="0">
-                  <i class="fas fa-shopping-cart" id="cart-icon"></i>
-             
-                </a>
-              </li>
-            <li>
-              <a href="#"></a>
-     <button class="music-toggle" id="music-toggle" data-playing="false">
-       <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-         <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
-          </svg>
-          <li>
-            <button id="altToggleButton" class="menu-button" tabindex="0">
-              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="m8 7a2 2 0 0 1 2 2v5a2 2 0 0 1 -2 2 2 2 0 0 1 -2-2v-5a2 2 0 0 1 2-2m6 7c0 2.97-2.16 5.44-5 5.92v2.08h-2v-2.08c-2.84-.48-5-2.95-5-5.92h2a4 4 0 0 0 4 4 4 4 0 0 0 4-4zm7.41-4.59-4.24 4.25 1.01-3.66h-4.18a2 2 0 0 1 -2-2v-4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4c0 .55-.22 1.05-.59 1.41z"/>
-              </svg>
-              <span class="tooltip">Enable/Disable Text Speech</span>
-            </button>
-          </li>
-        </ul>
-        
 
-        <div class="menu-btn">
-            <span>☰</span>
-        </div>
+        <!-- Mobile Menu Button -->
+        <button class="menu-btn" id="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menus -->
+        <ul class="menu left-menu">
+            <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
+            <li><a href="shop.html"><i class='bx bx-store'></i> Shop</a></li>
+            <li><a href="about.html"><i class='bx bx-info-circle'></i> About</a></li>
+            <li><a href="contact.html"><i class='bx bx-envelope'></i> Contact</a></li>
+            <li><a id="dark-mode-toggle"><i class='bx bx-moon'></i></a></li>
+        </ul>
+
+        <ul class="menu right-menu">
+            <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+            <li><button id="music-toggle"><i class='bx bx-music'></i></button></li>
+            <li>
+                <button id="altToggleButton" class="menu-button">
+                    <i class='bx bx-universal-access'></i>
+                    <span class="tooltip">Enable/Disable Text Speech</span>
+                </button>
+            </li>
+        </ul>
     </div>
 </nav>
+
     <!-- Background Music -->
     <audio id="background-music" loop>
         <source src="natsuki.mp3" type="audio/mpeg">
@@ -192,13 +176,13 @@
 <button class="next-product" onclick="goToNextProduct()" tabindex="0">
   ➜ Next
 </button> 
-<p class="scroll-info">Scroll for more info.</p>
-</section>
 
+<p class="scroll-info" tabindex="0">Choose customize for instructions on how to avail.</p>
+</section>
 <!-- Modern Additional Product Details Section -->
-<section class="step-by-step-container">
+<section class="step-by-step-container" id="customDetailsSection" style="display: none;">
   <div class="step-by-step-content">
-    <h2>Want to customize your order? </h2>
+    <h2>Want to customize your order?</h2>
     <p>Here’s how you can do it before checking out! 🎀</p>
     <div class="steps">
       <div class="step">
@@ -219,32 +203,36 @@
         <div class="step-number">3</div>
         <div class="step-description">
           <h3>Enter Your Details</h3>
-          <p>Fill in your Name, Email, and Payment Method as usual.
-          </p>
+          <p>Fill in your Name, Email, and Payment Method as usual.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-number">4</div>
         <div class="step-description">
-          <h3> Step 4: Add Custom Requests</h3>
-          <p>In the Email field, include your customization details!
-<br>
+          <h3>Add Custom Requests</h3>
+          <p>In the Email field, include your customization details!<br>
             💌 Example: ‘Please make this in pastel pink and add a small bow detail.’
-            </p>
+          </p>
         </div>
       </div>
       <div class="step">
         <div class="step-number">5</div>
         <div class="step-description">
-          <h3> Complete Your Order</h3>
-          <p>Review everything and place your order. We’ll check your request and confirm it with you before crafting your special piece!
-          </p>
+          <h3>Complete Your Order</h3>
+          <p>Review everything and place your order. We’ll check your request and confirm it with you before crafting your special piece!</p>
         </div>
       </div>
     </div>
   </div>
-
 </section>
+<!-- Custom Alert Modal -->
+<div id="customAlert" class="alert-modal">
+  <div class="alert-content">
+    <span id="closeAlert" class="close-btn">&times;</span>
+    <p id="alertMessage">Product added to cart!</p>
+    <button id="okBtn" class="ok-btn">OK</button>
+  </div>
+</div>
 <script>
   function goToPreviousProduct() {
     window.location.href = "item4.html"; // Change this to your actual previous product page
@@ -266,10 +254,16 @@ document.getElementById('add-to-cart').addEventListener('click', function() {
 // Get the selected color
 const selectedColor = document.getElementById('color').value;
 
+  // Apply the customization fee if the user selects the "Customize" option
+  let finalPrice = discountedPrice5;
+  if (selectedColor === "Customize") {
+    finalPrice += 50; // Add an extra 20 pesos for customization
+  }
+
 // Product object to store
 const product = {
   name: productName5,
-  price: discountedPrice5,
+  price: finalPrice,
   color: selectedColor,
   quantity: 1,
   image: './Images/daisy keychain.jpg' // Product Image
@@ -291,10 +285,36 @@ if (existingProduct) {
 
 // Store the updated cart in localStorage
 localStorage.setItem('cart', JSON.stringify(cart));
-
-// Optionally, show an alert or update UI to indicate the item was added
-alert('Product added to cart!');
+// Show custom alert
+showAlert('Product added to cart!');
 });
+
+// Function to show the custom alert modal
+function showAlert(message) {
+  const alertModal = document.getElementById('customAlert');
+  const alertMessage = document.getElementById('alertMessage');
+  alertMessage.textContent = message;
+  alertModal.style.display = 'block';
+
+  // Close the alert when the user clicks OK
+  document.getElementById('okBtn').onclick = function() {
+    alertModal.style.display = 'none';
+  };
+
+  // Close the alert when the user clicks the close button (×)
+  document.getElementById('closeAlert').onclick = function() {
+    alertModal.style.display = 'none';
+  };
+
+  // Close the alert if the user clicks outside the modal
+  window.onclick = function(event) {
+    if (event.target === alertModal) {
+      alertModal.style.display = 'none';
+    }
+  };
+  
+}
+
 </script>
 
 <!-- Chatbot-->
@@ -330,6 +350,21 @@ alert('Product added to cart!');
       window.location.href = 'Item1.html';
     }, 500); // Adjust timeout to match your fade-out duration
   });
+
+  
+ // Get the dropdown and the section element
+const colorSelect = document.getElementById('color');
+const customDetailsSection = document.getElementById('customDetailsSection');
+
+// Listen for changes to the dropdown selection
+colorSelect.addEventListener('change', function () {
+  if (colorSelect.value === "Customize") {
+    customDetailsSection.style.display = 'block'; // Show the customization details
+  } else {
+    customDetailsSection.style.display = 'none'; // Hide it if not 'Customize'
+  }
+});
+
 </script>
 
   <br> <br> <br> <br>  <br> <br><br><br><br>

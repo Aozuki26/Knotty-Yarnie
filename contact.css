@@ -25,17 +25,76 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
-  color: #000000; /* Black text for contrast */
-  opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --header-bg: #f8f9fa;
+  --sticky-bg:rgb(255, 217, 0);
 }
+
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --header-bg: #818181;
+  --sticky-bg:rgb(145, 124, 10);
+
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+/* Tooltip Container */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+#dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  bottom: -40px; /* Ensures tooltip appears below */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Show tooltip when hovering over the button */
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
 .container, .content {
   width: 100%; /* Ensure they don't exceed 100% of the viewport width */
   overflow-x: hidden;
 }
+
 
 /* Initial state for the element */
 .fade-element {
@@ -75,33 +134,6 @@ body {
 }
 
 
-   /* Music toggle styling aligned with navbar */
-  
-
-   /* Music toggle styling aligned with navbar */
-  
-
-   .navbar .music-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-
-.navbar .music-toggle svg {
-    width: 40px;
-    height: 25px;
-    fill: #000000;
-    transition: fill 0.3s ease;
-    border: none;
-    margin: none;
-    padding: none;
-}
-
-.navbar .music-toggle:hover svg {
-    fill: #ffee00;
-}
-
 /* Visually hidden audio element for screen readers */
 audio {
     position: absolute;
@@ -110,91 +142,243 @@ audio {
     height: 1px;
     overflow: hidden;
 }
-/* Navbar */
-/* nabar styling */
-.navbar {
+/* Header Styling */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   position: fixed;
-  width: 100%;
-  z-index: 999;
-  padding: 30px 0;
-  font-family: 'Ubuntu', sans-serif;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure the header stays on top */
   transition: all 0.3s ease;
-  background-color: #ffffffc9;
+  padding: 15px 0;
   border-color: rgb(255,215,0);
   border: 2px solid rgb(255,215,0);
 }
-
-.navbar.sticky {
-  padding: 15px 0;
-  background-color: rgb(218,165,32);
+/* Sticky Header Styling */
+.sticky {
+  position: fixed;
+  padding: 1px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Darker shadow */
+  z-index: 1000;
+  background-color: var(--sticky-bg);
+  transition: all 0.3s ease;
 }
 
-.navbar .max-width {
+/* Logo Styling */
+.logo img {
+  width: auto;
+  max-width: 230px;
+  height: auto;
+  object-fit: contain;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+/* Left Menu (Home, Shop, About, Contact) */
+.navbar .left-menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  list-style: none;
+}
+
+/* Right Menu (Cart, Music, Accessibility) */
+.navbar .right-menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto; /* Pushes right menu to the far right */
+  list-style: none;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+/* Right menu icon styling */
+.left-menu .menu li a i,
+.left-menu .menu li button i {
+  font-size: 32px; /* Set the font size for icons */
+  padding: 5px; /* Optional: add padding around the icons */
+  margin: 0; /* Remove any margin that may affect size */
+}
+
+/* Right menu icon styling */
+.right-menu .menu li a i,
+.right-menu .menu li button i {
+  font-size: 32px; /* Set the font size for icons */
+  padding: 5px; /* Optional: add padding around the icons */
+  margin: 0; /* Remove any margin that may affect size */
+}
+
+#cart-icon,
+#music-icon,
+#speech-icon {
+  font-size: 32px !important; /* Adjust this as needed */
+}
+
+
+/* Navbar Item Styling */
+.navbar .menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: auto 0 auto 40px;
+  gap: 5px;
 }
 
-.navbar .logo a {
-  color: #fff;
-  font-size: 35px;
-  font-weight: 600;
+/* Icon Styling */
+.navbar .menu li a i {
+  font-size: 30px;
 }
 
-.navbar-logo {
-  display: inline-flex;
-  margin: 5px; 
-  height: 100px;
-  float: left;
-  left: 50%;
-  width: 130px; 
-  border-radius: 50%; 
-}
-
-.navbar.sticky .logo a span {
-  color: #fff;
-}
-
-.navbar .logo a span {
-  color: rgb(218,165,32);
-}
-
-.navbar .menu li {
-  list-style: none;
-  display: inline-table;
-  right: 70%;
-}
-
-.navbar .menu li a {
-  display: block;
-  color: #000000;
-  font-size: 18px;
-  font-weight: 500;
-  font-weight: 500;
-  margin-left: 25px;
-  transition: color 0.3s ease;
-}
-
-.navbar .menu li a:hover {
-  color: rgb(238, 222, 5);
-  font-weight: bold;
-}
-
-.navbar.sticky .menu li a:hover {
-  color: #fff;
-  font-weight: bold;
-}
-
-
-
-/* menu button styling */
-.menu-btn {
-  color: #eec40b;
-  font-size: 35px;
+/* Button Styling */
+.navbar .menu li button {
+  background: none;
+  border: none;
   cursor: pointer;
-  display: none;
 }
+
+/* Tooltip Styling */
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.menu-button:hover .tooltip {
+  display: block;
+}
+
+/* Optional: Add hover effect for links */
+.navbar .menu li a:hover {
+  color: #007bff; /* Change link color to blue on hover */
+}
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #333;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Menu Styling */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  padding: 10px 15px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+
+/* 🔥 Style the Hamburger Menu */
+.menu-btn {
+  display: none; /* Initially hidden on desktop */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px; /* Space between the spans */
+  width: 40px;
+  height: 40px;
+  z-index: 1100;
+}
+
+/* 📏 Style the three lines (set color to black) */
+.menu-btn span {
+  display: block;
+  width: 35px;
+  height: 4px;
+  background: black; /* Change color to black */
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+/* 📱 Show Button Only on Mobile */
+@media (max-width: 768px) {
+  .menu-btn {
+      display: flex;
+  }
+}
+
+/* 🟢 Open Menu Animation */
+.menu-btn.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* 📱 Responsive Mobile Menu */
+@media (max-width: 768px) {
+  .menu-btn {
+      display: flex; /* Show button on mobile */
+  }
+
+  .menu {
+      display: none; /* Hide menu by default */
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: #222;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  .menu.active {
+      display: flex;
+  }
+}
+
 
  #bgMusic {
  display: none; /* Hides the audio controls */
@@ -214,6 +398,9 @@ button {
   padding: 10px 20px;
   margin: 10px;
   font-size: 16px;
+}
+.bx {
+  font-size: 26px;  /* Change this value to make it larger */
 }
 /* container for 2 pcis*/
 .container {

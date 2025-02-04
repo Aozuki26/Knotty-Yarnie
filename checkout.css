@@ -1,11 +1,18 @@
 @import 
 url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
 
+html, body {
+  overflow-x: hidden; /* This will prevent horizontal scrolling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    box-sizing: border-box; /* Ensure all elements are contained within their box */
+
 }
 
 .max-width {
@@ -19,16 +26,17 @@ html {
 }
 
 body {
- font-family: Arial, sans-serif;
-  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0);
-  color: #000000;
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-  margin: 0; /* Reset margins */
-  padding: 0; /* Reset padding */
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
+  color: #000000; /* Black text for contrast */
   opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
 }
+.container, .content {
+  width: 100%; /* Ensure they don't exceed 100% of the viewport width */
+  overflow-x: hidden;
+}
+
 
 /* Initial state for the element */
 .fade-element {
@@ -68,30 +76,6 @@ body {
 }
 
 
-   /* Music toggle styling aligned with navbar */
-  
-
-   .navbar .music-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-
-.navbar .music-toggle svg {
-    width: 40px;
-    height: 25px;
-    fill: #000000;
-    transition: fill 0.3s ease;
-    border: none;
-    margin: none;
-    padding: none;
-}
-
-.navbar .music-toggle:hover svg {
-    fill: #ffee00;
-}
-
 /* Visually hidden audio element for screen readers */
 audio {
     position: absolute;
@@ -100,98 +84,158 @@ audio {
     height: 1px;
     overflow: hidden;
 }
-/* Navbar */
-/* nabar styling */
-.navbar {
+/* Header Styling */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gold;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   position: fixed;
-  width: 100%;
-  z-index: 999;
-  padding: 30px 0;
-  font-family: 'Ubuntu', sans-serif;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure the header stays on top */
   transition: all 0.3s ease;
-  background-color: #ffffffc9;
   border-color: rgb(255,215,0);
   border: 2px solid rgb(255,215,0);
+  padding: 1px 0;
+}
+/* Sticky Header Styling */
+.sticky {
+  position: fixed;
+  padding: 1px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Darker shadow */
+  z-index: 1000;
+  background-color: rgb(219, 187, 3);
+  transition: all 0.3s ease;
+  padding: 0 0;
 }
 
-.navbar.sticky {
-  padding: 15px 0;
-  background-color: rgb(218,165,32);
+/* Logo Styling */
+.logo img {
+  width: auto;
+  max-width: 230px;
+  height: auto;
+  object-fit: contain;
+  padding: 20px;
+  margin-right: 20px;
 }
 
-.navbar .max-width {
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+/* Left Menu (Home, Shop, About, Contact) */
+.navbar .left-menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  list-style: none;
+}
+
+/* Right Menu (Cart, Music, Accessibility) */
+.navbar .right-menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto; /* Pushes right menu to the far right */
+  list-style: none;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+/* Right menu icon styling */
+.left-menu .menu li a i,
+.left-menu .menu li button i {
+  font-size: 32px; /* Set the font size for icons */
+  padding: 5px; /* Optional: add padding around the icons */
+  margin: 0; /* Remove any margin that may affect size */
+}
+
+/* Right menu icon styling */
+.right-menu .menu li a i,
+.right-menu .menu li button i {
+  font-size: 32px; /* Set the font size for icons */
+  padding: 5px; /* Optional: add padding around the icons */
+  margin: 0; /* Remove any margin that may affect size */
+}
+
+#cart-icon,
+#music-icon,
+#speech-icon {
+  font-size: 32px !important; /* Adjust this as needed */
+}
+
+
+/* Navbar Item Styling */
+.navbar .menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: auto 0 auto 40px;
+  gap: 5px;
 }
 
-.navbar .logo a {
-  color: #fff;
-  font-size: 35px;
-  font-weight: 600;
+/* Icon Styling */
+.navbar .menu li a i {
+  font-size: 30px;
 }
-.navbar-logo {
-  display: inline-flex;
-  margin: 5px; 
-  height: 100px;
-  float: left;
+
+/* Button Styling */
+.navbar .menu li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tooltip Styling */
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 30px;
   left: 50%;
-  width: 130px; 
-  border-radius: 50%; 
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
 }
 
-.navbar.sticky .logo a span {
-  color: #fff;
-}
-
-.navbar .logo a span {
-  color: rgb(218,165,32);
-}
-
-.navbar .menu li {
-  list-style: none;
-  display: inline-table;
-  right: 70%;
-}
-
-.navbar .menu li a {
+.menu-button:hover .tooltip {
   display: block;
-  color: #000000;
-  font-size: 18px;
-  font-weight: 500;
-  font-weight: 500;
-  margin-left: 25px;
-  transition: color 0.3s ease;
 }
 
+/* Optional: Add hover effect for links */
 .navbar .menu li a:hover {
-  color: rgb(238, 222, 5);
-  font-weight: bold;
+  color: #007bff; /* Change link color to blue on hover */
 }
-
-.navbar.sticky .menu li a:hover {
-  color: #fff;
-  font-weight: bold;
-}
-
-
 
 /* menu button styling */
 .menu-btn {
-  color: #000000;
+  color: #eec40b;
   font-size: 35px;
   cursor: pointer;
   display: none;
 }
 
-
-
  #bgMusic {
  display: none; /* Hides the audio controls */
           }
 
-
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .music-control {
   text-align: right;
@@ -201,6 +245,9 @@ button {
   padding: 10px 20px;
   margin: 10px;
   font-size: 16px;
+}
+.bx {
+  font-size: 26px;  /* Change this value to make it larger */
 }
 
 /* checkout.css */

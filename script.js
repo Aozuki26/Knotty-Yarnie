@@ -7,14 +7,24 @@ $(document).ready(function () {
       }
       
   });
-
+// JavaScript to add/remove the 'sticky' class on scroll
+window.onscroll = function() {
+    var header = document.querySelector('.header-container');
+    if (window.scrollY > 0) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+  };
   
+  
+  $(document).ready(function () {
+    $('#menu-btn').click(function () {
+        $('.left-menu, .right-menu').toggleClass("active"); // Toggle menu
+        $(this).toggleClass("open"); // Animate button
+    });
+});
 
-  // toggle menu / navbar script
-  $('.menu-btn').click(function () {
-      $('.navbar .menu').toggleClass("active");
-      $('.menu-btn span').toggleClass("active");
-  });
 
   // typing animation
   const typed1 = new Typed(".typing", {
@@ -85,4 +95,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 

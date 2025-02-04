@@ -34,6 +34,11 @@
       });
    })();
 </script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link type="image/png" sizes="16x16" rel="icon" href="./Images/icons8-k-16.png">
 <style>
   @keyframes fadeIn {
             from {
@@ -83,69 +88,215 @@
 #altToggleButton:hover .tooltip {
     display: block; /* Show the tooltip when the button is hovered */
 }
+/* Apply a custom font and italicize the product names */
+.product-name {
+    font-family: 'Arial', sans-serif; /* Change to any custom font you prefer */
+    font-style: italic;
+    font-size: 15px;
+  
+}
+.product-price{
+  font-family: 'Arial', sans-serif; /* Change to any custom font you prefer */
+    font-style: italic;
+    font-size: 15px;
+  
+}
+.product-color{
+  font-family: 'Arial', sans-serif; /* Change to any custom font you prefer */
+    font-style: italic;
+    font-size: 15px;
+  
+}
+.product-quantity{
+  font-family: 'Arial', sans-serif; /* Change to any custom font you prefer */
+    font-style: italic;
+    font-size: 15px;
+  
+}
+.product-total{
+  font-family: 'Arial', sans-serif; /* Change to any custom font you prefer */
+    font-style: italic;
+    font-size: 15px;
+  
+}
+
+/* Phone Number Input Field */
+input[type="tel"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+input[type="tel"]:focus {
+    border-color: #ff6f61;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Label Styling for Phone Number */
+label[for="phone"] {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+/* Payment Method Section */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+select,
+input[type="file"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+select:focus,
+input[type="file"]:focus,
+input[type="text"]:focus {
+    border-color: #ff00ff;
+    outline: none;
+}
+
+select {
+    background-color: #f9f9f9;
+}
+
+input[type="file"] {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+input[type="text"] {
+    background-color: #f9f9f9;
+}
+
+input[type="file"]:hover {
+    background-color: #e6e6e6;
+}
+
+input[type="text"]:hover {
+    background-color: #e6e6e6;
+}
+
+/* Payment Details Section */
+#payment-details {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    display: none;
+}
+
+#payment-details label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+
+#payment-upload,
+#payment-reference {
+    margin-bottom: 20px;
+}
+
+#payment-upload input,
+#payment-reference input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+#payment-upload input:focus,
+#payment-reference input:focus {
+    border-color: #ff00ff;
+    outline: none;
+}
+
+#payment-upload input {
+    background-color: #f0f0f0;
+}
+
+#payment-reference input {
+    background-color: #f9f9f9;
+}
+
+#payment-details {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    select,
+    input[type="file"],
+    input[type="text"] {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
 
 </style>
 </head>
 <div class="fade-on-scroll"></div>
 <body>
- <!-- Navbar -->
-  
- <nav class="navbar">
-  <div class="navbar-content">
-    
-    <div class="max-width">
+  <nav class="navbar">
+    <div class="header-container">
+        <!-- Logo -->
         <div class="logo">
-            <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
-                <span>Knotty Yarn</span>
+            <a href="index.html">
+                <img src="./Images/yarnnlogo.png" alt="Knotty Yarn Logo">
             </a>
         </div>
-        <ul class="menu">
-            <li>
-                <a href="index.html" class="menu-btn">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="shop.html" class="menu-btn" class="transition-link">
-                    Shop
-                </a>
-            </li>
-            <li>
-              <a href="about.html" class="menu-btn">
-                  About
-              </a>
-          </li>
-            <li>
-                <a href="contact.html" class="menu-btn">
-                    Contact
-                </a>
-            </li>
-            <li>
-                <a href="cart.html">
-                  <i class="fas fa-shopping-cart" id="cart-icon"></i>
-             
-                </a>
-              </li>
-            <li>
-              <a href="#"></a>
-     <button class="music-toggle" id="music-toggle" data-playing="false">
-       <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-         <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
-          </svg>
-          <li>
-            <button id="altToggleButton" class="menu-button" tabindex="0">
-              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="m8 7a2 2 0 0 1 2 2v5a2 2 0 0 1 -2 2 2 2 0 0 1 -2-2v-5a2 2 0 0 1 2-2m6 7c0 2.97-2.16 5.44-5 5.92v2.08h-2v-2.08c-2.84-.48-5-2.95-5-5.92h2a4 4 0 0 0 4 4 4 4 0 0 0 4-4zm7.41-4.59-4.24 4.25 1.01-3.66h-4.18a2 2 0 0 1 -2-2v-4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4c0 .55-.22 1.05-.59 1.41z"/>
-              </svg>
-              <span class="tooltip">Enable/Disable Text Speech</span>
-            </button>
-          </li>
-        </ul>
-        
 
-        <div class="menu-btn">
-            <span>☰</span>
-        </div>
+        <!-- Mobile Menu Button -->
+        <button class="menu-btn" id="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menus -->
+        <ul class="menu left-menu">
+            <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
+            <li><a href="shop.html"><i class='bx bx-store'></i> Shop</a></li>
+            <li><a href="about.html"><i class='bx bx-info-circle'></i> About</a></li>
+            <li><a href="contact.html"><i class='bx bx-envelope'></i> Contact</a></li>
+            <li><a id="dark-mode-toggle"><i class='bx bx-moon'></i></a></li>
+        </ul>
+
+        <ul class="menu right-menu">
+            <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+            <li><button id="music-toggle"><i class='bx bx-music'></i></button></li>
+            <li>
+                <button id="altToggleButton" class="menu-button">
+                    <i class='bx bx-universal-access'></i>
+                    <span class="tooltip">Enable/Disable Text Speech</span>
+                </button>
+            </li>
+        </ul>
     </div>
 </nav>
 
@@ -154,7 +305,7 @@
         <source src="natsuki.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-<body>
+    
     <br><br><br><br>
   <center>
       <div class="checkout-container">
@@ -171,47 +322,57 @@
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
           </div>
-      
+        
           <div class="form-group">
             <label for="address">Address</label>
             <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
           </div>
+        
           <div class="form-group">
-            <label for="payment-method">Payment Method</label>
-            <select id="payment-method" name="payment-method" required onchange="showQR()">
-              <option value="">-- Select Payment Method --</option>
-              <option value="gcash">Gcash</option>
-              <option value="cod">Cash on Delivery (COD)</option>
-            </select>
-            <!-- QR Code Modal -->
-<div id="qr-modal" class="qr-modal">
-  <div class="qr-modal-content">
-    <span class="close-btn" onclick="closeQR()">&times;</span>
-    <div id="qr-code">
-      <!-- QR Code will appear here for Gcash -->
-      <img src="./Images/qr.jpg" alt="Gcash QR" id="qr-img">
-    </div>
-  </div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required pattern="[0-9]{11}">
+            
+          </div>
+        
+          <!-- Payment Method -->
+<div class="form-group">
+  <label for="payment-method">Payment Method</label>
+  <select id="payment-method" name="payment-method" required onchange="showPaymentFields()">
+    <option value="">-- Select Payment Method --</option>
+    <option value="gcash">Gcash</option>
+    <option value="cod">Cash on Delivery (COD)</option>
+  </select>
 </div>
-          </div>          
+
+<!-- Payment Reference or Image Upload Section -->
+<div id="payment-details" style="display: none;">
+  <div id="payment-upload">
+    <label for="payment-image">Upload Payment Image</label>
+    <input type="file" id="payment-image" name="payment-image" accept="image/*">
+  </div>
+  
+ 
+</div>
+
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
           </div>
-
+        
           <!-- 🧵 Customization Section 🧵 -->
-      <div class="form-group">
-        <label for="customization">Customization Request (Optional)</label>
-        <textarea id="customization" name="customization" placeholder="Describe your custom order details here..."></textarea>
-      </div>
-
+          <div class="form-group">
+            <label for="customization">Customization Request (Optional)</label>
+            <textarea id="customization" name="customization" placeholder="Describe your custom order details here..."></textarea>
+          </div>
+        
           <p>By using this website, you agree to our <a href="#" id="privacy-link">Privacy Policy</a>.</p>
           <br>
-      <div class="form-group">
-        <input type="submit" value="Confirm Purchase">
-      </div>
-    </form>
-
+        
+          <div class="form-group">
+            <input type="submit" value="Confirm Purchase">
+          </div>
+        </form>
+        
     <p id="success-message" style="color: green; display: none;">Order submitted successfully!</p>
   </div>
         </form>
@@ -308,33 +469,51 @@ function formatPeso(amount) {
     return '₱' + amount.toFixed(2); // Ensure the price always has two decimal places
 }
 
-// Load cart data from localStorage and display it on the checkout page
 window.onload = function () {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const selectedCart = JSON.parse(localStorage.getItem('selectedCart')) || [];
     const cartItemsTable = document.getElementById('cart-items');
 
-    // If cart is empty, show a message
-    if (cart.length === 0) {
-        cartItemsTable.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+    // If no items are selected, show a message
+    if (selectedCart.length === 0) {
+        cartItemsTable.innerHTML = '<tr><td colspan="5">Your cart is empty. Please select items to proceed.</td></tr>';
         return;
     }
 
-    // Loop through the cart items and create rows for the table
-    cart.forEach(item => {
+    // Loop through the selected items and create rows for the table
+    selectedCart.forEach(item => {
         const row = document.createElement('tr');
-
         row.innerHTML = `
-            <td>${item.name}</td>
-            <td>${item.color}</td>
-            <td>${item.quantity}</td>
-            <td>${formatPeso(item.price)}</td>
-            <td>${formatPeso(item.price * item.quantity)}</td>
+            <td><span class="product-name">${item.name}</span></td>
+            <td><span class="product-color">${item.color}</span></td>
+            <td><span class="product-quantity">${item.quantity}</td>
+            <td><span class="product-price">${formatPeso(item.price)}</td>
+            <td><span class="product-total">${formatPeso(item.price * item.quantity)}</td>
         `;
         cartItemsTable.appendChild(row);
     });
 
-    // Calculate and display total price
-    const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    // Calculate subtotal
+    const subtotal = selectedCart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const shippingFee = 36.00;
+    const totalAmount = subtotal + shippingFee;
+
+    // Add subtotal row
+    const subtotalRow = document.createElement('tr');
+    subtotalRow.innerHTML = `
+        <td colspan="4"><strong>Subtotal</strong></td>
+        <td><strong>${formatPeso(subtotal)}</strong></td>
+    `;
+    cartItemsTable.appendChild(subtotalRow);
+
+    // Add shipping fee row
+    const shippingRow = document.createElement('tr');
+    shippingRow.innerHTML = `
+        <td colspan="4"><strong>Shipping Fee</strong></td>
+        <td><strong>${formatPeso(shippingFee)}</strong></td>
+    `;
+    cartItemsTable.appendChild(shippingRow);
+
+    // Add total row
     const totalRow = document.createElement('tr');
     totalRow.innerHTML = `
         <td colspan="4"><strong>Total</strong></td>
@@ -353,27 +532,34 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
     const address = document.getElementById('address').value;
     const paymentMethod = document.getElementById('payment-method').value; // New: Get payment method
     const customization = document.getElementById("customization").value || "No customization requested"; // Default message if empty
+    const phoneNumber = document.getElementById('phone').value; // Get phone number using the id 'phone'
 
-
-    // Validate form inputs
-    if (!name || !email || !address || !paymentMethod || !customization) {
-        alert('Please fill out all fields and select a payment method.');
+    // Validate phone number using the HTML5 pattern (11 digits)
+const phoneInput = document.getElementById('phone');
+    if (!phoneInput.validity.valid) {
+        alert('Please enter a valid 11-digit phone number.');
         return;
     }
 
-    // Get cart data from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (cart.length === 0) {
+    // Validate other form inputs
+    if (!name || !email || !address || !paymentMethod || !phoneNumber) { // Check if all fields are filled
+        alert('Please fill out all required fields and select a payment method.');
+        return;
+    }
+
+    // Get selected cart data from localStorage
+    const selectedCart = JSON.parse(localStorage.getItem('selectedCart')) || [];
+    if (selectedCart.length === 0) {
         alert('Your cart is empty. Please add items before checking out.');
         return;
     }
 
     let cartDetails = '';
-    cart.forEach(item => {
+    selectedCart.forEach(item => {
         cartDetails += `${item.name} (${item.color}) - ${item.quantity} x ${formatPeso(item.price)}\n`;
     });
 
-    const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const totalAmount = selectedCart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
     // Send email via EmailJS
     emailjs.send('service_le3k54m', 'template_k950ffy', {
@@ -387,46 +573,33 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
     }).then(function (response) {
         console.log('Success!', response.status, response.text);
         alert('Confirmation email sent!');
-
-      
         
-        window.location.href = 'order-confirmation.html';
+        window.location.href = 'order-confirmation.html'; // Redirect to order confirmation page
     }, function (error) {
         console.log('Failed...', error);
         alert('Failed to send confirmation email!');
     });
 });
-document.getElementById('checkout-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    
 
-    // Proceed with form submission...
-});
-
+</script>
       </script>
     <br>
 
  
   <br>
   <script>
-   function showQR() {
-  var paymentMethod = document.getElementById('payment-method').value;
-  var qrModal = document.getElementById('qr-modal');
-
-  // Show QR code modal if Gcash is selected
-  if (paymentMethod === 'gcash') {
-    qrModal.style.display = "block";
-  } else {
-    qrModal.style.display = "none"; // Hide the modal if any other payment method is selected
-  }
+   // Show the corresponding payment details fields based on selected payment method
+function showPaymentFields() {
+    var paymentMethod = document.getElementById('payment-method').value;
+    var paymentDetails = document.getElementById('payment-details');
+    
+    // Show payment fields (upload image or reference number) only for GCash
+    if (paymentMethod === 'gcash') {
+        paymentDetails.style.display = "block";  // Show the upload or reference fields
+    } else {
+        paymentDetails.style.display = "none";  // Hide fields if payment method is COD or other
+    }
 }
-
-function closeQR() {
-  var qrModal = document.getElementById('qr-modal');
-  qrModal.style.display = "none"; // Close the modal
-}
-
 
   </script>
 

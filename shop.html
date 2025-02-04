@@ -21,6 +21,12 @@
     </script>
     <link rel="stylesheet" href=
 "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link type="image/png" sizes="16x16" rel="icon" href="./Images/icons8-k-16.png">
+
   <style>
     @keyframes fadeIn {
             from {
@@ -76,64 +82,54 @@
 <div class="fade-on-scroll"></div>
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-content">
-      
-      <div class="max-width">
-          <div class="logo">
-              <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank" tabindex="0">
-                  <span>Knotty Yarn</span>
-              </a>
-          </div>
-          <ul class="menu">
-              <li>
-                  <a href="index.html" class="menu-btn" tabindex="0">
-                      Home
-                  </a>
-              </li>
-              <li>
-                  <a href="shop.html" class="menu-btn" class="transition-link" tabindex="0">
-                      Shop
-                  </a>
-              </li>
-              <li>
-                <a href="about.html" class="menu-btn" tabindex="0">
-                    About
-                </a>
-            </li>
-              <li>
-                  <a href="contact.html" class="menu-btn" tabindex="0">
-                      Contact
-                  </a>
-              </li>
-              <li>
-                  <a href="cart.html" tabindex="0">
-                    <i class="fas fa-shopping-cart" id="cart-icon"></i>
-               
-                  </a>
-                </li>
-              <li>
-                <a href="#"></a>
-       <button class="music-toggle" id="music-toggle" data-playing="false">
-         <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-           <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-1.72 1.72-1.72-1.72Z" />
-            </svg>
-            <li>
-              <button id="altToggleButton" class="menu-button" tabindex="0">
-                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m8 7a2 2 0 0 1 2 2v5a2 2 0 0 1 -2 2 2 2 0 0 1 -2-2v-5a2 2 0 0 1 2-2m6 7c0 2.97-2.16 5.44-5 5.92v2.08h-2v-2.08c-2.84-.48-5-2.95-5-5.92h2a4 4 0 0 0 4 4 4 4 0 0 0 4-4zm7.41-4.59-4.24 4.25 1.01-3.66h-4.18a2 2 0 0 1 -2-2v-4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4c0 .55-.22 1.05-.59 1.41z"/>
-                </svg>
-                <span class="tooltip">Enable/Disable Text Speech</span>
-              </button>
-            </li>
-          </ul>
-          
-  
-          <div class="menu-btn">
-              <span>☰</span>
-          </div>
-      </div>
-  </nav>
+
+    
+  <!-- Navigation Menu -->
+<!-- Navigation Menu -->
+<nav class="navbar">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="./Images/yarnnlogo.png" alt="Knotty Yarn Logo">
+      </a>
+    </div>
+
+    <ul class="menu left-menu">
+      <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
+      <li><a href="shop.html"><i class='bx bx-store'></i> Shop</a></li>
+      <li><a href="about.html"><i class='bx bx-info-circle'></i> About</a></li>
+      <li><a href="contact.html"><i class='bx bx-envelope'></i> Contact</a></li>
+    </ul>
+
+    <ul class="menu right-menu">
+      <li>
+        <a href="cart.html">
+          <i class='bx bx-cart' id="cart-icon"></i>
+        </a>
+      </li>
+      <li>
+        <button id="music-toggle">
+          <i class='bx bx-music' id="music-icon"></i>
+        </button>
+      </li>
+      <li>
+        <button id="altToggleButton" class="menu-button">
+          <i class='bx bx-universal-access' id="speech-icon"></i>
+          <span class="tooltip">Enable/Disable Text Speech</span>
+        </button>
+      </li>
+
+      <!-- Mobile Menu Button (Hamburger) -->
+      <li>
+        <button class="menu-btn" id="menu-btn">
+          <span>☰</span> <!-- Hamburger icon -->
+        </button>
+      </li>
+    </ul> 
+  </div>
+</nav>
+
 
 
     <!-- Background Music -->
@@ -141,14 +137,8 @@
         <source src="natsuki.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
  <!-- Product Showcase Section -->
-<section class="product-showcase">
-  <div class="showcase-header">
-    <h2>Welcome to Our Shop</h2>
-    <p>Take a look and buy to your heart's content</p>
-  </div>
-  
   <div class="product-gallery">
     <div class="product-item">
       <a href="Item1.html" >
@@ -159,7 +149,7 @@
         <div class="product-details">
           <p class="product-title">Mesh Headband</p>
           <p class="product-price">₱60.00 <span class="original-price">₱70.00</span></p>
-          <button class="shop-now" tabindex="0">See More..</button>
+          <button class="shop-now" tabindex="0">Description of product</button>
         </div>
       </a>
     </div>
@@ -172,8 +162,8 @@
         <div class="product-details">
           <p class="product-title">Daisy Pouch</p>
           <p class="product-price">₱60.00 <span class="original-price">₱70.00</span></p>
-          <button class="shop-now"tabindex="0">See More..</button>
-        </div>
+          <button class="shop-now" tabindex="0">Description of product</button>
+       </div>
       </a>
     </div>
     <div class="product-item">
@@ -185,7 +175,7 @@
         <div class="product-details">
           <p class="product-title">Mesh Bag</p>
           <p class="product-price">₱129.00 <span class="original-price">₱150.00</span></p>
-          <button class="shop-now" tabindex="0">See More..</button>
+          <button class="shop-now" tabindex="0">Description of product</button>
         </div>
       </a>
     </div>
@@ -203,7 +193,7 @@
         <div class="product-details">
           <p class="product-title">Tumbler Cap</p>
           <p class="product-price">₱40.00 <span class="original-price">₱60.00</span></p>
-          <button class="shop-now" tabindex="0">See More..</button>
+          <button class="shop-now" tabindex="0">Description of product</button>
         </div>
       </a>
     </div>
@@ -216,7 +206,7 @@
         <div class="product-details">
           <p class="product-title">Keychain</p>
           <p class="product-price">₱50.00 <span class="original-price">₱70.00</span></p>
-          <button class="shop-now" tabindex="0">See More..</button>
+          <button class="shop-now" tabindex="0">Description of product</button>
         </div>
       </a>
     </div>
@@ -229,7 +219,7 @@
         <div class="product-details">
           <p class="product-title">ID Holder</p>
           <p class="product-price">₱30.00 <span class="original-price">₱50.00</span></p>
-          <button class="shop-now" tabindex="0">See More..</button>
+          <button class="shop-now" tabindex="0">Description of product</button>
         </div>
       </a>
     </div>

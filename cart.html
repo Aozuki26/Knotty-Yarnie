@@ -8,123 +8,153 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link type="image/png" sizes="16x16" rel="icon" href="./Images/icons8-k-16.png">
   <style>
+* {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
   
 /* Cart Page Styles */
-.cart-page{
-  margin: 20px;
-  padding: 20px;
+/* Cart Page Styles */
+.cart-page {
+  width: 90%; /* Prevent it from being too wide */
+  max-width: 1200px; /* Optional: Restrict max width */
+  margin: 30px auto; /* Center the cart */
+  padding: 30px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
 
-}
-.cart-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
 h1 {
   text-align: center;
-  font-size: 32px;
-  margin-bottom: 30px;
+  font-size: 36px;
+  margin-bottom: 40px;
   color: #333;
 }
 
 .cart-items {
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between cart items */
 }
 
 .cart-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.cart-item:last-child {
-  border-bottom: none;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 20px; /* Creates space between elements */
 }
 
 .cart-item-details {
   display: flex;
   align-items: center;
+  flex: 1;
+  gap: 20px;
 }
 
 .cart-item-image {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 5px;
-  margin-right: 20px;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .cart-item-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Quantity Section */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   flex: 1;
 }
 
-.cart-item-info h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #333;
-}
-
-.item-price {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #555;
-}
-
-.remove-item {
-  background-color: #ff6f61;
-  color: white;
+.quantity-btn {
+  background-color: #f0f0f0;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 16px;
   cursor: pointer;
+  font-size: 16px;
   border-radius: 5px;
-  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
-.remove-item:hover {
-  background-color: #e65f53;
+.quantity-btn:hover {
+  background-color: #ddd;
+}
+
+/* Adjusting table layout if you're using a table */
+.cart-items-table td:nth-child(3) {
+  text-align: center;
+}
+
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .cart-summary {
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Change from sticky to relative */
+  margin-top: 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 
 .cart-summary-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .cart-summary-row p {
-  font-size: 18px;
+  font-size: 20px;
   color: #333;
 }
 
 .total-row p {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 }
 
 .checkout-btn {
   background-color: #ff6f61;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 30px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 8px;
   width: 100%;
-  max-width: 250px;
-  margin: 20px auto;
+  max-width: 300px;
+  margin: 30px auto;
+  transition: background-color 0.3s ease;
 }
 
 .checkout-btn:hover {
@@ -135,20 +165,23 @@ h1 {
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 30px;
   cursor: pointer;
-  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 8px;
   margin-top: 20px;
   display: block;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
   margin: 20px auto;
+  transition: background-color 0.3s ease;
 }
 
 .go-back-btn:hover {
   background-color: #45a049;
 }
 
+/* Footer Styles */
 footer {
   background-color: #333;
   color: white;
@@ -163,6 +196,14 @@ footer {
 footer p {
   margin: 0;
 }
+/* Increase the size of the checkboxes */
+.select-item {
+    width: 15px; /* Adjust width */
+    height: 15px; /* Adjust height */
+    transform: scale(1.5); /* This will increase the size by 1.5 times */
+    margin: 10px; /* Optional: Add some space around the checkbox */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -229,38 +270,61 @@ footer p {
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
-    <div class="navbar-content">
-      <div class="max-width">
+    <div class="header-container">
+        <!-- Logo -->
         <div class="logo">
-          <a href="https://youtu.be/of4aFbUKjbk?si=xBSnt9qBBJ6wZScb" target="_blank">
-            <span>Knotty Yarn</span>
-          </a>
-        </div>
-        <ul class="menu">
-          <li><a href="index.html" class="menu-btn">Home</a></li>
-          
-        <li><a href="shop.html" class="menu-btn">Shop</a></li>
-        <li><a href="about.html" class="menu-btn">About</a></li>
-        <li><a href="contact.html" class="menu-btn">Contact</a></li>
-          <li>
-            <a href="cart.html">
-              <i class="fas fa-shopping-cart" id="cart-icon"></i>
+            <a href="index.html">
+                <img src="./Images/yarnnlogo.png" alt="Knotty Yarn Logo">
             </a>
-          </li>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="menu-btn" id="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menus -->
+        <ul class="menu left-menu">
+            <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
+            <li><a href="shop.html"><i class='bx bx-store'></i> Shop</a></li>
+            <li><a href="about.html"><i class='bx bx-info-circle'></i> About</a></li>
+            <li><a href="contact.html"><i class='bx bx-envelope'></i> Contact</a></li>
+            <li><a id="dark-mode-toggle"><i class='bx bx-moon'></i></a></li>
         </ul>
-      </div>
+
+        <ul class="menu right-menu">
+            <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+            <li><button id="music-toggle"><i class='bx bx-music'></i></button></li>
+            <li>
+                <button id="altToggleButton" class="menu-button">
+                    <i class='bx bx-universal-access'></i>
+                    <span class="tooltip">Enable/Disable Text Speech</span>
+                </button>
+            </li>
+        </ul>
     </div>
-  </nav>
+</nav>
+
+
+     <!-- Background Music -->
+     <audio id="background-music" loop>
+      <source src="natsuki.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  
+
+
   <br><br><br><br><br><br><br><br>
   <!-- Cart Page -->
-<section class="cart-page">
+<section class="cart-page" style="width: 100%; height: 100vh; padding: 20px; overflow-y: auto;">
   <h1>Your Shopping Cart</h1>
 
-  <div id="cart-items" class="cart-items"></div>
+  <div id="cart-items" class="cart-items" style="display: flex; flex-direction: column; gap: 20px;"></div>
 
-  <div class="cart-summary">
+  <div class="cart-summary" style="position: sticky; bottom: 0; background-color: white; padding: 20px;">
     <div class="cart-summary-row">
       <p>Subtotal:</p>
       <p>₱<span id="subtotal">0.00</span></p>
@@ -280,7 +344,6 @@ footer p {
 </section>
 
 <script>
-// Handle displaying cart items
 document.addEventListener('DOMContentLoaded', function() {
   const cartItemsContainer = document.getElementById('cart-items');
   const subtotalElement = document.getElementById('subtotal');
@@ -302,23 +365,29 @@ document.addEventListener('DOMContentLoaded', function() {
       cartItemElement.classList.add('cart-item');
       cartItemElement.innerHTML = `
         <div class="cart-item-details">
+          <input type="checkbox" class="select-item" data-index="${index}" ${item.selected ? 'checked' : ''}>
           <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+          
           <div class="cart-item-info">
             <h3>${item.name} (${item.color})</h3>
             <p class="item-price">₱${item.price.toFixed(2)}</p>
-            <p>Quantity: ${item.quantity}</p>
-            <button class="remove-item" data-index="${index}">Remove</button>
           </div>
+
+          <!-- Quantity controls centered -->
+          <div class="quantity-controls">
+            <button class="quantity-btn decrease" data-index="${index}" data-action="decrease">-</button>
+            <span class="quantity-display">${item.quantity}</span>
+            <button class="quantity-btn increase" data-index="${index}" data-action="increase">+</button>
+          </div>
+
+          <button class="remove-item" data-index="${index}">Remove</button>
         </div>
       `;
       cartItemsContainer.appendChild(cartItemElement);
     });
 
     // Update the total and subtotal
-    const shipping = 36.00;
-    const total = subtotal + shipping;
-    subtotalElement.textContent = subtotal.toFixed(2);
-    totalElement.textContent = total.toFixed(2);
+    updateTotal();
   }
 
   // Function to remove an item from the cart
@@ -331,23 +400,80 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCart();
   }
 
-  // Add event listeners to "Remove" buttons
-  cartItemsContainer.addEventListener('click', function(event) {
-    if (event.target.classList.contains('remove-item')) {
-      const index = event.target.getAttribute('data-index');
-      removeItem(index);
+  // Function to adjust the quantity of an item
+  function adjustQuantity(index, action) {
+    if (action === 'increase') {
+      cart[index].quantity += 1;
+    } else if (action === 'decrease' && cart[index].quantity > 1) {
+      cart[index].quantity -= 1;
     }
+    // Update localStorage with the new cart
+    localStorage.setItem('cart', JSON.stringify(cart));
+    // Update the cart UI
+    updateCart();
+  }
+
+  // Add event listeners to "Remove", "Quantity", and checkbox selection
+  cartItemsContainer.addEventListener('click', function(event) {
+    const index = event.target.getAttribute('data-index');
+    const action = event.target.getAttribute('data-action');
+
+    if (event.target.classList.contains('remove-item')) {
+      removeItem(index);
+    } else if (action) {
+      adjustQuantity(index, action);
+    } else if (event.target.classList.contains('select-item')) {
+      updateTotal(); // Update the total when a selection is made
+      // Update the "selected" state in the cart
+      cart[index].selected = event.target.checked;
+      localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart
+    }
+  });
+
+  // Function to update the total based on selected items
+  function updateTotal() {
+    const selectedItems = document.querySelectorAll('.select-item:checked');
+    let subtotal = 0;
+
+    selectedItems.forEach((checkbox) => {
+      const index = checkbox.getAttribute('data-index');
+      subtotal += cart[index].price * cart[index].quantity;
+    });
+
+    const shipping = 36.00;
+    const total = subtotal + shipping;
+    subtotalElement.textContent = subtotal.toFixed(2);
+    totalElement.textContent = total.toFixed(2);
+  }
+
+  // Add event listener to the "Proceed to Checkout" button
+  document.getElementById('checkout-btn').addEventListener('click', function() {
+    // Get selected items
+    const selectedItems = document.querySelectorAll('.select-item:checked');
+    let selectedCart = [];
+
+    selectedItems.forEach((checkbox) => {
+      const index = checkbox.getAttribute('data-index');
+      selectedCart.push(cart[index]);
+    });
+
+    if (selectedCart.length === 0) {
+      alert("Please select at least one item to checkout!");
+      return;
+    }
+
+    // Save selected items to localStorage
+    localStorage.setItem('selectedCart', JSON.stringify(selectedCart));
+
+    // Redirect to the checkout page
+    window.location.href = 'checkout.html'; // Assuming checkout page is named checkout.html
   });
 
   // Update the cart when the page loads
   updateCart();
 });
 
-// Add event listener to the "Proceed to Checkout" button
-document.getElementById('checkout-btn').addEventListener('click', function() {
-  // Redirect to the checkout page
-  window.location.href = 'checkout.html'; // Assuming checkout page is named checkout.html
-});
+
 </script>
 
 
