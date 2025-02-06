@@ -1,4 +1,5 @@
 const chatbotContainer = document.getElementById('chatbot-container');
+const chatWindow = document.getElementById('chat-window'); // This is the scrollable container
 const chatOutput = document.getElementById('chat-output');
 const chatInput = document.getElementById('chat-input');
 const sendButton = document.getElementById('send-btn');
@@ -35,10 +36,25 @@ function appendMessage(message, className) {
   messageElement.innerHTML = message; // Use innerHTML to enable HTML rendering
   messageElement.className = `message ${className}`;
   chatOutput.appendChild(messageElement);
-  chatOutput.scrollTop = chatOutput.scrollHeight;
+
+  // Scroll the chatWindow container to the latest message
+  chatWindow.scrollTo({
+    top: chatWindow.scrollHeight,
+    behavior: 'smooth'
+  });
 }
 
 sendButton.addEventListener('click', () => {
+  sendMessage();
+});
+
+chatInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+});
+
+function sendMessage() {
   const userInput = chatInput.value.trim().toLowerCase();
   if (!userInput) return;
 
@@ -47,37 +63,17 @@ sendButton.addEventListener('click', () => {
 
   const botResponse = getBotResponse(userInput);
   setTimeout(() => appendMessage(botResponse, 'bot-message'), 500);
-});
-
-chatInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    sendButton.click();
-  }
-});
+}
 
 // Improved response matching function
 function getBotResponse(userInput) {
-  if (userInput.includes("help")) {
-    return responses.help;
-  }
-  if (userInput.includes("hello")) {
-    return responses.hello;
-  }
-  if (userInput.includes("hi")) {
-    return responses.hi;
-  }
-  if (userInput.includes("yarnie")) {
-    return responses.yarnie;
-  }
-  if (userInput.includes("customize")) {
-    return responses.customize;
-  }
-  if (userInput.includes("order update")) {
-    return responses.orderupdate;
-  }
-  if (userInput.includes("thank you")) {
-    return responses.thankyou;
-  }
+  if (userInput.includes("help")) return responses.help;
+  if (userInput.includes("hello")) return responses.hello;
+  if (userInput.includes("hi")) return responses.hi;
+  if (userInput.includes("yarnie")) return responses.yarnie;
+  if (userInput.includes("customize")) return responses.customize;
+  if (userInput.includes("order update")) return responses.orderupdate;
+  if (userInput.includes("thank you")) return responses.thankyou;
 
   return responses.default;
 }
