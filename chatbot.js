@@ -1,8 +1,10 @@
 const chatbotContainer = document.getElementById('chatbot-container');
-const chatWindow = document.getElementById('chat-window'); // This is the scrollable container
+const chatWindow = document.getElementById('chat-window'); // Scrollable container
 const chatOutput = document.getElementById('chat-output');
 const chatInput = document.getElementById('chat-input');
 const sendButton = document.getElementById('send-btn');
+const attachButton = document.getElementById('attach-btn');
+const attachInput = document.getElementById('attach-input');
 
 const responses = {
   hello: "Good day my Dear Crafty Customer,<br>Yarnie is here to help ease with your inquiries.〵(^ o ^)〴",
@@ -14,6 +16,7 @@ const responses = {
   orderupdate: "Need help tracking your order? 📦 No problem!<br>Just give me your order details, and I’ll check its status right away. 🧐",
   customize: "Looking for something special?<br>Let’s create a customized product just for you! Whether it’s colors, patterns, or a dream design, Yarnie’s got you covered!",
   thankyou: "Thank you for visiting Knotty Yarn!<br>Your support means the world to us. <br>Can’t wait to hear from you again! 🧶💖",
+  image_response: "Thank you for purchasing our product! 🎉 We appreciate your support. 🧶💖",
 };
 
 let hasWelcomeMessage = false; // Flag to track if welcome message has been sent
@@ -78,3 +81,35 @@ function getBotResponse(userInput) {
   return responses.default;
 }
 
+// 📌 Attach Image Button Functionality
+attachButton.addEventListener('click', () => {
+  attachInput.click(); // Open file selector
+});
+
+attachInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const imageUrl = e.target.result; // Get the image data URL
+      appendMessage(`<img src="${imageUrl}" alt="Attached Image" class="attached-image">`, 'user-message');
+
+      // 🛠️ Bot thanks the user for their purchase
+      setTimeout(() => appendMessage(responses.image_response, 'bot-message'), 500);
+    };
+
+    reader.readAsDataURL(file); // Convert file to base64 URL
+  }
+});
+
+// CSS for attached images (optional)
+const style = document.createElement('style');
+style.innerHTML = `
+  .attached-image {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-top: 5px;
+  }
+`;
+document.head.appendChild(style);

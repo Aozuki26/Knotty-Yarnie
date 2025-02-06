@@ -757,6 +757,21 @@ button {
 #chat-input {
   font-size: 14px;  /* Smaller text size for input field */
 }
+/* Attach button styling */
+#attach-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 14px; /* Adjust font size as needed */
+}
+
+#attach-btn:hover {
+  background-color: #0056b3;
+}
 
 
 
