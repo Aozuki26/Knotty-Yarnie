@@ -77,3 +77,4 @@ function getBotResponse(userInput) {
 
   return responses.default;
 }
+
