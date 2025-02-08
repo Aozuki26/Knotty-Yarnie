@@ -45,6 +45,41 @@ body {
   color: var(--text-color);
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }
+#altToggleButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative; /* Position the tooltip relative to the button */
+}
+
+#altToggleButton svg {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+}
+
+#altToggleButton:hover svg {
+  color: #007BFF; /* Hover color for icon */
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 30px; /* Position the tooltip below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+#altToggleButton:hover .tooltip {
+  display: block; /* Show the tooltip when the button is hovered */
+}
 
 /* Tooltip Container */
 .tooltip-container {
@@ -312,20 +347,49 @@ audio {
 }
 
 /* 🔥 Style the Hamburger Menu */
-.menu-btn {
-  display: none; /* Initially hidden on desktop */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  gap: 5px; /* Space between the spans */
-  width: 40px;
-  height: 40px;
-  z-index: 1100;
-}
+  .menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        z-index: 1000; /* Ensure it's on top */
+    }
 
+    .bar {
+        width: 35px;
+        height: 4px;
+        background-color: #333;
+        border-radius: 5px;
+        transition: 0.3s;
+        margin: 6px 0;
+    }
+
+    /* Animation when active */
+    .menu-btn.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-btn.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-btn.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /* ✅ Hide button on screens larger than 1024px */
+    @media only screen and (min-width: 1025px) {
+        .menu-btn {
+            display: none !important;
+        }
+    }
 /* 📏 Style the three lines (set color to black) */
 .menu-btn span {
   display: block;
@@ -378,6 +442,7 @@ audio {
       display: flex;
   }
 }
+
 
 
  #bgMusic {
@@ -813,6 +878,7 @@ footer p {
 }
 
 /* Responsive Design */
+
 /* Mobile Menu Button */
 @media (min-width: 360px) and (max-width: 1000px)  {
   .menu-btn {

@@ -81,53 +81,39 @@
 </head>
 <div class="fade-on-scroll"></div>
 <body>
+  <nav class="navbar">
+    <div class="header-container">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="./Images/yarnnlogo.png" alt="Knotty Yarn Logo">
+            </a>
+        </div>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle Menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+      </button>
+        <!-- Navigation Menus -->
+        <ul class="menu left-menu">
+            <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
+            <li><a href="shop.html"><i class='bx bx-store'></i> Shop</a></li>
+            <li><a href="about.html"><i class='bx bx-info-circle'></i> About</a></li>
+            <li><a href="contact.html"><i class='bx bx-envelope'></i> Contact</a></li>
+            <li><a id="dark-mode-toggle"><i class='bx bx-moon'></i></a></li>
+        </ul>
 
-
-    
-  <!-- Navigation Menu -->
-<!-- Navigation Menu -->
-<nav class="navbar">
-  <div class="header-container">
-    <!-- Logo -->
-    <div class="logo">
-      <a href="index.html">
-        <img src="./Images/yarnnlogo.png" alt="Knotty Yarn Logo">
-      </a>
+        <ul class="menu right-menu">
+            <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+            <li><button id="music-toggle"><i class='bx bx-music'></i></button></li>
+            <li>
+                <button id="altToggleButton" class="menu-button">
+                    <i class='bx bx-universal-access'></i>
+                    <span class="tooltip">Enable/Disable Text Speech</span>
+                </button>
+            </li>
+        </ul>
     </div>
-
-    <ul class="menu left-menu">
-      <li><a href="index.html"><i class='bx bx-home'></i> Home</a></li>
-      <li><a href="shop.html"><i class='bx bx-store'></i> Shop</a></li>
-      <li><a href="about.html"><i class='bx bx-info-circle'></i> About</a></li>
-      <li><a href="contact.html"><i class='bx bx-envelope'></i> Contact</a></li>
-    </ul>
-
-    <ul class="menu right-menu">
-      <li>
-        <a href="cart.html">
-          <i class='bx bx-cart' id="cart-icon"></i>
-        </a>
-      </li>
-      <li>
-        <button id="music-toggle">
-          <i class='bx bx-music' id="music-icon"></i>
-        </button>
-      </li>
-      <li>
-        <button id="altToggleButton" class="menu-button">
-          <i class='bx bx-universal-access' id="speech-icon"></i>
-          <span class="tooltip">Enable/Disable Text Speech</span>
-        </button>
-      </li>
-
-      <!-- Mobile Menu Button (Hamburger) -->
-      <li>
-        <button class="menu-btn" id="menu-btn">
-          <span>☰</span> <!-- Hamburger icon -->
-        </button>
-      </li>
-    </ul> 
-  </div>
 </nav>
 
 

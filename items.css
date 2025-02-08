@@ -312,20 +312,49 @@ audio {
 }
 
 /* 🔥 Style the Hamburger Menu */
-.menu-btn {
-  display: none; /* Initially hidden on desktop */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  gap: 5px; /* Space between the spans */
-  width: 40px;
-  height: 40px;
-  z-index: 1100;
-}
+  .menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        z-index: 1000; /* Ensure it's on top */
+    }
 
+    .bar {
+        width: 35px;
+        height: 4px;
+        background-color: #333;
+        border-radius: 5px;
+        transition: 0.3s;
+        margin: 6px 0;
+    }
+
+    /* Animation when active */
+    .menu-btn.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-btn.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-btn.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /* ✅ Hide button on screens larger than 1024px */
+    @media only screen and (min-width: 1025px) {
+        .menu-btn {
+            display: none !important;
+        }
+    }
 /* 📏 Style the three lines (set color to black) */
 .menu-btn span {
   display: block;
@@ -378,6 +407,7 @@ audio {
       display: flex;
   }
 }
+
 
 
  #bgMusic {
@@ -1040,7 +1070,79 @@ footer p {
 
 
 /* Responsive Design */
+/* Mobile Menu Button */
+@media  (max-width: 1025px)  {
+  .menu-btn {
+    display: block; /* Ensure it's displayed on mobile */
+    font-size: 35px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* Ensure it's on top */
+  }
 
+  /* Optionally, style the menu items to hide initially for mobile */
+  .navbar .left-menu {
+    display: none; /* Initially hide the menu */
+    flex-direction: column; /* Stack the menu items */
+    gap: 10px; /* Space out the menu items */
+  }
+
+  /* When the menu is toggled, display it */
+  .navbar .left-menu.active {
+    display: flex; /* Show menu when active */
+  }
+}
+@media (min-width: 320px) and (max-width: 425px) {
+  .menu-btn {
+    display: block; /* Ensure it's displayed on mobile */
+    font-size: 35px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* Ensure it's on top */
+  }
+
+  /* Hide menu items initially */
+  .navbar .left-menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px; /* Adjust position under the menu button */
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Background for visibility */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  /* Show menu when active */
+  .navbar .left-menu.active {
+    display: flex;
+  }
+
+  /* Optional: Style individual menu items */
+  .navbar .left-menu a {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .navbar .left-menu a:hover {
+    background-color: #f5f5f5;
+  }
+}
 /* For Tablets (between 600px and 1024px) */
 @media (max-width: 1024px) {
   .hero {

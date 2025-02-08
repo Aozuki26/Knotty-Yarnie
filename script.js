@@ -25,6 +25,9 @@ window.onscroll = function() {
     });
 });
 
+document.getElementById("menu-btn").addEventListener("click", function() {
+    this.classList.toggle("active");
+});
 
   // typing animation
   const typed1 = new Typed(".typing", {

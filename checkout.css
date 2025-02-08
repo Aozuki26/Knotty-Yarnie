@@ -25,13 +25,71 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Lighter gradient */
-  color: #000000; /* Black text for contrast */
-  opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --header-bg: #f8f9fa;
+  --sticky-bg:rgb(255, 217, 0);
 }
+
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --header-bg: #818181;
+  --sticky-bg:rgb(145, 124, 10);
+
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+/* Tooltip Container */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+#dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  bottom: -40px; /* Ensures tooltip appears below */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Show tooltip when hovering over the button */
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
 .container, .content {
   width: 100%; /* Ensure they don't exceed 100% of the viewport width */
   overflow-x: hidden;
@@ -89,7 +147,8 @@ audio {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: gold;
+  padding: 15px 30px;
+  background-color: var(--header-bg);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -97,9 +156,9 @@ audio {
   right: 0;
   z-index: 1000; /* Ensure the header stays on top */
   transition: all 0.3s ease;
+  padding: 15px 0;
   border-color: rgb(255,215,0);
   border: 2px solid rgb(255,215,0);
-  padding: 1px 0;
 }
 /* Sticky Header Styling */
 .sticky {
@@ -111,9 +170,8 @@ audio {
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Darker shadow */
   z-index: 1000;
-  background-color: rgb(219, 187, 3);
+  background-color: var(--sticky-bg);
   transition: all 0.3s ease;
-  padding: 0 0;
 }
 
 /* Logo Styling */
@@ -218,14 +276,129 @@ audio {
 .navbar .menu li a:hover {
   color: #007bff; /* Change link color to blue on hover */
 }
-
-/* menu button styling */
-.menu-btn {
-  color: #eec40b;
-  font-size: 35px;
-  cursor: pointer;
-  display: none;
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #333;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
+
+/* Menu Styling */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  padding: 10px 15px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+
+/* 🔥 Style the Hamburger Menu */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bar {
+  width: 35px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin: 6px 0; /* Adds spacing between bars */
+}
+
+/* Animation when active */
+.menu-btn.active .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+/* 📏 Style the three lines (set color to black) */
+.menu-btn span {
+  display: block;
+  width: 35px;
+  height: 4px;
+  background: black; /* Change color to black */
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+/* 📱 Show Button Only on Mobile */
+@media (max-width: 768px) {
+  .menu-btn {
+      display: flex;
+  }
+}
+
+/* 🟢 Open Menu Animation */
+.menu-btn.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* 📱 Responsive Mobile Menu */
+@media (max-width: 768px) {
+  .menu-btn {
+      display: flex; /* Show button on mobile */
+  }
+
+  .menu {
+      display: none; /* Hide menu by default */
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: #222;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  .menu.active {
+      display: flex;
+  }
+}
+
 
  #bgMusic {
  display: none; /* Hides the audio controls */
@@ -249,7 +422,6 @@ button {
 .bx {
   font-size: 26px;  /* Change this value to make it larger */
 }
-
 /* checkout.css */
 
   .checkout-container {
@@ -643,7 +815,32 @@ max-width: 600px;
   }
   
   /* Responsive Design */
+/* Mobile Menu Button */
+@media (min-width: 360px) and (max-width: 1000px)  {
+  .menu-btn {
+    display: block; /* Ensure it's displayed on mobile */
+    font-size: 35px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* Ensure it's on top */
+  }
 
+  /* Optionally, style the menu items to hide initially for mobile */
+  .navbar .left-menu {
+    display: none; /* Initially hide the menu */
+    flex-direction: column; /* Stack the menu items */
+    gap: 10px; /* Space out the menu items */
+  }
+
+  /* When the menu is toggled, display it */
+  .navbar .left-menu.active {
+    display: flex; /* Show menu when active */
+  }
+}
 /* For Tablets (between 600px and 1024px) */
 @media (max-width: 1024px) {
   .hero {
